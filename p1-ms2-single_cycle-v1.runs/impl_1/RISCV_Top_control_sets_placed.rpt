@@ -1,0 +1,73 @@
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
+| Date         : Sat Mar 30 17:02:34 2019
+| Host         : caffe-OptiPlex-5050 running 64-bit Ubuntu 18.04.2 LTS
+| Command      : report_control_sets -verbose -file RISCV_Top_control_sets_placed.rpt
+| Design       : RISCV_Top
+| Device       : xc7a100t
+--------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Number of unique control sets                            |     8 |
+| Unused register locations in slices containing registers |     8 |
++----------------------------------------------------------+-------+
+
+
+2. Histogram
+------------
+
++--------+--------------+
+| Fanout | Control Sets |
++--------+--------------+
+|     12 |            1 |
+|    16+ |            7 |
++--------+--------------+
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              20 |            5 |
+| No           | No                    | Yes                    |              12 |            9 |
+| No           | Yes                   | No                     |               0 |            0 |
+| Yes          | No                    | No                     |               0 |            0 |
+| Yes          | No                    | Yes                    |             192 |          104 |
+| Yes          | Yes                   | No                     |               0 |            0 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++-----------------+-----------------------------+------------------+------------------+----------------+
+|   Clock Signal  |        Enable Signal        | Set/Reset Signal | Slice Load Count | Bel Load Count |
++-----------------+-----------------------------+------------------+------------------+----------------+
+|  rclk_IBUF_BUFG |                             | rst_IBUF         |                9 |             12 |
+|  clk_IBUF_BUFG  |                             |                  |                5 |             20 |
+| ~rclk_IBUF_BUFG | rv/PC/genblk1[7].f/q_reg_10 | rst_IBUF         |               24 |             32 |
+| ~rclk_IBUF_BUFG | rv/PC/genblk1[7].f/q_reg_5  | rst_IBUF         |               17 |             32 |
+| ~rclk_IBUF_BUFG | rv/PC/genblk1[7].f/q_reg_6  | rst_IBUF         |               13 |             32 |
+| ~rclk_IBUF_BUFG | rv/PC/genblk1[7].f/q_reg_7  | rst_IBUF         |               14 |             32 |
+| ~rclk_IBUF_BUFG | rv/PC/genblk1[7].f/q_reg_8  | rst_IBUF         |               20 |             32 |
+| ~rclk_IBUF_BUFG | rv/PC/genblk1[7].f/q_reg_9  | rst_IBUF         |               16 |             32 |
++-----------------+-----------------------------+------------------+------------------+----------------+
+
+
