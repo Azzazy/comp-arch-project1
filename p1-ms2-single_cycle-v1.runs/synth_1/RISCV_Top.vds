@@ -2,8 +2,8 @@
 # Vivado v2018.3 (64-bit)
 # SW Build 2405991 on Thu Dec  6 23:36:41 MST 2018
 # IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
-# Start of session at: Sat Mar 30 17:00:34 2019
-# Process ID: 24320
+# Start of session at: Sun Mar 31 02:44:10 2019
+# Process ID: 9931
 # Current directory: /home/caffe/XilinxProjects/p1-ms2-single_cycle-v1/p1-ms2-single_cycle-v1.runs/synth_1
 # Command line: vivado -log RISCV_Top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source RISCV_Top.tcl
 # Log file: /home/caffe/XilinxProjects/p1-ms2-single_cycle-v1/p1-ms2-single_cycle-v1.runs/synth_1/RISCV_Top.vds
@@ -15,9 +15,9 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 24332 
+INFO: Helper process launched with PID 9949 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1382.266 ; gain = 0.000 ; free physical = 1862 ; free virtual = 7434
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1382.258 ; gain = 0.000 ; free physical = 2049 ; free virtual = 5382
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'RISCV_Top' [/home/caffe/XilinxProjects/p1-ms2-single_cycle-v1/p1-ms2-single_cycle-v1.srcs/sources_1/imports/p1-ms2-single_cycle-v1_files/RISCV_Top.v:6]
 INFO: [Synth 8-6157] synthesizing module 'RISCV' [/home/caffe/XilinxProjects/p1-ms2-single_cycle-v1/p1-ms2-single_cycle-v1.srcs/sources_1/imports/p1-ms2-single_cycle-v1_files/RISCV.v:8]
@@ -143,6 +143,9 @@ INFO: [Synth 8-6155] done synthesizing module 'RegFile' (8#1) [/home/caffe/Xilin
 INFO: [Synth 8-6157] synthesizing module 'Mux2_1__parameterized0' [/home/caffe/XilinxProjects/p1-ms2-single_cycle-v1/p1-ms2-single_cycle-v1.srcs/sources_1/imports/p1-ms2-single_cycle-v1_files/Mux2_1.v:6]
 	Parameter N bound to: 32 - type: integer 
 INFO: [Synth 8-6155] done synthesizing module 'Mux2_1__parameterized0' (8#1) [/home/caffe/XilinxProjects/p1-ms2-single_cycle-v1/p1-ms2-single_cycle-v1.srcs/sources_1/imports/p1-ms2-single_cycle-v1_files/Mux2_1.v:6]
+INFO: [Synth 8-6157] synthesizing module 'Mux2_1__parameterized1' [/home/caffe/XilinxProjects/p1-ms2-single_cycle-v1/p1-ms2-single_cycle-v1.srcs/sources_1/imports/p1-ms2-single_cycle-v1_files/Mux2_1.v:6]
+	Parameter N bound to: 5 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'Mux2_1__parameterized1' (8#1) [/home/caffe/XilinxProjects/p1-ms2-single_cycle-v1/p1-ms2-single_cycle-v1.srcs/sources_1/imports/p1-ms2-single_cycle-v1_files/Mux2_1.v:6]
 INFO: [Synth 8-6157] synthesizing module 'prv32_ALU' [/home/caffe/XilinxProjects/p1-ms2-single_cycle-v1/p1-ms2-single_cycle-v1.srcs/sources_1/imports/p1-ms2-single_cycle-v1_files/prv32_ALU.v:1]
 INFO: [Synth 8-6157] synthesizing module 'shifter' [/home/caffe/XilinxProjects/p1-ms2-single_cycle-v1/p1-ms2-single_cycle-v1.srcs/sources_1/imports/p1-ms2-single_cycle-v1_files/shifter.v:23]
 INFO: [Synth 8-6155] done synthesizing module 'shifter' (9#1) [/home/caffe/XilinxProjects/p1-ms2-single_cycle-v1/p1-ms2-single_cycle-v1.srcs/sources_1/imports/p1-ms2-single_cycle-v1_files/shifter.v:23]
@@ -179,7 +182,7 @@ WARNING: [Synth 8-3331] design ShiftLeft1 has unconnected port d_in[31]
 WARNING: [Synth 8-3331] design rv32_ImmGen has unconnected port IR[1]
 WARNING: [Synth 8-3331] design rv32_ImmGen has unconnected port IR[0]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1443.551 ; gain = 61.285 ; free physical = 1842 ; free virtual = 7414
+Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:05 . Memory (MB): peak = 1443.543 ; gain = 61.285 ; free physical = 2028 ; free virtual = 5361
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -188,15 +191,14 @@ Report Check Netlist:
 +------+------------------+-------+---------+-------+------------------+
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
-WARNING: [Synth 8-3295] tying undriven pin pcSrcMux:sel[1] to constant 0 [/home/caffe/XilinxProjects/p1-ms2-single_cycle-v1/p1-ms2-single_cycle-v1.srcs/sources_1/imports/p1-ms2-single_cycle-v1_files/RISCV.v:53]
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1443.551 ; gain = 61.285 ; free physical = 1849 ; free virtual = 7422
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1443.543 ; gain = 61.285 ; free physical = 2036 ; free virtual = 5369
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1443.551 ; gain = 61.285 ; free physical = 1849 ; free virtual = 7422
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1443.543 ; gain = 61.285 ; free physical = 2036 ; free virtual = 5369
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a100tcsg324-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -207,44 +209,43 @@ Parsing XDC File [/home/caffe/XilinxProjects/p1-ms2-single_cycle-v1/p1-ms2-singl
 Finished Parsing XDC File [/home/caffe/XilinxProjects/p1-ms2-single_cycle-v1/p1-ms2-single_cycle-v1.srcs/constrs_1/imports/Lab7Src/PackagePins.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/caffe/XilinxProjects/p1-ms2-single_cycle-v1/p1-ms2-single_cycle-v1.srcs/constrs_1/imports/Lab7Src/PackagePins.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/RISCV_Top_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/RISCV_Top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 1847.902 ; gain = 0.000 ; free physical = 1539 ; free virtual = 7111
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 1847.418 ; gain = 0.000 ; free physical = 1746 ; free virtual = 5079
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1847.902 ; gain = 0.000 ; free physical = 1539 ; free virtual = 7112
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1847.418 ; gain = 0.000 ; free physical = 1746 ; free virtual = 5080
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1847.902 ; gain = 0.000 ; free physical = 1539 ; free virtual = 7112
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 1847.902 ; gain = 0.000 ; free physical = 1539 ; free virtual = 7112
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1847.418 ; gain = 0.000 ; free physical = 1746 ; free virtual = 5080
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 1847.418 ; gain = 0.000 ; free physical = 1746 ; free virtual = 5080
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1847.902 ; gain = 465.637 ; free physical = 1658 ; free virtual = 7231
+Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 1847.418 ; gain = 465.160 ; free physical = 1864 ; free virtual = 5200
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1847.902 ; gain = 465.637 ; free physical = 1658 ; free virtual = 7231
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 1847.418 ; gain = 465.160 ; free physical = 1864 ; free virtual = 5200
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 1847.902 ; gain = 465.637 ; free physical = 1658 ; free virtual = 7231
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 1847.418 ; gain = 465.160 ; free physical = 1864 ; free virtual = 5200
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/caffe/XilinxProjects/p1-ms2-single_cycle-v1/p1-ms2-single_cycle-v1.srcs/sources_1/imports/p1-ms2-single_cycle-v1_files/prv32_ALU.v:14]
 INFO: [Synth 8-5544] ROM "Branch0" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "MemRead0" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "MemToReg0" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5544] ROM "ALUOp0" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "MemWrite0" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5546] ROM "Branch_JALR0" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "RegWmux2Ctl" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5544] ROM "sel" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-WARNING: [Synth 8-327] inferring latch for variable 'Branch_con_reg' [/home/caffe/XilinxProjects/p1-ms2-single_cycle-v1/p1-ms2-single_cycle-v1.srcs/sources_1/imports/p1-ms2-single_cycle-v1_files/branch_unit.v:11]
 WARNING: [Synth 8-327] inferring latch for variable 'data_out_reg' [/home/caffe/XilinxProjects/p1-ms2-single_cycle-v1/p1-ms2-single_cycle-v1.srcs/sources_1/imports/p1-ms2-single_cycle-v1_files/DataMem.v:51]
-WARNING: [Synth 8-327] inferring latch for variable 'sel_reg' [/home/caffe/XilinxProjects/p1-ms2-single_cycle-v1/p1-ms2-single_cycle-v1.srcs/sources_1/imports/p1-ms2-single_cycle-v1_files/ALUControl.v:16]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:16 ; elapsed = 00:00:20 . Memory (MB): peak = 1847.902 ; gain = 465.637 ; free physical = 1625 ; free virtual = 7198
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:18 ; elapsed = 00:00:23 . Memory (MB): peak = 1847.418 ; gain = 465.160 ; free physical = 1835 ; free virtual = 5170
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -255,7 +256,7 @@ Report RTL Partitions:
 |2     |DataMem__GB1  |           1|     12480|
 |3     |DataMem__GB2  |           1|     10397|
 |4     |DataMem__GB3  |           1|     11956|
-|5     |RISCV__GC0    |           1|     15486|
+|5     |RISCV__GC0    |           1|     15464|
 |6     |SSDDriver     |           1|      1433|
 +------+--------------+------------+----------+
 ---------------------------------------------------------------------------------
@@ -275,21 +276,20 @@ Detailed RTL Component Info :
 +---Muxes : 
 	   2 Input   2048 Bit        Muxes := 2     
 	   5 Input     32 Bit        Muxes := 1     
-	   2 Input     32 Bit        Muxes := 6     
+	   2 Input     32 Bit        Muxes := 5     
 	   4 Input     32 Bit        Muxes := 3     
 	   8 Input     32 Bit        Muxes := 1     
 	   4 Input     16 Bit        Muxes := 1     
 	   2 Input      8 Bit        Muxes := 398   
 	   3 Input      8 Bit        Muxes := 104   
+	   2 Input      5 Bit        Muxes := 1     
 	  11 Input      4 Bit        Muxes := 1     
-	  13 Input      4 Bit        Muxes := 1     
+	  14 Input      4 Bit        Muxes := 1     
 	   4 Input      4 Bit        Muxes := 2     
 	   3 Input      2 Bit        Muxes := 8     
 	   2 Input      2 Bit        Muxes := 1     
 	   4 Input      2 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 1063  
-	   8 Input      1 Bit        Muxes := 1     
-	  14 Input      1 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1064  
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -8895,10 +8895,10 @@ Module Mux2_1__parameterized0__1
 Detailed RTL Component Info : 
 +---Muxes : 
 	   2 Input     32 Bit        Muxes := 1     
-Module Mux2_1__parameterized0__2 
+Module Mux2_1__parameterized1 
 Detailed RTL Component Info : 
 +---Muxes : 
-	   2 Input     32 Bit        Muxes := 1     
+	   2 Input      5 Bit        Muxes := 1     
 Module shifter 
 Detailed RTL Component Info : 
 +---Muxes : 
@@ -8916,7 +8916,7 @@ Module rv32_ImmGen
 Detailed RTL Component Info : 
 +---Muxes : 
 	   8 Input     32 Bit        Muxes := 1     
-Module Mux2_1__parameterized0__3 
+Module Mux2_1__parameterized0__2 
 Detailed RTL Component Info : 
 +---Muxes : 
 	   2 Input     32 Bit        Muxes := 1     
@@ -9056,7 +9056,6 @@ Module branch_unit
 Detailed RTL Component Info : 
 +---Muxes : 
 	   2 Input      1 Bit        Muxes := 1     
-	   8 Input      1 Bit        Muxes := 1     
 Module Mux2_1__parameterized0 
 Detailed RTL Component Info : 
 +---Muxes : 
@@ -9066,13 +9065,12 @@ Detailed RTL Component Info :
 +---Muxes : 
 	   2 Input      2 Bit        Muxes := 1     
 	   4 Input      2 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 6     
+	   2 Input      1 Bit        Muxes := 7     
 Module ALUControl 
 Detailed RTL Component Info : 
 +---Muxes : 
 	  11 Input      4 Bit        Muxes := 1     
-	  13 Input      4 Bit        Muxes := 1     
-	  14 Input      1 Bit        Muxes := 1     
+	  14 Input      4 Bit        Muxes := 1     
 Module Mux4_1 
 Detailed RTL Component Info : 
 +---Muxes : 
@@ -9127,45 +9125,6 @@ INFO: [Synth 8-3886] merging instance 'imem/mem_reg[3][1]' (FD) to 'imem/mem_reg
 INFO: [Synth 8-3886] merging instance 'imem/mem_reg[2][1]' (FD) to 'imem/mem_reg[11][21]'
 INFO: [Synth 8-3886] merging instance 'imem/mem_reg[1][1]' (FD) to 'imem/mem_reg[11][21]'
 INFO: [Synth 8-3886] merging instance 'imem/mem_reg[0][1]' (FD) to 'imem/mem_reg[11][21]'
-INFO: [Synth 8-3886] merging instance 'imem/mem_reg[12][12]' (FD) to 'imem/mem_reg[11][31]'
-INFO: [Synth 8-3886] merging instance 'imem/mem_reg[11][12]' (FD) to 'imem/mem_reg[11][31]'
-INFO: [Synth 8-3886] merging instance 'imem/mem_reg[10][12]' (FD) to 'imem/mem_reg[11][31]'
-INFO: [Synth 8-3886] merging instance 'imem/mem_reg[9][12]' (FD) to 'imem/mem_reg[11][21]'
-INFO: [Synth 8-3886] merging instance 'imem/mem_reg[8][12]' (FD) to 'imem/mem_reg[11][31]'
-INFO: [Synth 8-3886] merging instance 'imem/mem_reg[7][12]' (FD) to 'imem/mem_reg[11][31]'
-INFO: [Synth 8-3886] merging instance 'imem/mem_reg[6][12]' (FD) to 'imem/mem_reg[11][31]'
-INFO: [Synth 8-3886] merging instance 'imem/mem_reg[5][12]' (FD) to 'imem/mem_reg[11][31]'
-INFO: [Synth 8-3886] merging instance 'imem/mem_reg[4][12]' (FD) to 'imem/mem_reg[11][31]'
-INFO: [Synth 8-3886] merging instance 'imem/mem_reg[3][12]' (FD) to 'imem/mem_reg[11][31]'
-INFO: [Synth 8-3886] merging instance 'imem/mem_reg[2][12]' (FD) to 'imem/mem_reg[11][31]'
-INFO: [Synth 8-3886] merging instance 'imem/mem_reg[1][12]' (FD) to 'imem/mem_reg[11][31]'
-INFO: [Synth 8-3886] merging instance 'imem/mem_reg[0][12]' (FD) to 'imem/mem_reg[11][31]'
-INFO: [Synth 8-3886] merging instance 'imem/mem_reg[12][13]' (FD) to 'imem/mem_reg[11][31]'
-INFO: [Synth 8-3886] merging instance 'imem/mem_reg[11][13]' (FD) to 'imem/mem_reg[11][31]'
-INFO: [Synth 8-3886] merging instance 'imem/mem_reg[10][13]' (FD) to 'imem/mem_reg[11][31]'
-INFO: [Synth 8-3886] merging instance 'imem/mem_reg[9][13]' (FD) to 'imem/mem_reg[11][21]'
-INFO: [Synth 8-3886] merging instance 'imem/mem_reg[8][13]' (FD) to 'imem/mem_reg[11][21]'
-INFO: [Synth 8-3886] merging instance 'imem/mem_reg[7][13]' (FD) to 'imem/mem_reg[11][21]'
-INFO: [Synth 8-3886] merging instance 'imem/mem_reg[6][13]' (FD) to 'imem/mem_reg[11][31]'
-INFO: [Synth 8-3886] merging instance 'imem/mem_reg[5][13]' (FD) to 'imem/mem_reg[11][31]'
-INFO: [Synth 8-3886] merging instance 'imem/mem_reg[4][13]' (FD) to 'imem/mem_reg[11][31]'
-INFO: [Synth 8-3886] merging instance 'imem/mem_reg[3][13]' (FD) to 'imem/mem_reg[11][21]'
-INFO: [Synth 8-3886] merging instance 'imem/mem_reg[2][13]' (FD) to 'imem/mem_reg[11][21]'
-INFO: [Synth 8-3886] merging instance 'imem/mem_reg[1][13]' (FD) to 'imem/mem_reg[11][21]'
-INFO: [Synth 8-3886] merging instance 'imem/mem_reg[0][13]' (FD) to 'imem/mem_reg[11][21]'
-INFO: [Synth 8-3886] merging instance 'imem/mem_reg[12][14]' (FD) to 'imem/mem_reg[11][31]'
-INFO: [Synth 8-3886] merging instance 'imem/mem_reg[11][14]' (FD) to 'imem/mem_reg[11][31]'
-INFO: [Synth 8-3886] merging instance 'imem/mem_reg[10][14]' (FD) to 'imem/mem_reg[11][31]'
-INFO: [Synth 8-3886] merging instance 'imem/mem_reg[9][14]' (FD) to 'imem/mem_reg[11][21]'
-INFO: [Synth 8-3886] merging instance 'imem/mem_reg[8][14]' (FD) to 'imem/mem_reg[11][31]'
-INFO: [Synth 8-3886] merging instance 'imem/mem_reg[7][14]' (FD) to 'imem/mem_reg[11][31]'
-INFO: [Synth 8-3886] merging instance 'imem/mem_reg[6][14]' (FD) to 'imem/mem_reg[11][31]'
-INFO: [Synth 8-3886] merging instance 'imem/mem_reg[5][14]' (FD) to 'imem/mem_reg[11][31]'
-INFO: [Synth 8-3886] merging instance 'imem/mem_reg[4][14]' (FD) to 'imem/mem_reg[11][31]'
-INFO: [Synth 8-3886] merging instance 'imem/mem_reg[3][14]' (FD) to 'imem/mem_reg[11][21]'
-INFO: [Synth 8-3886] merging instance 'imem/mem_reg[2][14]' (FD) to 'imem/mem_reg[11][31]'
-INFO: [Synth 8-3886] merging instance 'imem/mem_reg[1][14]' (FD) to 'imem/mem_reg[11][31]'
-INFO: [Synth 8-3886] merging instance 'imem/mem_reg[0][14]' (FD) to 'imem/mem_reg[11][31]'
 INFO: [Synth 8-3886] merging instance 'imem/mem_reg[12][28]' (FD) to 'imem/mem_reg[11][31]'
 INFO: [Synth 8-3886] merging instance 'imem/mem_reg[11][28]' (FD) to 'imem/mem_reg[11][31]'
 INFO: [Synth 8-3886] merging instance 'imem/mem_reg[10][28]' (FD) to 'imem/mem_reg[11][31]'
@@ -9192,15 +9151,54 @@ INFO: [Synth 8-3886] merging instance 'imem/mem_reg[3][29]' (FD) to 'imem/mem_re
 INFO: [Synth 8-3886] merging instance 'imem/mem_reg[2][29]' (FD) to 'imem/mem_reg[11][31]'
 INFO: [Synth 8-3886] merging instance 'imem/mem_reg[1][29]' (FD) to 'imem/mem_reg[11][31]'
 INFO: [Synth 8-3886] merging instance 'imem/mem_reg[0][29]' (FD) to 'imem/mem_reg[11][31]'
-INFO: [Synth 8-3886] merging instance 'imem/mem_reg[12][30]' (FD) to 'imem/mem_reg[11][31]'
-INFO: [Synth 8-3886] merging instance 'imem/mem_reg[11][30]' (FD) to 'imem/mem_reg[11][31]'
-INFO: [Synth 8-3886] merging instance 'imem/mem_reg[10][30]' (FD) to 'imem/mem_reg[11][21]'
-INFO: [Synth 8-3886] merging instance 'imem/mem_reg[9][30]' (FD) to 'imem/mem_reg[11][31]'
-INFO: [Synth 8-3886] merging instance 'imem/mem_reg[8][30]' (FD) to 'imem/mem_reg[11][31]'
-INFO: [Synth 8-3886] merging instance 'imem/mem_reg[7][30]' (FD) to 'imem/mem_reg[11][31]'
-INFO: [Synth 8-3886] merging instance 'imem/mem_reg[6][30]' (FD) to 'imem/mem_reg[11][31]'
-INFO: [Synth 8-3886] merging instance 'imem/mem_reg[5][30]' (FD) to 'imem/mem_reg[11][31]'
-INFO: [Synth 8-3886] merging instance 'imem/mem_reg[4][30]' (FD) to 'imem/mem_reg[11][31]'
+INFO: [Synth 8-3886] merging instance 'imem/mem_reg[12][31]' (FD) to 'imem/mem_reg[11][31]'
+INFO: [Synth 8-3886] merging instance 'imem/mem_reg[11][31]' (FD) to 'imem/mem_reg[11][30]'
+INFO: [Synth 8-3886] merging instance 'imem/mem_reg[10][31]' (FD) to 'imem/mem_reg[11][30]'
+INFO: [Synth 8-3886] merging instance 'imem/mem_reg[9][31]' (FD) to 'imem/mem_reg[11][30]'
+INFO: [Synth 8-3886] merging instance 'imem/mem_reg[8][31]' (FD) to 'imem/mem_reg[11][30]'
+INFO: [Synth 8-3886] merging instance 'imem/mem_reg[7][31]' (FD) to 'imem/mem_reg[11][30]'
+INFO: [Synth 8-3886] merging instance 'imem/mem_reg[6][31]' (FD) to 'imem/mem_reg[11][30]'
+INFO: [Synth 8-3886] merging instance 'imem/mem_reg[5][31]' (FD) to 'imem/mem_reg[11][30]'
+INFO: [Synth 8-3886] merging instance 'imem/mem_reg[4][31]' (FD) to 'imem/mem_reg[11][30]'
+INFO: [Synth 8-3886] merging instance 'imem/mem_reg[3][31]' (FD) to 'imem/mem_reg[11][30]'
+INFO: [Synth 8-3886] merging instance 'imem/mem_reg[2][31]' (FD) to 'imem/mem_reg[11][30]'
+INFO: [Synth 8-3886] merging instance 'imem/mem_reg[1][31]' (FD) to 'imem/mem_reg[11][30]'
+INFO: [Synth 8-3886] merging instance 'imem/mem_reg[0][31]' (FD) to 'imem/mem_reg[11][30]'
+INFO: [Synth 8-3886] merging instance 'imem/mem_reg[12][7]' (FD) to 'imem/mem_reg[11][21]'
+INFO: [Synth 8-3886] merging instance 'imem/mem_reg[11][7]' (FD) to 'imem/mem_reg[11][30]'
+INFO: [Synth 8-3886] merging instance 'imem/mem_reg[10][7]' (FD) to 'imem/mem_reg[11][30]'
+INFO: [Synth 8-3886] merging instance 'imem/mem_reg[9][7]' (FD) to 'imem/mem_reg[11][21]'
+INFO: [Synth 8-3886] merging instance 'imem/mem_reg[8][7]' (FD) to 'imem/mem_reg[11][30]'
+INFO: [Synth 8-3886] merging instance 'imem/mem_reg[7][7]' (FD) to 'imem/mem_reg[11][30]'
+INFO: [Synth 8-3886] merging instance 'imem/mem_reg[6][7]' (FD) to 'imem/mem_reg[11][21]'
+INFO: [Synth 8-3886] merging instance 'imem/mem_reg[5][7]' (FD) to 'imem/mem_reg[11][21]'
+INFO: [Synth 8-3886] merging instance 'imem/mem_reg[4][7]' (FD) to 'imem/mem_reg[11][30]'
+INFO: [Synth 8-3886] merging instance 'imem/mem_reg[3][7]' (FD) to 'imem/mem_reg[11][30]'
+INFO: [Synth 8-3886] merging instance 'imem/mem_reg[2][7]' (FD) to 'imem/mem_reg[11][21]'
+INFO: [Synth 8-3886] merging instance 'imem/mem_reg[1][7]' (FD) to 'imem/mem_reg[11][30]'
+INFO: [Synth 8-3886] merging instance 'imem/mem_reg[0][7]' (FD) to 'imem/mem_reg[11][21]'
+INFO: [Synth 8-3886] merging instance 'imem/mem_reg[12][8]' (FD) to 'imem/mem_reg[11][30]'
+INFO: [Synth 8-3886] merging instance 'imem/mem_reg[11][8]' (FD) to 'imem/mem_reg[11][30]'
+INFO: [Synth 8-3886] merging instance 'imem/mem_reg[10][8]' (FD) to 'imem/mem_reg[11][30]'
+INFO: [Synth 8-3886] merging instance 'imem/mem_reg[9][8]' (FD) to 'imem/mem_reg[11][21]'
+INFO: [Synth 8-3886] merging instance 'imem/mem_reg[8][8]' (FD) to 'imem/mem_reg[11][21]'
+INFO: [Synth 8-3886] merging instance 'imem/mem_reg[7][8]' (FD) to 'imem/mem_reg[11][30]'
+INFO: [Synth 8-3886] merging instance 'imem/mem_reg[6][8]' (FD) to 'imem/mem_reg[11][30]'
+INFO: [Synth 8-3886] merging instance 'imem/mem_reg[5][8]' (FD) to 'imem/mem_reg[11][21]'
+INFO: [Synth 8-3886] merging instance 'imem/mem_reg[4][8]' (FD) to 'imem/mem_reg[11][30]'
+INFO: [Synth 8-3886] merging instance 'imem/mem_reg[3][8]' (FD) to 'imem/mem_reg[11][30]'
+INFO: [Synth 8-3886] merging instance 'imem/mem_reg[2][8]' (FD) to 'imem/mem_reg[11][21]'
+INFO: [Synth 8-3886] merging instance 'imem/mem_reg[1][8]' (FD) to 'imem/mem_reg[11][21]'
+INFO: [Synth 8-3886] merging instance 'imem/mem_reg[0][8]' (FD) to 'imem/mem_reg[11][30]'
+INFO: [Synth 8-3886] merging instance 'imem/mem_reg[12][9]' (FD) to 'imem/mem_reg[11][30]'
+INFO: [Synth 8-3886] merging instance 'imem/mem_reg[11][9]' (FD) to 'imem/mem_reg[11][30]'
+INFO: [Synth 8-3886] merging instance 'imem/mem_reg[10][9]' (FD) to 'imem/mem_reg[11][30]'
+INFO: [Synth 8-3886] merging instance 'imem/mem_reg[9][9]' (FD) to 'imem/mem_reg[11][21]'
+INFO: [Synth 8-3886] merging instance 'imem/mem_reg[8][9]' (FD) to 'imem/mem_reg[11][21]'
+INFO: [Synth 8-3886] merging instance 'imem/mem_reg[7][9]' (FD) to 'imem/mem_reg[11][21]'
+INFO: [Synth 8-3886] merging instance 'imem/mem_reg[6][9]' (FD) to 'imem/mem_reg[11][21]'
+INFO: [Synth 8-3886] merging instance 'imem/mem_reg[5][9]' (FD) to 'imem/mem_reg[11][30]'
+INFO: [Synth 8-3886] merging instance 'imem/mem_reg[4][9]' (FD) to 'imem/mem_reg[11][30]'
 INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (rf/\r0/genblk1[0].f/q_reg )
@@ -9238,7 +9236,7 @@ INFO: [Synth 8-3333] propagating constant 0 across sequential element (rf/\r0/ge
 INFO: [Synth 8-3333] propagating constant 1 across sequential element (imem/\mem_reg[2][23] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (imem/\mem_reg[0][24] )
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:40 ; elapsed = 00:01:06 . Memory (MB): peak = 1847.902 ; gain = 465.637 ; free physical = 382 ; free virtual = 5218
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:43 ; elapsed = 00:01:13 . Memory (MB): peak = 1847.418 ; gain = 465.160 ; free physical = 676 ; free virtual = 3476
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -9249,81 +9247,81 @@ Report RTL Partitions:
 |2     |DataMem__GB1  |           1|      3608|
 |3     |DataMem__GB2  |           1|      4654|
 |4     |DataMem__GB3  |           1|      8740|
-|5     |RISCV__GC0    |           1|      3797|
+|5     |RISCV__GC0    |           1|      3237|
 |6     |SSDDriver     |           1|       391|
 +------+--------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:45 ; elapsed = 00:01:12 . Memory (MB): peak = 1847.902 ; gain = 465.637 ; free physical = 244 ; free virtual = 5092
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:49 ; elapsed = 00:01:19 . Memory (MB): peak = 1847.418 ; gain = 465.160 ; free physical = 522 ; free virtual = 3348
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:45 ; elapsed = 00:01:12 . Memory (MB): peak = 1847.902 ; gain = 465.637 ; free physical = 244 ; free virtual = 5091
+Finished Timing Optimization : Time (s): cpu = 00:00:50 ; elapsed = 00:01:21 . Memory (MB): peak = 1847.418 ; gain = 465.160 ; free physical = 521 ; free virtual = 3347
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
 +------+--------------+------------+----------+
 |      |RTL Partition |Replication |Instances |
 +------+--------------+------------+----------+
-|1     |DataMem__GB0  |           1|     13491|
-|2     |DataMem__GB1  |           1|      3608|
-|3     |DataMem__GB2  |           1|      4654|
-|4     |DataMem__GB3  |           1|      8740|
-|5     |RISCV__GC0    |           1|      3797|
+|1     |DataMem__GB0  |           1|     12766|
+|2     |DataMem__GB1  |           1|      3504|
+|3     |DataMem__GB2  |           1|      4302|
+|4     |DataMem__GB3  |           1|      8442|
+|5     |RISCV__GC0    |           1|      3237|
 |6     |SSDDriver     |           1|       391|
 +------+--------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_4/\rf/genblk1[2].ri/genblk1[0].f/q_reg )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_4/\rf/genblk1[2].ri/genblk1[1].f/q_reg )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_4/\rf/genblk1[2].ri/genblk1[2].f/q_reg )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_4/\rf/genblk1[2].ri/genblk1[3].f/q_reg )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_4/\rf/genblk1[2].ri/genblk1[4].f/q_reg )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_4/\rf/genblk1[2].ri/genblk1[5].f/q_reg )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_4/\rf/genblk1[2].ri/genblk1[6].f/q_reg )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_4/\rf/genblk1[2].ri/genblk1[7].f/q_reg )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_4/\rf/genblk1[2].ri/genblk1[8].f/q_reg )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_4/\rf/genblk1[2].ri/genblk1[9].f/q_reg )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_4/\rf/genblk1[2].ri/genblk1[10].f/q_reg )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_4/\rf/genblk1[2].ri/genblk1[11].f/q_reg )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_4/\rf/genblk1[2].ri/genblk1[12].f/q_reg )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_4/\rf/genblk1[2].ri/genblk1[13].f/q_reg )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_4/\rf/genblk1[2].ri/genblk1[14].f/q_reg )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_4/\rf/genblk1[2].ri/genblk1[15].f/q_reg )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_4/\rf/genblk1[2].ri/genblk1[16].f/q_reg )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_4/\rf/genblk1[2].ri/genblk1[17].f/q_reg )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_4/\rf/genblk1[2].ri/genblk1[18].f/q_reg )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_4/\rf/genblk1[2].ri/genblk1[19].f/q_reg )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_4/\rf/genblk1[2].ri/genblk1[20].f/q_reg )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_4/\rf/genblk1[2].ri/genblk1[21].f/q_reg )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_4/\rf/genblk1[2].ri/genblk1[22].f/q_reg )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_4/\rf/genblk1[2].ri/genblk1[23].f/q_reg )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_4/\rf/genblk1[2].ri/genblk1[24].f/q_reg )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_4/\rf/genblk1[2].ri/genblk1[25].f/q_reg )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_4/\rf/genblk1[2].ri/genblk1[26].f/q_reg )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_4/\rf/genblk1[2].ri/genblk1[27].f/q_reg )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_4/\rf/genblk1[2].ri/genblk1[28].f/q_reg )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_4/\rf/genblk1[2].ri/genblk1[29].f/q_reg )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_4/\rf/genblk1[2].ri/genblk1[30].f/q_reg )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_4/\rf/genblk1[2].ri/genblk1[31].f/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_4/\rf/genblk1[15].ri/genblk1[0].f/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_4/\rf/genblk1[15].ri/genblk1[1].f/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_4/\rf/genblk1[15].ri/genblk1[2].f/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_4/\rf/genblk1[15].ri/genblk1[3].f/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_4/\rf/genblk1[15].ri/genblk1[4].f/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_4/\rf/genblk1[15].ri/genblk1[5].f/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_4/\rf/genblk1[15].ri/genblk1[6].f/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_4/\rf/genblk1[15].ri/genblk1[7].f/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_4/\rf/genblk1[15].ri/genblk1[8].f/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_4/\rf/genblk1[15].ri/genblk1[9].f/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_4/\rf/genblk1[15].ri/genblk1[10].f/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_4/\rf/genblk1[15].ri/genblk1[11].f/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_4/\rf/genblk1[15].ri/genblk1[12].f/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_4/\rf/genblk1[15].ri/genblk1[13].f/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_4/\rf/genblk1[15].ri/genblk1[14].f/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_4/\rf/genblk1[15].ri/genblk1[15].f/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_4/\rf/genblk1[15].ri/genblk1[16].f/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_4/\rf/genblk1[15].ri/genblk1[17].f/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_4/\rf/genblk1[15].ri/genblk1[18].f/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_4/\rf/genblk1[15].ri/genblk1[19].f/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_4/\rf/genblk1[15].ri/genblk1[20].f/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_4/\rf/genblk1[15].ri/genblk1[21].f/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_4/\rf/genblk1[15].ri/genblk1[22].f/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_4/\rf/genblk1[15].ri/genblk1[23].f/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_4/\rf/genblk1[15].ri/genblk1[24].f/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_4/\rf/genblk1[15].ri/genblk1[25].f/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_4/\rf/genblk1[15].ri/genblk1[26].f/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_4/\rf/genblk1[15].ri/genblk1[27].f/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_4/\rf/genblk1[15].ri/genblk1[28].f/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_4/\rf/genblk1[15].ri/genblk1[29].f/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_4/\rf/genblk1[15].ri/genblk1[30].f/q_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_4/\rf/genblk1[15].ri/genblk1[31].f/q_reg )
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:48 ; elapsed = 00:01:19 . Memory (MB): peak = 1847.902 ; gain = 465.637 ; free physical = 209 ; free virtual = 4947
+Finished Technology Mapping : Time (s): cpu = 00:00:53 ; elapsed = 00:01:29 . Memory (MB): peak = 1847.418 ; gain = 465.160 ; free physical = 375 ; free virtual = 3204
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
 +------+--------------+------------+----------+
 |      |RTL Partition |Replication |Instances |
 +------+--------------+------------+----------+
-|1     |DataMem__GB0  |           1|      4678|
-|2     |DataMem__GB1  |           1|      2294|
-|3     |DataMem__GB2  |           1|      2092|
-|4     |DataMem__GB3  |           1|      4719|
-|5     |RISCV__GC0    |           1|       742|
+|1     |DataMem__GB0  |           1|      4540|
+|2     |DataMem__GB1  |           1|      2248|
+|3     |DataMem__GB2  |           1|      1841|
+|4     |DataMem__GB3  |           1|      4635|
+|5     |RISCV__GC0    |           1|       471|
 |6     |SSDDriver     |           1|       183|
 +------+--------------+------------+----------+
 ---------------------------------------------------------------------------------
@@ -9377,7 +9375,7 @@ INFO: [Common 17-14] Message 'Synth 8-3333' appears 100 times and further instan
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:49 ; elapsed = 00:01:21 . Memory (MB): peak = 1847.902 ; gain = 465.637 ; free physical = 204 ; free virtual = 4950
+Finished IO Insertion : Time (s): cpu = 00:00:54 ; elapsed = 00:01:31 . Memory (MB): peak = 1847.418 ; gain = 465.160 ; free physical = 372 ; free virtual = 3207
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -9390,7 +9388,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:49 ; elapsed = 00:01:21 . Memory (MB): peak = 1847.902 ; gain = 465.637 ; free physical = 204 ; free virtual = 4950
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:54 ; elapsed = 00:01:31 . Memory (MB): peak = 1847.418 ; gain = 465.160 ; free physical = 372 ; free virtual = 3207
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -9402,25 +9400,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:49 ; elapsed = 00:01:21 . Memory (MB): peak = 1847.902 ; gain = 465.637 ; free physical = 204 ; free virtual = 4950
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:54 ; elapsed = 00:01:31 . Memory (MB): peak = 1847.418 ; gain = 465.160 ; free physical = 372 ; free virtual = 3207
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:49 ; elapsed = 00:01:21 . Memory (MB): peak = 1847.902 ; gain = 465.637 ; free physical = 204 ; free virtual = 4950
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:54 ; elapsed = 00:01:31 . Memory (MB): peak = 1847.418 ; gain = 465.160 ; free physical = 372 ; free virtual = 3207
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:49 ; elapsed = 00:01:21 . Memory (MB): peak = 1847.902 ; gain = 465.637 ; free physical = 204 ; free virtual = 4950
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:54 ; elapsed = 00:01:31 . Memory (MB): peak = 1847.418 ; gain = 465.160 ; free physical = 372 ; free virtual = 3207
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:49 ; elapsed = 00:01:21 . Memory (MB): peak = 1847.902 ; gain = 465.637 ; free physical = 204 ; free virtual = 4950
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:54 ; elapsed = 00:01:31 . Memory (MB): peak = 1847.418 ; gain = 465.160 ; free physical = 372 ; free virtual = 3207
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -9438,15 +9436,15 @@ Report Cell Usage:
 +------+-------+------+
 |1     |BUFG   |     3|
 |2     |CARRY4 |    33|
-|3     |LUT1   |     5|
-|4     |LUT2   |    52|
-|5     |LUT3   |    65|
-|6     |LUT4   |   215|
-|7     |LUT5   |   132|
-|8     |LUT6   |   309|
-|9     |MUXF7  |    96|
-|10    |MUXF8  |    32|
-|11    |FDCE   |   204|
+|3     |LUT1   |     4|
+|4     |LUT2   |    42|
+|5     |LUT3   |   111|
+|6     |LUT4   |   120|
+|7     |LUT5   |    79|
+|8     |LUT6   |   287|
+|9     |MUXF7  |    64|
+|10    |MUXF8  |     8|
+|11    |FDCE   |   108|
 |12    |FDRE   |    20|
 |13    |LD     |    16|
 |14    |LDC    |    16|
@@ -9455,253 +9453,153 @@ Report Cell Usage:
 +------+-------+------+
 
 Report Instance Areas: 
-+------+------------------------+-------------------------+------+
-|      |Instance                |Module                   |Cells |
-+------+------------------------+-------------------------+------+
-|1     |top                     |                         |  1234|
-|2     |  rv                    |RISCV                    |  1057|
-|3     |    PC                  |RegWLoad                 |   613|
-|4     |      \genblk1[10].f    |FlipFlop_198             |     3|
-|5     |      \genblk1[11].f    |FlipFlop_199             |     4|
-|6     |      \genblk1[12].f    |FlipFlop_200             |    10|
-|7     |      \genblk1[1].f     |FlipFlop_201             |   197|
-|8     |      \genblk1[2].f     |FlipFlop_202             |    22|
-|9     |      \genblk1[3].f     |FlipFlop_203             |     7|
-|10    |      \genblk1[4].f     |FlipFlop_204             |     3|
-|11    |      \genblk1[5].f     |FlipFlop_205             |     6|
-|12    |      \genblk1[6].f     |FlipFlop_206             |     2|
-|13    |      \genblk1[7].f     |FlipFlop_207             |   349|
-|14    |      \genblk1[8].f     |FlipFlop_208             |     4|
-|15    |      \genblk1[9].f     |FlipFlop_209             |     6|
-|16    |    aluSrcBMux          |Mux2_1__parameterized0   |     7|
-|17    |    dmem                |DataMem                  |    44|
-|18    |    imem                |InstMem                  |     9|
-|19    |    regWSrcMux          |Mux2_1__parameterized0_0 |     1|
-|20    |    rf                  |RegFile                  |   383|
-|21    |      \genblk1[1].ri    |RegWLoad_1               |    32|
-|22    |        \genblk1[0].f   |FlipFlop_166             |     1|
-|23    |        \genblk1[10].f  |FlipFlop_167             |     1|
-|24    |        \genblk1[11].f  |FlipFlop_168             |     1|
-|25    |        \genblk1[12].f  |FlipFlop_169             |     1|
-|26    |        \genblk1[13].f  |FlipFlop_170             |     1|
-|27    |        \genblk1[14].f  |FlipFlop_171             |     1|
-|28    |        \genblk1[15].f  |FlipFlop_172             |     1|
-|29    |        \genblk1[16].f  |FlipFlop_173             |     1|
-|30    |        \genblk1[17].f  |FlipFlop_174             |     1|
-|31    |        \genblk1[18].f  |FlipFlop_175             |     1|
-|32    |        \genblk1[19].f  |FlipFlop_176             |     1|
-|33    |        \genblk1[1].f   |FlipFlop_177             |     1|
-|34    |        \genblk1[20].f  |FlipFlop_178             |     1|
-|35    |        \genblk1[21].f  |FlipFlop_179             |     1|
-|36    |        \genblk1[22].f  |FlipFlop_180             |     1|
-|37    |        \genblk1[23].f  |FlipFlop_181             |     1|
-|38    |        \genblk1[24].f  |FlipFlop_182             |     1|
-|39    |        \genblk1[25].f  |FlipFlop_183             |     1|
-|40    |        \genblk1[26].f  |FlipFlop_184             |     1|
-|41    |        \genblk1[27].f  |FlipFlop_185             |     1|
-|42    |        \genblk1[28].f  |FlipFlop_186             |     1|
-|43    |        \genblk1[29].f  |FlipFlop_187             |     1|
-|44    |        \genblk1[2].f   |FlipFlop_188             |     1|
-|45    |        \genblk1[30].f  |FlipFlop_189             |     1|
-|46    |        \genblk1[31].f  |FlipFlop_190             |     1|
-|47    |        \genblk1[3].f   |FlipFlop_191             |     1|
-|48    |        \genblk1[4].f   |FlipFlop_192             |     1|
-|49    |        \genblk1[5].f   |FlipFlop_193             |     1|
-|50    |        \genblk1[6].f   |FlipFlop_194             |     1|
-|51    |        \genblk1[7].f   |FlipFlop_195             |     1|
-|52    |        \genblk1[8].f   |FlipFlop_196             |     1|
-|53    |        \genblk1[9].f   |FlipFlop_197             |     1|
-|54    |      \genblk1[3].ri    |RegWLoad_2               |   134|
-|55    |        \genblk1[0].f   |FlipFlop_134             |     4|
-|56    |        \genblk1[10].f  |FlipFlop_135             |     4|
-|57    |        \genblk1[11].f  |FlipFlop_136             |     4|
-|58    |        \genblk1[12].f  |FlipFlop_137             |     4|
-|59    |        \genblk1[13].f  |FlipFlop_138             |     4|
-|60    |        \genblk1[14].f  |FlipFlop_139             |     4|
-|61    |        \genblk1[15].f  |FlipFlop_140             |     4|
-|62    |        \genblk1[16].f  |FlipFlop_141             |     4|
-|63    |        \genblk1[17].f  |FlipFlop_142             |     4|
-|64    |        \genblk1[18].f  |FlipFlop_143             |     4|
-|65    |        \genblk1[19].f  |FlipFlop_144             |     4|
-|66    |        \genblk1[1].f   |FlipFlop_145             |     5|
-|67    |        \genblk1[20].f  |FlipFlop_146             |     4|
-|68    |        \genblk1[21].f  |FlipFlop_147             |     4|
-|69    |        \genblk1[22].f  |FlipFlop_148             |     4|
-|70    |        \genblk1[23].f  |FlipFlop_149             |     4|
-|71    |        \genblk1[24].f  |FlipFlop_150             |     4|
-|72    |        \genblk1[25].f  |FlipFlop_151             |     4|
-|73    |        \genblk1[26].f  |FlipFlop_152             |     4|
-|74    |        \genblk1[27].f  |FlipFlop_153             |     4|
-|75    |        \genblk1[28].f  |FlipFlop_154             |     4|
-|76    |        \genblk1[29].f  |FlipFlop_155             |     4|
-|77    |        \genblk1[2].f   |FlipFlop_156             |     5|
-|78    |        \genblk1[30].f  |FlipFlop_157             |     4|
-|79    |        \genblk1[31].f  |FlipFlop_158             |     4|
-|80    |        \genblk1[3].f   |FlipFlop_159             |     7|
-|81    |        \genblk1[4].f   |FlipFlop_160             |     5|
-|82    |        \genblk1[5].f   |FlipFlop_161             |     4|
-|83    |        \genblk1[6].f   |FlipFlop_162             |     4|
-|84    |        \genblk1[7].f   |FlipFlop_163             |     4|
-|85    |        \genblk1[8].f   |FlipFlop_164             |     4|
-|86    |        \genblk1[9].f   |FlipFlop_165             |     4|
-|87    |      \genblk1[5].ri    |RegWLoad_3               |    32|
-|88    |        \genblk1[0].f   |FlipFlop_102             |     1|
-|89    |        \genblk1[10].f  |FlipFlop_103             |     1|
-|90    |        \genblk1[11].f  |FlipFlop_104             |     1|
-|91    |        \genblk1[12].f  |FlipFlop_105             |     1|
-|92    |        \genblk1[13].f  |FlipFlop_106             |     1|
-|93    |        \genblk1[14].f  |FlipFlop_107             |     1|
-|94    |        \genblk1[15].f  |FlipFlop_108             |     1|
-|95    |        \genblk1[16].f  |FlipFlop_109             |     1|
-|96    |        \genblk1[17].f  |FlipFlop_110             |     1|
-|97    |        \genblk1[18].f  |FlipFlop_111             |     1|
-|98    |        \genblk1[19].f  |FlipFlop_112             |     1|
-|99    |        \genblk1[1].f   |FlipFlop_113             |     1|
-|100   |        \genblk1[20].f  |FlipFlop_114             |     1|
-|101   |        \genblk1[21].f  |FlipFlop_115             |     1|
-|102   |        \genblk1[22].f  |FlipFlop_116             |     1|
-|103   |        \genblk1[23].f  |FlipFlop_117             |     1|
-|104   |        \genblk1[24].f  |FlipFlop_118             |     1|
-|105   |        \genblk1[25].f  |FlipFlop_119             |     1|
-|106   |        \genblk1[26].f  |FlipFlop_120             |     1|
-|107   |        \genblk1[27].f  |FlipFlop_121             |     1|
-|108   |        \genblk1[28].f  |FlipFlop_122             |     1|
-|109   |        \genblk1[29].f  |FlipFlop_123             |     1|
-|110   |        \genblk1[2].f   |FlipFlop_124             |     1|
-|111   |        \genblk1[30].f  |FlipFlop_125             |     1|
-|112   |        \genblk1[31].f  |FlipFlop_126             |     1|
-|113   |        \genblk1[3].f   |FlipFlop_127             |     1|
-|114   |        \genblk1[4].f   |FlipFlop_128             |     1|
-|115   |        \genblk1[5].f   |FlipFlop_129             |     1|
-|116   |        \genblk1[6].f   |FlipFlop_130             |     1|
-|117   |        \genblk1[7].f   |FlipFlop_131             |     1|
-|118   |        \genblk1[8].f   |FlipFlop_132             |     1|
-|119   |        \genblk1[9].f   |FlipFlop_133             |     1|
-|120   |      \genblk1[6].ri    |RegWLoad_4               |   121|
-|121   |        \genblk1[0].f   |FlipFlop_70              |     4|
-|122   |        \genblk1[10].f  |FlipFlop_71              |     3|
-|123   |        \genblk1[11].f  |FlipFlop_72              |     3|
-|124   |        \genblk1[12].f  |FlipFlop_73              |     3|
-|125   |        \genblk1[13].f  |FlipFlop_74              |     4|
-|126   |        \genblk1[14].f  |FlipFlop_75              |     4|
-|127   |        \genblk1[15].f  |FlipFlop_76              |     9|
-|128   |        \genblk1[16].f  |FlipFlop_77              |     4|
-|129   |        \genblk1[17].f  |FlipFlop_78              |     4|
-|130   |        \genblk1[18].f  |FlipFlop_79              |     4|
-|131   |        \genblk1[19].f  |FlipFlop_80              |     4|
-|132   |        \genblk1[1].f   |FlipFlop_81              |     3|
-|133   |        \genblk1[20].f  |FlipFlop_82              |     4|
-|134   |        \genblk1[21].f  |FlipFlop_83              |     4|
-|135   |        \genblk1[22].f  |FlipFlop_84              |     4|
-|136   |        \genblk1[23].f  |FlipFlop_85              |     4|
-|137   |        \genblk1[24].f  |FlipFlop_86              |     4|
-|138   |        \genblk1[25].f  |FlipFlop_87              |     4|
-|139   |        \genblk1[26].f  |FlipFlop_88              |     4|
-|140   |        \genblk1[27].f  |FlipFlop_89              |     4|
-|141   |        \genblk1[28].f  |FlipFlop_90              |     4|
-|142   |        \genblk1[29].f  |FlipFlop_91              |     4|
-|143   |        \genblk1[2].f   |FlipFlop_92              |     3|
-|144   |        \genblk1[30].f  |FlipFlop_93              |     4|
-|145   |        \genblk1[31].f  |FlipFlop_94              |     4|
-|146   |        \genblk1[3].f   |FlipFlop_95              |     3|
-|147   |        \genblk1[4].f   |FlipFlop_96              |     3|
-|148   |        \genblk1[5].f   |FlipFlop_97              |     3|
-|149   |        \genblk1[6].f   |FlipFlop_98              |     3|
-|150   |        \genblk1[7].f   |FlipFlop_99              |     3|
-|151   |        \genblk1[8].f   |FlipFlop_100             |     3|
-|152   |        \genblk1[9].f   |FlipFlop_101             |     3|
-|153   |      \genblk1[8].ri    |RegWLoad_5               |    32|
-|154   |        \genblk1[0].f   |FlipFlop_38              |     1|
-|155   |        \genblk1[10].f  |FlipFlop_39              |     1|
-|156   |        \genblk1[11].f  |FlipFlop_40              |     1|
-|157   |        \genblk1[12].f  |FlipFlop_41              |     1|
-|158   |        \genblk1[13].f  |FlipFlop_42              |     1|
-|159   |        \genblk1[14].f  |FlipFlop_43              |     1|
-|160   |        \genblk1[15].f  |FlipFlop_44              |     1|
-|161   |        \genblk1[16].f  |FlipFlop_45              |     1|
-|162   |        \genblk1[17].f  |FlipFlop_46              |     1|
-|163   |        \genblk1[18].f  |FlipFlop_47              |     1|
-|164   |        \genblk1[19].f  |FlipFlop_48              |     1|
-|165   |        \genblk1[1].f   |FlipFlop_49              |     1|
-|166   |        \genblk1[20].f  |FlipFlop_50              |     1|
-|167   |        \genblk1[21].f  |FlipFlop_51              |     1|
-|168   |        \genblk1[22].f  |FlipFlop_52              |     1|
-|169   |        \genblk1[23].f  |FlipFlop_53              |     1|
-|170   |        \genblk1[24].f  |FlipFlop_54              |     1|
-|171   |        \genblk1[25].f  |FlipFlop_55              |     1|
-|172   |        \genblk1[26].f  |FlipFlop_56              |     1|
-|173   |        \genblk1[27].f  |FlipFlop_57              |     1|
-|174   |        \genblk1[28].f  |FlipFlop_58              |     1|
-|175   |        \genblk1[29].f  |FlipFlop_59              |     1|
-|176   |        \genblk1[2].f   |FlipFlop_60              |     1|
-|177   |        \genblk1[30].f  |FlipFlop_61              |     1|
-|178   |        \genblk1[31].f  |FlipFlop_62              |     1|
-|179   |        \genblk1[3].f   |FlipFlop_63              |     1|
-|180   |        \genblk1[4].f   |FlipFlop_64              |     1|
-|181   |        \genblk1[5].f   |FlipFlop_65              |     1|
-|182   |        \genblk1[6].f   |FlipFlop_66              |     1|
-|183   |        \genblk1[7].f   |FlipFlop_67              |     1|
-|184   |        \genblk1[8].f   |FlipFlop_68              |     1|
-|185   |        \genblk1[9].f   |FlipFlop_69              |     1|
-|186   |      \genblk1[9].ri    |RegWLoad_6               |    32|
-|187   |        \genblk1[0].f   |FlipFlop                 |     1|
-|188   |        \genblk1[10].f  |FlipFlop_7               |     1|
-|189   |        \genblk1[11].f  |FlipFlop_8               |     1|
-|190   |        \genblk1[12].f  |FlipFlop_9               |     1|
-|191   |        \genblk1[13].f  |FlipFlop_10              |     1|
-|192   |        \genblk1[14].f  |FlipFlop_11              |     1|
-|193   |        \genblk1[15].f  |FlipFlop_12              |     1|
-|194   |        \genblk1[16].f  |FlipFlop_13              |     1|
-|195   |        \genblk1[17].f  |FlipFlop_14              |     1|
-|196   |        \genblk1[18].f  |FlipFlop_15              |     1|
-|197   |        \genblk1[19].f  |FlipFlop_16              |     1|
-|198   |        \genblk1[1].f   |FlipFlop_17              |     1|
-|199   |        \genblk1[20].f  |FlipFlop_18              |     1|
-|200   |        \genblk1[21].f  |FlipFlop_19              |     1|
-|201   |        \genblk1[22].f  |FlipFlop_20              |     1|
-|202   |        \genblk1[23].f  |FlipFlop_21              |     1|
-|203   |        \genblk1[24].f  |FlipFlop_22              |     1|
-|204   |        \genblk1[25].f  |FlipFlop_23              |     1|
-|205   |        \genblk1[26].f  |FlipFlop_24              |     1|
-|206   |        \genblk1[27].f  |FlipFlop_25              |     1|
-|207   |        \genblk1[28].f  |FlipFlop_26              |     1|
-|208   |        \genblk1[29].f  |FlipFlop_27              |     1|
-|209   |        \genblk1[2].f   |FlipFlop_28              |     1|
-|210   |        \genblk1[30].f  |FlipFlop_29              |     1|
-|211   |        \genblk1[31].f  |FlipFlop_30              |     1|
-|212   |        \genblk1[3].f   |FlipFlop_31              |     1|
-|213   |        \genblk1[4].f   |FlipFlop_32              |     1|
-|214   |        \genblk1[5].f   |FlipFlop_33              |     1|
-|215   |        \genblk1[6].f   |FlipFlop_34              |     1|
-|216   |        \genblk1[7].f   |FlipFlop_35              |     1|
-|217   |        \genblk1[8].f   |FlipFlop_36              |     1|
-|218   |        \genblk1[9].f   |FlipFlop_37              |     1|
-|219   |  sd                    |SSDDriver                |    47|
-+------+------------------------+-------------------------+------+
++------+------------------------+-----------------------+------+
+|      |Instance                |Module                 |Cells |
++------+------------------------+-----------------------+------+
+|1     |top                     |                       |   947|
+|2     |  rv                    |RISCV                  |   782|
+|3     |    PC                  |RegWLoad               |   526|
+|4     |      \genblk1[10].f    |FlipFlop_98            |     3|
+|5     |      \genblk1[11].f    |FlipFlop_99            |     2|
+|6     |      \genblk1[12].f    |FlipFlop_100           |     1|
+|7     |      \genblk1[1].f     |FlipFlop_101           |   402|
+|8     |      \genblk1[2].f     |FlipFlop_102           |    86|
+|9     |      \genblk1[3].f     |FlipFlop_103           |     2|
+|10    |      \genblk1[4].f     |FlipFlop_104           |     3|
+|11    |      \genblk1[5].f     |FlipFlop_105           |     5|
+|12    |      \genblk1[6].f     |FlipFlop_106           |     1|
+|13    |      \genblk1[7].f     |FlipFlop_107           |    13|
+|14    |      \genblk1[8].f     |FlipFlop_108           |     2|
+|15    |      \genblk1[9].f     |FlipFlop_109           |     6|
+|16    |    aluSrcBMux          |Mux2_1__parameterized0 |    13|
+|17    |    dmem                |DataMem                |    71|
+|18    |    imem                |InstMem                |    12|
+|19    |    rf                  |RegFile                |   160|
+|20    |      \genblk1[1].ri    |RegWLoad_0             |    32|
+|21    |        \genblk1[0].f   |FlipFlop_66            |     1|
+|22    |        \genblk1[10].f  |FlipFlop_67            |     1|
+|23    |        \genblk1[11].f  |FlipFlop_68            |     1|
+|24    |        \genblk1[12].f  |FlipFlop_69            |     1|
+|25    |        \genblk1[13].f  |FlipFlop_70            |     1|
+|26    |        \genblk1[14].f  |FlipFlop_71            |     1|
+|27    |        \genblk1[15].f  |FlipFlop_72            |     1|
+|28    |        \genblk1[16].f  |FlipFlop_73            |     1|
+|29    |        \genblk1[17].f  |FlipFlop_74            |     1|
+|30    |        \genblk1[18].f  |FlipFlop_75            |     1|
+|31    |        \genblk1[19].f  |FlipFlop_76            |     1|
+|32    |        \genblk1[1].f   |FlipFlop_77            |     1|
+|33    |        \genblk1[20].f  |FlipFlop_78            |     1|
+|34    |        \genblk1[21].f  |FlipFlop_79            |     1|
+|35    |        \genblk1[22].f  |FlipFlop_80            |     1|
+|36    |        \genblk1[23].f  |FlipFlop_81            |     1|
+|37    |        \genblk1[24].f  |FlipFlop_82            |     1|
+|38    |        \genblk1[25].f  |FlipFlop_83            |     1|
+|39    |        \genblk1[26].f  |FlipFlop_84            |     1|
+|40    |        \genblk1[27].f  |FlipFlop_85            |     1|
+|41    |        \genblk1[28].f  |FlipFlop_86            |     1|
+|42    |        \genblk1[29].f  |FlipFlop_87            |     1|
+|43    |        \genblk1[2].f   |FlipFlop_88            |     1|
+|44    |        \genblk1[30].f  |FlipFlop_89            |     1|
+|45    |        \genblk1[31].f  |FlipFlop_90            |     1|
+|46    |        \genblk1[3].f   |FlipFlop_91            |     1|
+|47    |        \genblk1[4].f   |FlipFlop_92            |     1|
+|48    |        \genblk1[5].f   |FlipFlop_93            |     1|
+|49    |        \genblk1[6].f   |FlipFlop_94            |     1|
+|50    |        \genblk1[7].f   |FlipFlop_95            |     1|
+|51    |        \genblk1[8].f   |FlipFlop_96            |     1|
+|52    |        \genblk1[9].f   |FlipFlop_97            |     1|
+|53    |      \genblk1[3].ri    |RegWLoad_1             |    84|
+|54    |        \genblk1[0].f   |FlipFlop_34            |     3|
+|55    |        \genblk1[10].f  |FlipFlop_35            |     2|
+|56    |        \genblk1[11].f  |FlipFlop_36            |     2|
+|57    |        \genblk1[12].f  |FlipFlop_37            |     2|
+|58    |        \genblk1[13].f  |FlipFlop_38            |     3|
+|59    |        \genblk1[14].f  |FlipFlop_39            |     3|
+|60    |        \genblk1[15].f  |FlipFlop_40            |     3|
+|61    |        \genblk1[16].f  |FlipFlop_41            |     3|
+|62    |        \genblk1[17].f  |FlipFlop_42            |     3|
+|63    |        \genblk1[18].f  |FlipFlop_43            |     3|
+|64    |        \genblk1[19].f  |FlipFlop_44            |     3|
+|65    |        \genblk1[1].f   |FlipFlop_45            |     2|
+|66    |        \genblk1[20].f  |FlipFlop_46            |     3|
+|67    |        \genblk1[21].f  |FlipFlop_47            |     3|
+|68    |        \genblk1[22].f  |FlipFlop_48            |     3|
+|69    |        \genblk1[23].f  |FlipFlop_49            |     3|
+|70    |        \genblk1[24].f  |FlipFlop_50            |     3|
+|71    |        \genblk1[25].f  |FlipFlop_51            |     3|
+|72    |        \genblk1[26].f  |FlipFlop_52            |     3|
+|73    |        \genblk1[27].f  |FlipFlop_53            |     3|
+|74    |        \genblk1[28].f  |FlipFlop_54            |     3|
+|75    |        \genblk1[29].f  |FlipFlop_55            |     3|
+|76    |        \genblk1[2].f   |FlipFlop_56            |     2|
+|77    |        \genblk1[30].f  |FlipFlop_57            |     3|
+|78    |        \genblk1[31].f  |FlipFlop_58            |     3|
+|79    |        \genblk1[3].f   |FlipFlop_59            |     2|
+|80    |        \genblk1[4].f   |FlipFlop_60            |     2|
+|81    |        \genblk1[5].f   |FlipFlop_61            |     2|
+|82    |        \genblk1[6].f   |FlipFlop_62            |     2|
+|83    |        \genblk1[7].f   |FlipFlop_63            |     2|
+|84    |        \genblk1[8].f   |FlipFlop_64            |     2|
+|85    |        \genblk1[9].f   |FlipFlop_65            |     2|
+|86    |      \genblk1[6].ri    |RegWLoad_2             |    44|
+|87    |        \genblk1[0].f   |FlipFlop               |     1|
+|88    |        \genblk1[10].f  |FlipFlop_3             |     2|
+|89    |        \genblk1[11].f  |FlipFlop_4             |     2|
+|90    |        \genblk1[12].f  |FlipFlop_5             |     2|
+|91    |        \genblk1[13].f  |FlipFlop_6             |     1|
+|92    |        \genblk1[14].f  |FlipFlop_7             |     1|
+|93    |        \genblk1[15].f  |FlipFlop_8             |     1|
+|94    |        \genblk1[16].f  |FlipFlop_9             |     1|
+|95    |        \genblk1[17].f  |FlipFlop_10            |     1|
+|96    |        \genblk1[18].f  |FlipFlop_11            |     1|
+|97    |        \genblk1[19].f  |FlipFlop_12            |     1|
+|98    |        \genblk1[1].f   |FlipFlop_13            |     2|
+|99    |        \genblk1[20].f  |FlipFlop_14            |     1|
+|100   |        \genblk1[21].f  |FlipFlop_15            |     1|
+|101   |        \genblk1[22].f  |FlipFlop_16            |     1|
+|102   |        \genblk1[23].f  |FlipFlop_17            |     1|
+|103   |        \genblk1[24].f  |FlipFlop_18            |     1|
+|104   |        \genblk1[25].f  |FlipFlop_19            |     1|
+|105   |        \genblk1[26].f  |FlipFlop_20            |     1|
+|106   |        \genblk1[27].f  |FlipFlop_21            |     1|
+|107   |        \genblk1[28].f  |FlipFlop_22            |     1|
+|108   |        \genblk1[29].f  |FlipFlop_23            |     1|
+|109   |        \genblk1[2].f   |FlipFlop_24            |     2|
+|110   |        \genblk1[30].f  |FlipFlop_25            |     1|
+|111   |        \genblk1[31].f  |FlipFlop_26            |     1|
+|112   |        \genblk1[3].f   |FlipFlop_27            |     2|
+|113   |        \genblk1[4].f   |FlipFlop_28            |     2|
+|114   |        \genblk1[5].f   |FlipFlop_29            |     2|
+|115   |        \genblk1[6].f   |FlipFlop_30            |     2|
+|116   |        \genblk1[7].f   |FlipFlop_31            |     2|
+|117   |        \genblk1[8].f   |FlipFlop_32            |     2|
+|118   |        \genblk1[9].f   |FlipFlop_33            |     2|
+|119   |  sd                    |SSDDriver              |    47|
++------+------------------------+-----------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:49 ; elapsed = 00:01:21 . Memory (MB): peak = 1847.902 ; gain = 465.637 ; free physical = 204 ; free virtual = 4950
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:54 ; elapsed = 00:01:31 . Memory (MB): peak = 1847.418 ; gain = 465.160 ; free physical = 372 ; free virtual = 3207
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 3 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:45 ; elapsed = 00:01:21 . Memory (MB): peak = 1847.902 ; gain = 61.285 ; free physical = 2384 ; free virtual = 7130
-Synthesis Optimization Complete : Time (s): cpu = 00:00:50 ; elapsed = 00:01:26 . Memory (MB): peak = 1847.902 ; gain = 465.637 ; free physical = 2388 ; free virtual = 7130
+Synthesis finished with 0 errors, 0 critical warnings and 1 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:50 ; elapsed = 00:01:29 . Memory (MB): peak = 1847.418 ; gain = 61.285 ; free physical = 2545 ; free virtual = 5390
+Synthesis Optimization Complete : Time (s): cpu = 00:00:55 ; elapsed = 00:01:35 . Memory (MB): peak = 1847.418 ; gain = 465.160 ; free physical = 2547 ; free virtual = 5390
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 193 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 137 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1871.914 ; gain = 0.000 ; free physical = 2327 ; free virtual = 7069
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1871.430 ; gain = 0.000 ; free physical = 2483 ; free virtual = 5330
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 32 instances were transformed.
   LD => LDCE: 16 instances
   LDC => LDCE: 16 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-269 Infos, 109 Warnings, 0 Critical Warnings and 0 Errors encountered.
+272 Infos, 106 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:51 ; elapsed = 00:01:27 . Memory (MB): peak = 1871.914 ; gain = 489.863 ; free physical = 2383 ; free virtual = 7126
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1871.914 ; gain = 0.000 ; free physical = 2383 ; free virtual = 7126
+synth_design: Time (s): cpu = 00:00:56 ; elapsed = 00:01:37 . Memory (MB): peak = 1871.430 ; gain = 489.387 ; free physical = 2540 ; free virtual = 5386
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1871.430 ; gain = 0.000 ; free physical = 2540 ; free virtual = 5386
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint '/home/caffe/XilinxProjects/p1-ms2-single_cycle-v1/p1-ms2-single_cycle-v1.runs/synth_1/RISCV_Top.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file RISCV_Top_utilization_synth.rpt -pb RISCV_Top_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sat Mar 30 17:02:07 2019...
+INFO: [Common 17-206] Exiting Vivado at Sun Mar 31 02:45:57 2019...

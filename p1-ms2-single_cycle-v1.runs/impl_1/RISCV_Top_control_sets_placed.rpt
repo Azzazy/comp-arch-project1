@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
-| Date         : Sat Mar 30 17:02:34 2019
+| Date         : Sun Mar 31 02:46:46 2019
 | Host         : caffe-OptiPlex-5050 running 64-bit Ubuntu 18.04.2 LTS
 | Command      : report_control_sets -verbose -file RISCV_Top_control_sets_placed.rpt
 | Design       : RISCV_Top
@@ -23,7 +23,7 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Number of unique control sets                            |     8 |
+| Number of unique control sets                            |     5 |
 | Unused register locations in slices containing registers |     8 |
 +----------------------------------------------------------+-------+
 
@@ -35,7 +35,7 @@ Table of Contents
 | Fanout | Control Sets |
 +--------+--------------+
 |     12 |            1 |
-|    16+ |            7 |
+|    16+ |            4 |
 +--------+--------------+
 
 
@@ -49,7 +49,7 @@ Table of Contents
 | No           | No                    | Yes                    |              12 |            9 |
 | No           | Yes                   | No                     |               0 |            0 |
 | Yes          | No                    | No                     |               0 |            0 |
-| Yes          | No                    | Yes                    |             192 |          104 |
+| Yes          | No                    | Yes                    |              96 |           51 |
 | Yes          | Yes                   | No                     |               0 |            0 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
@@ -57,17 +57,14 @@ Table of Contents
 4. Detailed Control Set Information
 -----------------------------------
 
-+-----------------+-----------------------------+------------------+------------------+----------------+
-|   Clock Signal  |        Enable Signal        | Set/Reset Signal | Slice Load Count | Bel Load Count |
-+-----------------+-----------------------------+------------------+------------------+----------------+
-|  rclk_IBUF_BUFG |                             | rst_IBUF         |                9 |             12 |
-|  clk_IBUF_BUFG  |                             |                  |                5 |             20 |
-| ~rclk_IBUF_BUFG | rv/PC/genblk1[7].f/q_reg_10 | rst_IBUF         |               24 |             32 |
-| ~rclk_IBUF_BUFG | rv/PC/genblk1[7].f/q_reg_5  | rst_IBUF         |               17 |             32 |
-| ~rclk_IBUF_BUFG | rv/PC/genblk1[7].f/q_reg_6  | rst_IBUF         |               13 |             32 |
-| ~rclk_IBUF_BUFG | rv/PC/genblk1[7].f/q_reg_7  | rst_IBUF         |               14 |             32 |
-| ~rclk_IBUF_BUFG | rv/PC/genblk1[7].f/q_reg_8  | rst_IBUF         |               20 |             32 |
-| ~rclk_IBUF_BUFG | rv/PC/genblk1[7].f/q_reg_9  | rst_IBUF         |               16 |             32 |
-+-----------------+-----------------------------+------------------+------------------+----------------+
++-----------------+----------------------------+------------------+------------------+----------------+
+|   Clock Signal  |        Enable Signal       | Set/Reset Signal | Slice Load Count | Bel Load Count |
++-----------------+----------------------------+------------------+------------------+----------------+
+|  rclk_IBUF_BUFG |                            | rst_IBUF         |                9 |             12 |
+|  clk_IBUF_BUFG  |                            |                  |                5 |             20 |
+| ~rclk_IBUF_BUFG | rv/PC/genblk1[1].f/q_reg_2 | rst_IBUF         |               21 |             32 |
+| ~rclk_IBUF_BUFG | rv/PC/genblk1[7].f/q_reg_1 | rst_IBUF         |               17 |             32 |
+| ~rclk_IBUF_BUFG | rv/PC/genblk1[7].f/q_reg_2 | rst_IBUF         |               13 |             32 |
++-----------------+----------------------------+------------------+------------------+----------------+
 
 

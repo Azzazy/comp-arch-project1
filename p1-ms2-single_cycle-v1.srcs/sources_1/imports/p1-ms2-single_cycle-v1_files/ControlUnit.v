@@ -25,7 +25,7 @@ module ControlUnit (
 );
     
     always @(*) begin
-        case (opcode)  
+        case (opcode)  //to control the source of the data written to the register file
             `OPCODE_AUIPC:   RegWmux2Ctl = 2'b01;
             `OPCODE_JAL:     RegWmux2Ctl = 2'b10;
             `OPCODE_JALR:    RegWmux2Ctl = 2'b10;
@@ -43,7 +43,7 @@ module ControlUnit (
             MemWrite =   0;
             ALUSrc   =   0;     
             RegWrite =   0;
-            shamtSrc =   0; 					//DAFUQ?!
+            shamtSrc =   0; 					
             by       =   0;
             half     =   0;
             unsign   =   0;
@@ -52,18 +52,18 @@ module ControlUnit (
     
             j		=	(opcode == `OPCODE_JALR || opcode ==`OPCODE_JAL);
             Branch_JALR =(opcode	 ==  `OPCODE_JALR) ?1:0;
-            Branch   =   (opcode[4:2] ==  6)? 1:0;
-            MemRead  =   (opcode[4:2] ==  0)? 1:0;
-            MemToReg =   (opcode[4:2] ==  0)? 1:0;    
-            ALUOp[1] =   (opcode[4:2] ==  3)? 1:0;
-            ALUOp[0] =   (opcode[4:2] ==  6)? 1:0;
-            MemWrite =   (opcode[4:2] ==  2)? 1:0;
-            ALUSrc   =   ((opcode[4:2]    ==  0)||(opcode[4:2] ==  2) ||  (opcode[4:2]    ==  1) || opcode == `OPCODE_LUI) ?   1 : 0;     
-            RegWrite =   ((opcode[4:2]    ==  0)||(opcode[4:2] ==  3) ||  (opcode[4:2]    ==  1) || (opcode==`OPCODE_JALR) || (opcode == `OPCODE_JAL) ||(opcode ==  `OPCODE_AUIPC)) ?   1 : 0;
-            shamtSrc =   opcode[3]; 					//DAFUQ?!
-            by       =   ((opcode[4:2] == 0) | (opcode[4:2] == 1)) & (fun3 == 0 || fun3 == 4);
-            half     =   ((opcode[4:2] == 0) | (opcode[4:2] == 1)) & (fun3 == 1 || fun3 == 5);
-            unsign   =   ((opcode[4:2] == 0) & (fun3 == 4 || fun3 ==5));
+            Branch   =   (opcode[4:2] ==  6)? 1:0;//branch, jal and jalr instructions
+            MemRead  =   (opcode[4:2] ==  `OPCODE_Load)? 1:0;
+            MemToReg =   (opcode ==  `OPCODE_Load)? 1:0;//load instructions 
+            ALUOp[1] =   (opcode[4:2] ==  3)? 1:0;//1 in case of R and lui instructions
+            ALUOp[0] =   (opcode[4:2] ==  6)? 1:0;//1 in case of branch/jal/r isntructions
+            MemWrite =   (opcode[4:2] ==  2)? 1:0;//store instructions
+            ALUSrc   =   ((opcode    ==  `OPCODE_Load)|| (opcode == `OPCODE_Store) || (opcode == `OPCODE_Arith_I) || (opcode    ==  `OPCODE_JALR) || opcode == `OPCODE_LUI) ?   1 : 0;     
+            RegWrite =   ((opcode    ==  `OPCODE_Load) || (opcode ==`OPCODE_Arith_I) || (opcode==`OPCODE_JALR) || (opcode == `OPCODE_JAL) ||(opcode ==  `OPCODE_AUIPC)) ?   1 : 0;
+            shamtSrc =   ~opcode[3];//if shamtSrc ==1 --> use immediate as source, else use Rs2
+            by       =   ((opcode == `OPCODE_Load) || (opcode == `OPCODE_Store)) && (fun3 == 0 || fun3 == 4);
+            half     =   ((opcode == `OPCODE_Load) || (opcode == `OPCODE_Store)) && (fun3 == 1 || fun3 == 5);
+            unsign   =   ((opcode == `OPCODE_Load) && (fun3 == 4 || fun3 ==5));//lbu and lhu
             l_zero	=	(opcode	==	`OPCODE_LUI); 	//LUI: load zero instead of rs1 into the first ALU input
         end
 	end

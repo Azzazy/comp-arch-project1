@@ -25,7 +25,10 @@ module RISCV (
     wire [31:0] PC_out, PCAdder_out, BranchAdder_out, PC_in, 
         RegR1, RegR2, RegW, ImmGen_out, Shift_out, ALUSrcMux_out, 
         ALU_out, Mem_out, Inst, regWSrcMuxOut, Rg1_zero;
-    wire Branch_JALR,Branch, MemRead, MemToReg, MemWrite, ALUSrc, RegWrite, Zero, Branch_con,sf,vf, cf,jump,B_JALR,l_zero,unsign,by,half;
+    wire branch_jalr,Branch, MemRead, MemToReg, MemWrite,
+         ALUSrc, RegWrite, Zero, Branch_con,sf,vf, cf,jump,
+         B_JALR,l_zero,unsign,by,half;
+    wire [4:0] rs1_src;
     wire [1:0] ALUOp, PCSrc, RegWmux2Ctl;
     wire [3:0] ALUSel;
     wire shamtSrc;
@@ -34,16 +37,16 @@ module RISCV (
   
     wire [31:0] aluin1, aluin2;
     
-	assign PCSrc = {Branch_JALR,Branch_con};
+	assign PCSrc = {branch_jalr,Branch_con};
 
     RegWLoad PC(clk,rst,1'b1,PC_in,PC_out); 
     InstMem imem(rst,PC_out[7:0],Inst);
     RippleAdder IncPC(PC_out,4,1'b0,PCAdder_out,);
     RegFile rf(.clk(~clk),.rst(rst),.WriteEn(RegWrite),
-        .rs1(Inst[19:15]),.rs2(Inst[24:20]),.rd(Inst[11:7]),
+        .rs1(rs1_src),.rs2(Inst[24:20]),.rd(Inst[11:7]),
         .write_data(RegW),.read_data1(RegR1),.read_data2(RegR2));
     Mux2_1 #(32) shamtMux(.sel(shamtSrc), .in1(RegR2), .in2(ImmGen_out), .out(shamt));
-	Mux2_1 #(32) Rg1_zero_m(.sel(l_zero), . in1(RegR1), .in2(0), .out(Rg1_zero));
+	Mux2_1 #(5) rs1SrcMux(.sel(l_zero), . in1(Inst[`IR_rs1]), .in2(0), .out(rs1_src));//if lui use x0 for rs1
     prv32_ALU alu(.a(RegR1), .b(ALUSrcMux_out), .shamt(shamt[4:0]), .r(ALU_out),
         .cf(cf), .zf(Zero), .vf(vf), .sf(sf), .alufn(ALUSel));
     rv32_ImmGen immgen(.IR(Inst), .Imm(ImmGen_out));
@@ -56,7 +59,7 @@ module RISCV (
     Mux2_1 #(32) regWSrcMux(MemToReg,ALU_out,Mem_out,regWSrcMuxOut);
     ControlUnit cu(.fun3(Inst[`IR_funct3]), .opcode(Inst[6:2]),.Branch(Branch),.MemRead(MemRead),.MemToReg(MemToReg)
         ,.ALUOp(ALUOp),.MemWrite(MemWrite),.ALUSrc(ALUSrc),.RegWrite(RegWrite),.shamtSrc(shamtSrc), .by(by), .half(half),
-		.unsign(unsign),.l_zero(l_zero), .Branch_JALR(B_JALR), .j(jump), .RegWmux2Ctl(RegWmux2Ctl));
+		.unsign(unsign),.l_zero(l_zero), .Branch_JALR(branch_jalr), .j(jump), .RegWmux2Ctl(RegWmux2Ctl));
     ALUControl acu(ALUOp,Inst[14:12],Inst[30], Inst[4], jump, ALUSel);
     Mux4_1 #(32) regWsrcMux1(.sel(RegWmux2Ctl), .in1(regWSrcMuxOut), .in2(BranchAdder_out), .in3(PCAdder_out), .in4(0), .out(RegW));
     
