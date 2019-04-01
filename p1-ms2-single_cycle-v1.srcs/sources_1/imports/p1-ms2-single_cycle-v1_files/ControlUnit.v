@@ -20,7 +20,6 @@ module ControlUnit (
     output reg unsign,
 	output reg l_zero,
 	output reg Branch_JALR,
-	output reg j,
     output reg [1:0]RegWmux2Ctl
 );
     
@@ -33,7 +32,6 @@ module ControlUnit (
         endcase
         
         if((opcode== `OPCODE_SYSTEM)||(opcode==`OPCODE_FENCE))begin
-            j		 =	 0;
             Branch_JALR =0;
             Branch   =   0;
             MemRead  =   0;
@@ -50,16 +48,20 @@ module ControlUnit (
             l_zero	=	 0; 	//LUI: load zero instead of rs1 into the first ALU input
         end else begin
     
-            j		=	(opcode == `OPCODE_JALR || opcode ==`OPCODE_JAL);
             Branch_JALR =(opcode	 ==  `OPCODE_JALR) ?1:0;
             Branch   =   (opcode[4:2] ==  6)? 1:0;//branch, jal and jalr instructions
             MemRead  =   (opcode[4:2] ==  `OPCODE_Load)? 1:0;
             MemToReg =   (opcode ==  `OPCODE_Load)? 1:0;//load instructions 
-            ALUOp[1] =   (opcode[4:2] ==  3)? 1:0;//1 in case of R and lui instructions
-            ALUOp[0] =   (opcode[4:2] ==  6)? 1:0;//1 in case of branch/jal/r isntructions
+            case (opcode)  
+                `OPCODE_Arith_R:   ALUOp = 0;
+                `OPCODE_Arith_I:   ALUOp = 3;
+                `OPCODE_Branch:   ALUOp = 2;
+                //1: LW, SW, AUIPC,LUI,JAL,JALR
+                default:          ALUOp = 1; 
+            endcase
             MemWrite =   (opcode[4:2] ==  2)? 1:0;//store instructions
-            ALUSrc   =   ((opcode    ==  `OPCODE_Load)|| (opcode == `OPCODE_Store) || (opcode == `OPCODE_Arith_I) || (opcode    ==  `OPCODE_JALR) || opcode == `OPCODE_LUI) ?   1 : 0;     
-            RegWrite =   ((opcode    ==  `OPCODE_Load) || (opcode ==`OPCODE_Arith_I) || (opcode==`OPCODE_JALR) || (opcode == `OPCODE_JAL) ||(opcode ==  `OPCODE_AUIPC)) ?   1 : 0;
+            ALUSrc   =   ((opcode    ==  `OPCODE_Load)|| (opcode == `OPCODE_Store) || (opcode == `OPCODE_Arith_I) || (opcode    ==  `OPCODE_JALR) || (opcode == `OPCODE_LUI)) ?   1 : 0;     
+            RegWrite =   ((opcode    ==  `OPCODE_Load) || (opcode ==`OPCODE_Arith_I) || (opcode==`OPCODE_JALR) || (opcode == `OPCODE_JAL) ||(opcode ==  `OPCODE_AUIPC)|| (opcode == `OPCODE_LUI)) ?   1 : 0;
             shamtSrc =   ~opcode[3];//if shamtSrc ==1 --> use immediate as source, else use Rs2
             by       =   ((opcode == `OPCODE_Load) || (opcode == `OPCODE_Store)) && (fun3 == 0 || fun3 == 4);
             half     =   ((opcode == `OPCODE_Load) || (opcode == `OPCODE_Store)) && (fun3 == 1 || fun3 == 5);

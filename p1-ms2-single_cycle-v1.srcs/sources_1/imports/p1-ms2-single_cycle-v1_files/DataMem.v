@@ -20,9 +20,18 @@ module DataMem (
     always @(posedge rst or posedge clk) 
     begin
         if(rst==1) begin
-           // mem[0]<=32'd17;
-            //mem[1]<=32'd9;
-            //mem[2]<=32'd25;
+            mem[0]<=8'd17;
+            mem[1]<=0;
+            mem[2]<=0;
+            mem[3]<=0;
+            mem[4]<=8'd9;
+            mem[5]<=0;
+            mem[6]<=0;
+            mem[7]<=0;
+            mem[8]<=8'd25;
+            mem[9]<=0;
+            mem[10]<=0;
+            mem[11]<=0;
         end
         else begin
             if (MemWrite)begin

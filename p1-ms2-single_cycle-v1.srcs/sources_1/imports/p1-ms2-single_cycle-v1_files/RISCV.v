@@ -26,7 +26,7 @@ module RISCV (
         RegR1, RegR2, RegW, ImmGen_out, Shift_out, ALUSrcMux_out, 
         ALU_out, Mem_out, Inst, regWSrcMuxOut, Rg1_zero;
     wire branch_jalr,Branch, MemRead, MemToReg, MemWrite,
-         ALUSrc, RegWrite, Zero, Branch_con,sf,vf, cf,jump,
+         ALUSrc, RegWrite, Zero, Branch_con,sf,vf, cf,
          B_JALR,l_zero,unsign,by,half;
     wire [4:0] rs1_src;
     wire [1:0] ALUOp, PCSrc, RegWmux2Ctl;
@@ -40,7 +40,7 @@ module RISCV (
 	assign PCSrc = {branch_jalr,Branch_con};
 
     RegWLoad PC(clk,rst,1'b1,PC_in,PC_out); 
-    InstMem imem(rst,PC_out[7:0],Inst);
+    InstMem imem(rst,PC_out[9:2],Inst);
     RippleAdder IncPC(PC_out,4,1'b0,PCAdder_out,);
     RegFile rf(.clk(~clk),.rst(rst),.WriteEn(RegWrite),
         .rs1(rs1_src),.rs2(Inst[24:20]),.rd(Inst[11:7]),
@@ -59,8 +59,8 @@ module RISCV (
     Mux2_1 #(32) regWSrcMux(MemToReg,ALU_out,Mem_out,regWSrcMuxOut);
     ControlUnit cu(.fun3(Inst[`IR_funct3]), .opcode(Inst[6:2]),.Branch(Branch),.MemRead(MemRead),.MemToReg(MemToReg)
         ,.ALUOp(ALUOp),.MemWrite(MemWrite),.ALUSrc(ALUSrc),.RegWrite(RegWrite),.shamtSrc(shamtSrc), .by(by), .half(half),
-		.unsign(unsign),.l_zero(l_zero), .Branch_JALR(branch_jalr), .j(jump), .RegWmux2Ctl(RegWmux2Ctl));
-    ALUControl acu(ALUOp,Inst[14:12],Inst[30], Inst[4], jump, ALUSel);
+		.unsign(unsign),.l_zero(l_zero), .Branch_JALR(branch_jalr), .RegWmux2Ctl(RegWmux2Ctl));
+    ALUControl acu(ALUOp,Inst[14:12],Inst[30], ALUSel);
     Mux4_1 #(32) regWsrcMux1(.sel(RegWmux2Ctl), .in1(regWSrcMuxOut), .in2(BranchAdder_out), .in3(PCAdder_out), .in4(0), .out(RegW));
     
     always @(*) begin
