@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
-| Date             : Sun Mar 31 02:47:13 2019
+| Date             : Mon Apr  1 23:20:17 2019
 | Host             : caffe-OptiPlex-5050 running 64-bit Ubuntu 18.04.2 LTS
 | Command          : report_power -file RISCV_Top_power_routed.rpt -pb RISCV_Top_power_summary_routed.pb -rpx RISCV_Top_power_routed.rpx
 | Design           : RISCV_Top
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+----------------------------------+
-| Total On-Chip Power (W)  | 25.659 (Junction temp exceeded!) |
+| Total On-Chip Power (W)  | 52.316 (Junction temp exceeded!) |
 | Design Power Budget (W)  | Unspecified*                     |
 | Power Budget Margin (W)  | NA                               |
-| Dynamic (W)              | 24.862                           |
+| Dynamic (W)              | 51.519                           |
 | Device Static (W)        | 0.797                            |
 | Effective TJA (C/W)      | 4.6                              |
 | Max Ambient (C)          | 0.0                              |
@@ -52,16 +52,17 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Slice Logic    |     2.254 |      670 |       --- |             --- |
-|   LUT as Logic |     2.150 |      422 |     63400 |            0.67 |
-|   CARRY4       |     0.078 |       33 |     15850 |            0.21 |
-|   Register     |     0.014 |      128 |    126800 |            0.10 |
-|   BUFG         |     0.012 |        2 |        32 |            6.25 |
-|   Others       |     0.000 |       18 |       --- |             --- |
-| Signals        |     1.901 |      590 |       --- |             --- |
-| I/O            |    20.708 |       36 |       210 |           17.14 |
+| Slice Logic    |    13.389 |    11315 |       --- |             --- |
+|   LUT as Logic |    13.268 |     7234 |     63400 |           11.41 |
+|   CARRY4       |     0.084 |       34 |     15850 |            0.21 |
+|   BUFG         |     0.018 |        3 |        32 |            9.38 |
+|   Register     |     0.018 |     2401 |    126800 |            1.89 |
+|   F7/F8 Muxes  |     0.001 |      818 |     63400 |            1.29 |
+|   Others       |     0.000 |       10 |       --- |             --- |
+| Signals        |    14.808 |     7573 |       --- |             --- |
+| I/O            |    23.322 |       36 |       210 |           17.14 |
 | Static Power   |     0.797 |          |           |                 |
-| Total          |    25.659 |          |           |                 |
+| Total          |    52.316 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -71,9 +72,9 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     4.749 |       4.187 |      0.563 |
-| Vccaux    |       1.800 |     0.850 |       0.758 |      0.093 |
-| Vcco33    |       3.300 |     5.856 |       5.852 |      0.004 |
+| Vccint    |       1.000 |    28.792 |      28.229 |      0.563 |
+| Vccaux    |       1.800 |     0.946 |       0.853 |      0.093 |
+| Vcco33    |       3.300 |     6.596 |       6.592 |      0.004 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
@@ -138,28 +139,29 @@ Table of Contents
 +---------------------+-----------+
 | Name                | Power (W) |
 +---------------------+-----------+
-| RISCV_Top           |    24.862 |
-|   rv                |     1.966 |
-|     PC              |     1.634 |
-|       genblk1[10].f |     0.006 |
-|       genblk1[11].f |     0.007 |
-|       genblk1[12].f |     0.002 |
-|       genblk1[1].f  |     1.048 |
-|       genblk1[2].f  |     0.310 |
-|       genblk1[3].f  |     0.078 |
-|       genblk1[4].f  |     0.041 |
-|       genblk1[5].f  |     0.036 |
-|       genblk1[6].f  |     0.017 |
-|       genblk1[7].f  |     0.069 |
-|       genblk1[8].f  |     0.001 |
-|       genblk1[9].f  |     0.019 |
-|     aluSrcBMux      |     0.066 |
-|     dmem            |     0.038 |
-|     imem            |     0.193 |
-|     rf              |     0.036 |
-|       genblk1[3].ri |     0.028 |
-|       genblk1[6].ri |     0.007 |
-|   sd                |     0.735 |
+| RISCV_Top           |    51.519 |
+|   rv                |    25.698 |
+|     PC              |    15.436 |
+|       genblk1[0].f  |     0.063 |
+|       genblk1[10].f |     0.016 |
+|       genblk1[11].f |     0.005 |
+|       genblk1[12].f |     0.074 |
+|       genblk1[2].f  |     0.640 |
+|       genblk1[3].f  |     0.698 |
+|       genblk1[4].f  |     2.976 |
+|       genblk1[5].f  |     0.219 |
+|       genblk1[6].f  |     0.027 |
+|       genblk1[7].f  |     0.044 |
+|       genblk1[8].f  |     0.021 |
+|       genblk1[9].f  |    10.656 |
+|     aluSrcBMux      |     0.222 |
+|     dmem            |     9.256 |
+|     imem            |     0.507 |
+|     regWSrcMux      |     0.031 |
+|     rf              |     0.247 |
+|       genblk1[3].ri |     0.103 |
+|       genblk1[7].ri |     0.143 |
+|   sd                |     0.700 |
 +---------------------+-----------+
 
 

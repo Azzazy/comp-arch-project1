@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
-| Date         : Sun Mar 31 02:47:14 2019
+| Date         : Mon Apr  1 23:20:18 2019
 | Host         : caffe-OptiPlex-5050 running 64-bit Ubuntu 18.04.2 LTS
 | Command      : report_timing_summary -max_paths 10 -file RISCV_Top_timing_summary_routed.rpt -pb RISCV_Top_timing_summary_routed.pb -rpx RISCV_Top_timing_summary_routed.rpx -warn_on_violation
 | Design       : RISCV_Top
@@ -54,7 +54,23 @@ Table of Contents
 --------------------
  There are 20 register/latch pins with no clock driven by root clock pin: clk (HIGH)
 
- There are 108 register/latch pins with no clock driven by root clock pin: rclk (HIGH)
+ There are 2349 register/latch pins with no clock driven by root clock pin: rclk (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: rv/PC/genblk1[2].f/q_reg/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: rv/PC/genblk1[3].f/q_reg/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: rv/PC/genblk1[4].f/q_reg/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: rv/PC/genblk1[5].f/q_reg/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: rv/PC/genblk1[6].f/q_reg/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: rv/PC/genblk1[7].f/q_reg/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: rv/PC/genblk1[8].f/q_reg/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: rv/PC/genblk1[9].f/q_reg/Q (HIGH)
 
 
 2. checking constant_clock
@@ -69,7 +85,7 @@ Table of Contents
 
 4. checking unconstrained_internal_endpoints
 --------------------------------------------
- There are 332 pins that are not constrained for maximum delay. (HIGH)
+ There are 5147 pins that are not constrained for maximum delay. (HIGH)
 
  There are 0 pins that are not constrained for maximum delay due to constant clock.
 
@@ -83,7 +99,7 @@ Table of Contents
 
 6. checking no_output_delay
 ---------------------------
- There are 25 ports with no output delay specified. (HIGH)
+ There are 26 ports with no output delay specified. (HIGH)
 
  There are 0 ports with no output delay but user has a false path constraint
 
