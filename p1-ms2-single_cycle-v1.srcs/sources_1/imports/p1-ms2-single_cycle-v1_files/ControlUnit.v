@@ -20,9 +20,10 @@ module ControlUnit (
     output reg unsign,
 	output reg l_zero,
 	output reg Branch_JALR,
-    output reg [1:0]RegWmux2Ctl
+    output reg [1:0]RegWmux2Ctl,
+    output halt
 );
-    
+    assign halt = opcode == `OPCODE_SYSTEM;
     always @(*) begin
         case (opcode)  //to control the source of the data written to the register file
             `OPCODE_AUIPC:   RegWmux2Ctl = 2'b01;
