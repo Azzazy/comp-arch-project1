@@ -1,4 +1,5 @@
 `timescale 1ns/1ns
+`include "defines.v"
 
 module branch_unit (    
     input [3:0] func3, 
