@@ -1,3 +1,9 @@
+/*******************************************************************
+*
+* Module: branch_unit.v
+* Description: the unit determines whether to go for a jump or not based on the flags comming out of the ALU 
+*
+**********************************************************************/
 `timescale 1ns/1ns
 `include "defines.v"
 

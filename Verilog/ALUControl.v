@@ -1,3 +1,8 @@
+/*******************************************************************
+*
+* Module: ALUControl.v
+* Description: ALU Control outputs the signals responsible of controlling different modules of the datapath depending on the instruction
+**********************************************************************/
 `timescale 1ns/1ns
 `include "defines.v"
 
