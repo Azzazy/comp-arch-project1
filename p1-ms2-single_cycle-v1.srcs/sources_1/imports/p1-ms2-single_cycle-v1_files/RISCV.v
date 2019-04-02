@@ -53,7 +53,7 @@ module RISCV (
     Mux2_1 #(32) aluSrcBMux(ALUSrc,RegR2,ImmGen_out,ALUSrcMux_out);
     RippleAdder OffsetPC(PC_out,ImmGen_out,1'b0,BranchAdder_out,);
     Mux4_1 #(32) pcSrcMux(.sel(PCSrc),.in1(PCAdder_out),.in2(BranchAdder_out), .in3(ALU_out), .in4(ALU_out), .out(PC_in));
-    branch_unit BU(.func3(Inst[14:12]), .Branch(Branch),.zf(Zero),.sf(sf),.cf(cf), .vf(vf), .Branch_con(Branch_con));
+    branch_unit BU(.func3(Inst[14:12]), .Branch(Branch), .zf(Zero), .sf(sf), .cf(cf), .vf(vf), .Branch_con(Branch_con));
     DataMem dmem(clk,rst,MemRead,MemWrite,by,half,unsign,ALU_out[7:0],RegR2,Mem_out);
     Mux2_1 #(32) regWSrcMux(MemToReg,ALU_out,Mem_out,regWSrcMuxOut);
     ControlUnit cu(.fun3(Inst[`IR_funct3]), .opcode(Inst[6:2]),.Branch(Branch),.MemRead(MemRead),.MemToReg(MemToReg)

@@ -20,8 +20,8 @@ module DataMem (
     always @(posedge rst or posedge clk) 
     begin
         if(rst==1) begin
-            mem[0]<=8'd1;
-            mem[1]<=8'd1;
+            mem[0]<=8'd17;
+            mem[1]<=8'd0;
             mem[2]<=0;
             mem[3]<=0;
             mem[4]<=8'd9;
@@ -32,8 +32,8 @@ module DataMem (
             mem[9]<=0;
             mem[10]<=0;
             mem[11]<=0;
-            mem[12]<=8'b00000001;
-            mem[13]<=8'd1;
+            mem[12]<=8'd0;
+            mem[13]<=8'd0;
             mem[14]<=0;
             mem[15]<=0;
         end

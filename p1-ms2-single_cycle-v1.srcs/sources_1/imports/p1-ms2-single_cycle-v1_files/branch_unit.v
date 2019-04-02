@@ -2,7 +2,7 @@
 `include "defines.v"
 
 module branch_unit (    
-    input [3:0] func3, 
+    input [2:0] func3, 
 	input Branch, zf, sf, vf, cf,
 	output reg Branch_con
 );
