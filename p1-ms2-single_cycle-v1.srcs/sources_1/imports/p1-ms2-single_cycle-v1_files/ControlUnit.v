@@ -62,7 +62,7 @@ module ControlUnit (
             endcase
             MemWrite =   (opcode[4:2] ==  2)? 1:0;//store instructions
             ALUSrc   =   ((opcode    ==  `OPCODE_Load)|| (opcode == `OPCODE_Store) || (opcode == `OPCODE_Arith_I) || (opcode    ==  `OPCODE_JALR) || (opcode == `OPCODE_LUI)) ?   1 : 0;     
-            RegWrite =   ((opcode    ==  `OPCODE_Load) || (opcode ==`OPCODE_Arith_I) || (opcode==`OPCODE_JALR) || (opcode == `OPCODE_JAL) ||(opcode ==  `OPCODE_AUIPC)|| (opcode == `OPCODE_LUI)) ?   1 : 0;
+            RegWrite =   ((opcode    ==  `OPCODE_Load) || (opcode ==`OPCODE_Arith_I) || (opcode==`OPCODE_JALR) || (opcode == `OPCODE_JAL) ||(opcode ==  `OPCODE_AUIPC)|| (opcode == `OPCODE_LUI)||(opcode == `OPCODE_Arith_R)) ?   1 : 0;
             shamtSrc =   ~opcode[3];//if shamtSrc ==1 --> use immediate as source, else use Rs2
             by       =   ((opcode == `OPCODE_Load) || (opcode == `OPCODE_Store)) && (fun3 == 0 || fun3 == 4);
             half     =   ((opcode == `OPCODE_Load) || (opcode == `OPCODE_Store)) && (fun3 == 1 || fun3 == 5);

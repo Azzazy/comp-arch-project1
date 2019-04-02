@@ -20,7 +20,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='/home/caffe/XilinxProjects/p1-ms2-single_cycle-v1/p1-ms2-single_cycle-v1.runs/synth_1'
+HD_PWD='/home/caffe/XilinxProjects/p1-ms2-single_cycle-v4/p1-ms2-single_cycle-v1.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

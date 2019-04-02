@@ -51,8 +51,7 @@ module RISCV (
         .cf(cf), .zf(Zero), .vf(vf), .sf(sf), .alufn(ALUSel));
     rv32_ImmGen immgen(.IR(Inst), .Imm(ImmGen_out));
     Mux2_1 #(32) aluSrcBMux(ALUSrc,RegR2,ImmGen_out,ALUSrcMux_out);
-    ShiftLeft1 sh(.d_in(ImmGen_out),.d_out(Shift_out));
-    RippleAdder OffsetPC(PC_out,Shift_out,1'b0,BranchAdder_out,);
+    RippleAdder OffsetPC(PC_out,ImmGen_out,1'b0,BranchAdder_out,);
     Mux4_1 #(32) pcSrcMux(.sel(PCSrc),.in1(PCAdder_out),.in2(BranchAdder_out), .in3(ALU_out), .in4(ALU_out), .out(PC_in));
     branch_unit BU(.func3(Inst[14:12]), .Branch(Branch),.zf(Zero),.sf(sf),.cf(cf), .vf(vf), .Branch_con(Branch_con));
     DataMem dmem(clk,rst,MemRead,MemWrite,by,half,unsign,ALU_out[7:0],RegR2,Mem_out);
@@ -67,7 +66,7 @@ module RISCV (
         case(ledSel)
             0: leds <= Inst[15:0];
             1: leds <= Inst[31:16];
-            2: leds <= {Branch, MemRead, MemToReg, ALUOp, MemWrite, 
+            2: leds <= {l_zero,Branch_con, MemRead, MemToReg, ALUOp, MemWrite, 
                         ALUSrc, RegWrite, Zero, PCSrc, ALUSel};
             default: leds <= 0;            
         endcase
@@ -85,6 +84,7 @@ module RISCV (
             9: ssd <= ALUSrcMux_out[12:0]; 
             10: ssd <= ALU_out[12:0]; 
             11: ssd <= Mem_out[12:0];
+            12: ssd <= rs1_src;
             default: ssd <= 0;
         endcase
     end

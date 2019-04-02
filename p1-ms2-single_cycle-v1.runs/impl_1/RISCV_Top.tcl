@@ -60,103 +60,14 @@ proc step_failed { step } {
   close $ch
 }
 
-set_msg_config -id {Synth 8-256} -limit 10000
-set_msg_config -id {Synth 8-638} -limit 10000
-
-start_step init_design
-set ACTIVE_STEP init_design
-set rc [catch {
-  create_msg_db init_design.pb
-  set_param synth.incrementalSynthesisCache ./.Xil/Vivado-2342-caffe-OptiPlex-5050/incrSyn
-  create_project -in_memory -part xc7a100tcsg324-1
-  set_property board_part digilentinc.com:nexys-a7-100t:part0:1.0 [current_project]
-  set_property design_mode GateLvl [current_fileset]
-  set_param project.singleFileAddWarning.threshold 0
-  set_property webtalk.parent_dir /home/caffe/XilinxProjects/p1-ms2-single_cycle-v1/p1-ms2-single_cycle-v1.cache/wt [current_project]
-  set_property parent.project_path /home/caffe/XilinxProjects/p1-ms2-single_cycle-v1/p1-ms2-single_cycle-v1.xpr [current_project]
-  set_property ip_output_repo /home/caffe/XilinxProjects/p1-ms2-single_cycle-v1/p1-ms2-single_cycle-v1.cache/ip [current_project]
-  set_property ip_cache_permissions {read write} [current_project]
-  add_files -quiet /home/caffe/XilinxProjects/p1-ms2-single_cycle-v1/p1-ms2-single_cycle-v1.runs/synth_1/RISCV_Top.dcp
-  read_xdc /home/caffe/XilinxProjects/p1-ms2-single_cycle-v1/p1-ms2-single_cycle-v1.srcs/constrs_1/imports/Lab7Src/PackagePins.xdc
-  link_design -top RISCV_Top -part xc7a100tcsg324-1
-  close_msg_db -file init_design.pb
-} RESULT]
-if {$rc} {
-  step_failed init_design
-  return -code error $RESULT
-} else {
-  end_step init_design
-  unset ACTIVE_STEP 
-}
-
-start_step opt_design
-set ACTIVE_STEP opt_design
-set rc [catch {
-  create_msg_db opt_design.pb
-  opt_design 
-  write_checkpoint -force RISCV_Top_opt.dcp
-  create_report "impl_1_opt_report_drc_0" "report_drc -file RISCV_Top_drc_opted.rpt -pb RISCV_Top_drc_opted.pb -rpx RISCV_Top_drc_opted.rpx"
-  close_msg_db -file opt_design.pb
-} RESULT]
-if {$rc} {
-  step_failed opt_design
-  return -code error $RESULT
-} else {
-  end_step opt_design
-  unset ACTIVE_STEP 
-}
-
-start_step place_design
-set ACTIVE_STEP place_design
-set rc [catch {
-  create_msg_db place_design.pb
-  if { [llength [get_debug_cores -quiet] ] > 0 }  { 
-    implement_debug_core 
-  } 
-  place_design 
-  write_checkpoint -force RISCV_Top_placed.dcp
-  create_report "impl_1_place_report_io_0" "report_io -file RISCV_Top_io_placed.rpt"
-  create_report "impl_1_place_report_utilization_0" "report_utilization -file RISCV_Top_utilization_placed.rpt -pb RISCV_Top_utilization_placed.pb"
-  create_report "impl_1_place_report_control_sets_0" "report_control_sets -verbose -file RISCV_Top_control_sets_placed.rpt"
-  close_msg_db -file place_design.pb
-} RESULT]
-if {$rc} {
-  step_failed place_design
-  return -code error $RESULT
-} else {
-  end_step place_design
-  unset ACTIVE_STEP 
-}
-
-start_step route_design
-set ACTIVE_STEP route_design
-set rc [catch {
-  create_msg_db route_design.pb
-  route_design 
-  write_checkpoint -force RISCV_Top_routed.dcp
-  create_report "impl_1_route_report_drc_0" "report_drc -file RISCV_Top_drc_routed.rpt -pb RISCV_Top_drc_routed.pb -rpx RISCV_Top_drc_routed.rpx"
-  create_report "impl_1_route_report_methodology_0" "report_methodology -file RISCV_Top_methodology_drc_routed.rpt -pb RISCV_Top_methodology_drc_routed.pb -rpx RISCV_Top_methodology_drc_routed.rpx"
-  create_report "impl_1_route_report_power_0" "report_power -file RISCV_Top_power_routed.rpt -pb RISCV_Top_power_summary_routed.pb -rpx RISCV_Top_power_routed.rpx"
-  create_report "impl_1_route_report_route_status_0" "report_route_status -file RISCV_Top_route_status.rpt -pb RISCV_Top_route_status.pb"
-  create_report "impl_1_route_report_timing_summary_0" "report_timing_summary -max_paths 10 -file RISCV_Top_timing_summary_routed.rpt -pb RISCV_Top_timing_summary_routed.pb -rpx RISCV_Top_timing_summary_routed.rpx -warn_on_violation "
-  create_report "impl_1_route_report_incremental_reuse_0" "report_incremental_reuse -file RISCV_Top_incremental_reuse_routed.rpt"
-  create_report "impl_1_route_report_clock_utilization_0" "report_clock_utilization -file RISCV_Top_clock_utilization_routed.rpt"
-  create_report "impl_1_route_report_bus_skew_0" "report_bus_skew -warn_on_violation -file RISCV_Top_bus_skew_routed.rpt -pb RISCV_Top_bus_skew_routed.pb -rpx RISCV_Top_bus_skew_routed.rpx"
-  close_msg_db -file route_design.pb
-} RESULT]
-if {$rc} {
-  write_checkpoint -force RISCV_Top_routed_error.dcp
-  step_failed route_design
-  return -code error $RESULT
-} else {
-  end_step route_design
-  unset ACTIVE_STEP 
-}
 
 start_step write_bitstream
 set ACTIVE_STEP write_bitstream
 set rc [catch {
   create_msg_db write_bitstream.pb
+  set_param xicom.use_bs_reader 1
+  open_checkpoint RISCV_Top_routed.dcp
+  set_property webtalk.parent_dir /home/caffe/XilinxProjects/p1-ms2-single_cycle-v4/p1-ms2-single_cycle-v1.cache/wt [current_project]
   catch { write_mem_info -force RISCV_Top.mmi }
   write_bitstream -force RISCV_Top.bit 
   catch {write_debug_probes -quiet -force RISCV_Top}

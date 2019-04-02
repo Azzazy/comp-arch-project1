@@ -20,7 +20,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='/home/caffe/XilinxProjects/p1-ms2-single_cycle-v1/p1-ms2-single_cycle-v1.runs/impl_1'
+HD_PWD='/home/caffe/XilinxProjects/p1-ms2-single_cycle-v4/p1-ms2-single_cycle-v1.runs/impl_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log
@@ -37,7 +37,7 @@ EAStep()
 }
 
 # pre-commands:
-/bin/touch .init_design.begin.rst
+/bin/touch .write_bitstream.begin.rst
 EAStep vivado -log RISCV_Top.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source RISCV_Top.tcl -notrace
 
 

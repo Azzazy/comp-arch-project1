@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="39" Path="/home/caffe/XilinxProjects/p1-ms2-single_cycle-v1/p1-ms2-single_cycle-v1.xpr">
+<Project Version="7" Minor="39" Path="/home/caffe/XilinxProjects/p1-ms2-single_cycle-v4/p1-ms2-single_cycle-v1.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="b9e612848cff4287ad3c27d27b952a9c"/>
@@ -21,12 +21,12 @@
     <Option Name="ActiveSimSet" Val="sim_1"/>
     <Option Name="DefaultLib" Val="xil_defaultlib"/>
     <Option Name="ProjectType" Val="Default"/>
-    <Option Name="IPOutputRepo" Val="$PCACHEDIR/ip"/>
+    <Option Name="IPOutputRepo" Val="/home/caffe/XilinxProjects/p1-ms2-single_cycle-v1/p1-ms2-single_cycle-v1.cache/ip"/>
     <Option Name="IPCachePermission" Val="read"/>
     <Option Name="IPCachePermission" Val="write"/>
     <Option Name="EnableCoreContainer" Val="FALSE"/>
     <Option Name="CreateRefXciForCoreContainers" Val="FALSE"/>
-    <Option Name="IPUserFilesDir" Val="$PIPUSERFILESDIR"/>
+    <Option Name="IPUserFilesDir" Val="$PPRDIR/../p1-ms2-single_cycle-v1/p1-ms2-single_cycle-v1.ip_user_files"/>
     <Option Name="IPStaticSourceDir" Val="$PIPUSERFILESDIR/ipstatic"/>
     <Option Name="EnableBDX" Val="FALSE"/>
     <Option Name="DSAVendor" Val="xilinx"/>
@@ -60,18 +60,18 @@
   <FileSets Version="1" Minor="31">
     <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
       <Filter Type="Srcs"/>
-      <File Path="$PSRCDIR/sources_1/imports/p1-ms2-single_cycle-v1_files/ALUControl.v">
+      <File Path="$PSRCDIR/sources_1/imports/p1-ms2-single_cycle-v1_files/defines.v">
         <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../p1-ms2-single_cycle-v1_files/ALUControl.v"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../p1-ms2-single_cycle-v1_files/defines.v"/>
           <Attr Name="ImportTime" Val="1553940632"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/imports/p1-ms2-single_cycle-v1_files/defines.v">
+      <File Path="$PSRCDIR/sources_1/imports/p1-ms2-single_cycle-v1_files/ALUControl.v">
         <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../p1-ms2-single_cycle-v1_files/defines.v"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../p1-ms2-single_cycle-v1_files/ALUControl.v"/>
           <Attr Name="ImportTime" Val="1553940632"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -204,15 +204,6 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/imports/p1-ms2-single_cycle-v1_files/ShiftLeft1.v">
-        <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../p1-ms2-single_cycle-v1_files/ShiftLeft1.v"/>
-          <Attr Name="ImportTime" Val="1553940632"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
       <File Path="$PSRCDIR/sources_1/imports/p1-ms2-single_cycle-v1_files/branch_unit.v">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../p1-ms2-single_cycle-v1_files/branch_unit.v"/>
@@ -243,6 +234,16 @@
       <File Path="$PSRCDIR/sources_1/imports/p1-ms2-single_cycle-v1_files/RISCV_Top.v">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../p1-ms2-single_cycle-v1_files/RISCV_Top.v"/>
+          <Attr Name="ImportTime" Val="1553940632"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/p1-ms2-single_cycle-v1_files/ShiftLeft1.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../p1-ms2-single_cycle-v1_files/ShiftLeft1.v"/>
           <Attr Name="ImportTime" Val="1553940632"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
