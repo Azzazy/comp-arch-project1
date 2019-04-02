@@ -1,0 +1,22 @@
+
+25/3:	Started working on the single cycle datapath.
+	Enumerated some of the needed tasks (shifter, new control unit...)
+	Rewired the Lab's pipelined version as a single cycle.
+	Created some dummy verilog modules to synthesize the wiring.
+30/3:	Received an updated version, reviewing.
+	No difference between bge/blt and bgeu/bltu.			FIXED
+	Missing connections in top module.
+	Data memory implemented as big endian.				FIXED
+	Zeroed control flags for system and fence isntructions.	
+	Relocated mux zeroing first alu input for LUI instruction
+	before the register file, using reg x0.
+	Found incorrect control signals (control unit).			FIXED
+	Found error in the mapping between the ALU control
+	unit and the ALU						FIXED
+31/3	Fixed error in branching (removed the shifter)					FIXED
+	Due to the writing in the reg file on the negative
+	clk edge, the first load instruction was not executed
+	correctly, added a nop as first instruction.
+	Successfully tested the instructions from the lab exp.
+02/4	Testing the full datapath.
+	Report/Documentation.
