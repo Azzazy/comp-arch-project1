@@ -1,0 +1,11 @@
+﻿27 Mar 2019:
+* Created ALU Control Unit
+* Created Control Unit 
+* Created Branching Unit
+30 Mar 2019:
+* Updated the data memory to be byte addressable
+* Updated the data path to include the branching unit and the new data memory
+
+
+2 April 2019:
+* Tested branching and immediate shifting instructions.
