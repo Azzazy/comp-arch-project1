@@ -65,11 +65,10 @@ module bram(
                 mem[addrb]<=dinb[23:16];
                 mem[addrb]<=dinb[31:24];
             end
-        end else begin
+        end
             douta<={mem[addra+3],mem[addra+2], mem[addra+1], mem[addra]};
             doutb<={mem[addrb+3],mem[addrb+2], mem[addrb+1], mem[addrb]};
 
-        end
     end//always
 endmodule
 
