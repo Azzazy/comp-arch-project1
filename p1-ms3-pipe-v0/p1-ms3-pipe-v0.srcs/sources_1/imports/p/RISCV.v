@@ -14,20 +14,17 @@ module RISCV (
     output reg [12:0]   ssd
 );
 //PIPELINE REGISTER WIRES
-   wire [31:0] IF_ID_PC, IF_ID_Inst, 
-        ID_EX_PC, ID_EX_RegR1, ID_EX_RegR2, ID_EX_Imm, 
-        EX_MEM_BranchAddOut, EX_MEM_ALU_out, EX_MEM_RegR2, 
-        MEM_WB_Mem_out, MEM_WB_ALU_out;
-     wire [7:0] ID_EX_Ctrl;
-    wire [4:0] EX_MEM_Ctrl;
-    wire [1:0] MEM_WB_Ctrl;
-    wire [3:0] ID_EX_Func;
-    wire [4:0] ID_EX_Rs1, ID_EX_Rs2, ID_EX_Rd, EX_MEM_Rd, MEM_WB_Rd;
-    
+   wire [31:0] IF_ID_PC, IF_ID_Inst, IF_ID_PCAdder_out, ID_EX_ImmGen, ID_EX_RegR1, ID_EX_RegR2, ID_EX_BranchAdder_out, ID_EX_PC, 
+   ID_EX_PCAdder_out, EX_MEM_BranchAdder_out, EX_MEM_PCAdder_out, EX_MEM_ALU_out, EX_MEM_RegR2, MEM_WB_RegW;
+   wire [12:0]  ID_EX_Ctrl;
+   wire [8:0] EX_MEM_Ctrl;
+   wire [2:0] ID_EX_func3;
+   wire ID_EX_func7, MEM_WB_Ctrl;
+   wire [4:0] ID_EX_rd, EX_MEM_rd, MEM_WB_rd;
  //PIPELINE REGISTER WIRES END
     wire [31:0] PC_out, PCAdder_out, BranchAdder_out, PC_in, 
         RegR1, RegR2, RegW, ImmGen_out, Shift_out, ALUSrcMux_out, 
-        ALU_out, Mem_out, Inst, regWSrcMuxOut, Rg1_zero, offset_pc_in1;
+        ALU_out, Mem_out, Inst, regWSrcMuxOut, offset_pc_in1;
     wire branch_jalr,Branch, MemRead, MemToReg, MemWrite,
          ALUSrc, RegWrite, Zero, Branch_con,sf,vf, cf,
          B_JALR,l_zero,unsign,by,half,halt, branch_jal;
@@ -36,45 +33,34 @@ module RISCV (
     wire [3:0] ALUSel;
     wire shamtSrc;
     wire [31:0] shamt;
-    wire [31:0] aluin1, aluin2;
     assign PCSrc = branch_jalr | Branch_con |branch_jal;
     
     //PIPELINE REGISTERS
-    RegWLoad #(64) IF_ID (clk,rst,1'b1,
-                            {PC_out,Inst},
-                            {IF_ID_PC,IF_ID_Inst}
+    RegWLoad #(96) IF_ID (clk,rst,1'b1,
+                            {PC_out,Inst, PCAdder_out},
+                            {IF_ID_PC,IF_ID_Inst, IF_ID_PCAdder_out}
                             );
-   /* RegWLoad #(155) ID_EX (clk,rst,1'b1,
-                            {RegWrite,MemToReg,Branch,MemRead,MemWrite,ALUOp,ALUSrc,
-                                IF_ID_PC,RegR1,RegR2,ImmGen_out,
-                                IF_ID_Inst[30],IF_ID_Inst[14:12],
-                                IF_ID_Inst[19:15],IF_ID_Inst[24:20],IF_ID_Inst[11:7]},
-                            {ID_EX_Ctrl,ID_EX_PC,ID_EX_RegR1,ID_EX_RegR2,ID_EX_Imm,
-                                ID_EX_Func,ID_EX_Rs1,ID_EX_Rs2,ID_EX_Rd}
-                            );*/
-    RegWLoad #(124)  ID_EX   (clk, rst, 1'b1,
-                                {MemRead, MemToReg, MemWrite, RegWrite, by, half, unsign,shamtSrc,
-                                 IF_ID_Inst[`IR_rs1], IF_ID_Inst[`IR_rs2], IF_ID_Inst[`IR_rd], shamt[4:0], 
-                                 RegR1, RegR2, ImmGen_out}, 
-                                 {ID_EX_Ctrl, ID_EX_rs1, ID_EX_rs2, ID_EX_rd, ID_EX_shamt, ID_EX_RegR1, ID_EX_RegR2, ID_EX_ImmGen});//needs to be fixed
+
+    RegWLoad #(182)  ID_EX   (clk, rst, 1'b1,
+                                {IF_ID_Inst[30], IF_ID_Inst[`IR_funct3], shamtSrc, ALUSrc, ALUOp, MemRead, MemWrite, by, half, unsign,
+                                    MemToReg, RegWmux2Ctl, RegWrite, IF_ID_Inst[`IR_rd], ImmGen_out, RegR1, RegR2,
+                                    BranchAdder_out, IF_ID_PCAdder_out}, 
+                                 {ID_EX_func7, ID_EX_func3, ID_EX_Ctrl, ID_EX_rd, ID_EX_ImmGen, ID_EX_RegR1, ID_EX_RegR2, 
+                                 ID_EX_BranchAdder_out, ID_EX_PCAdder_out});//needs to be fixed
                                  //add branch adder ouput for auipc and offset pc output for jal and jalr
                                  
-    RegWLoad #(107) EX_MEM (clk,rst,1'b1,
-                            {ID_EX_Ctrl[7:3],
-                                BranchAdder_out,Zero,ALU_out,
-                                ID_EX_RegR2,ID_EX_Rd},
-                            {EX_MEM_Ctrl,EX_MEM_BranchAddOut,EX_MEM_Zero,EX_MEM_ALU_out,
-                                EX_MEM_RegR2, EX_MEM_Rd}
+    RegWLoad #(142) EX_MEM (clk,rst,1'b1,
+                            {ID_EX_Ctrl[8:0], ID_EX_rd, ID_EX_BranchAdder_out, ID_EX_PCAdder_out, ALU_out, ID_EX_RegR2},
+                            {EX_MEM_Ctrl, EX_MEM_rd, EX_MEM_BranchAdder_out, EX_MEM_PCAdder_out, EX_MEM_ALU_out, EX_MEM_RegR2}
                             );
-    RegWLoad #(71) MEM_WB (clk,rst,1'b1,
-                            {EX_MEM_Ctrl[4:3],
-                                Mem_out,EX_MEM_ALU_out,EX_MEM_Rd},
-                            {MEM_WB_Ctrl,MEM_WB_Mem_out, MEM_WB_ALU_out, MEM_WB_Rd}
+    RegWLoad #(38) MEM_WB (clk,rst,1'b1,
+                            {EX_MEM_Ctrl[0], EX_MEM_rd, RegW},
+                            {MEM_WB_Ctrl,MEM_WB_rd, MEM_WB_RegW}
                             );
     
     //PIPELINE REGISTERS END
     //IF STAGE
-    RegWLoad PC(clk,rst,~halt,PC_in,PC_out); 
+    RegWLoad PC(clk,rst,~halt,PC_in,PC_out);//change the updating of the PC
     InstMem imem(rst,PC_out[9:2],Inst);
     RippleAdder IncPC(PC_out,4,1'b0,PCAdder_out,);//move to IF stage
     Mux2_1 #(32) pcSrcMux(.sel(PCSrc),.in1(PCAdder_out),.in2(BranchAdder_out), .out(PC_in));//changed to mux2
@@ -92,23 +78,25 @@ module RISCV (
         ,.ALUOp(ALUOp),.MemWrite(MemWrite),.ALUSrc(ALUSrc),.RegWrite(RegWrite),.shamtSrc(shamtSrc), .by(by), .half(half),
 		.unsign(unsign),.l_zero(l_zero), .Branch_JALR(branch_jalr), .Branch_JAL(branch_jal), .RegWmux2Ctl(RegWmux2Ctl), .halt(halt));
  
-    RegFile rf(.clk(~clk),.rst(rst),.WriteEn(RegWrite),
-        .rs1(rs1_src),.rs2(Inst[24:20]),.rd(Inst[11:7]),
-        .write_data(RegW),.read_data1(RegR1),.read_data2(RegR2));//RegW, Rd and WriteEn from pipeline MEM/WB
+    RegFile rf(.clk(~clk),.rst(rst),.WriteEn(MEM_WB_Ctrl),
+        .rs1(rs1_src),.rs2(Inst[`IR_rs2]),.rd(MEM_WB_rd),
+        .write_data(MEM_WB_RegW),.read_data1(RegR1),.read_data2(RegR2));//RegW, Rd and WriteEn from pipeline MEM/WB
     //ID STAGE END  
     //EX STAGE
-    Mux2_1 #(32) shamtMux(.sel(shamtSrc), .in1(RegR2), .in2(ImmGen_out), .out(shamt));//add shamt to pipe
-    Mux2_1 #(32) aluSrcBMux(ALUSrc,RegR2,ImmGen_out,ALUSrcMux_out);//add multiplexers for load-use hazards rs1 and rs2.
-    ALUControl acu(.ALUOp(ALUOp),.func3(Inst[14:12]),.func7(Inst[30]),.sel(ALUSel));
-    prv32_ALU alu(.a(RegR1), .b(ALUSrcMux_out), .shamt(shamt[4:0]), .r(ALU_out),
-        .cf(cf), .zf(Zero), .vf(vf), .sf(sf), .alufn(ALUSel));
+    Mux2_1 #(32) shamtMux(.sel(ID_EX_Ctrl[12]), .in1(ID_EX_RegR2), .in2(ID_EX_ImmGen), .out(shamt));//add shamt to pipe
+    Mux2_1 #(32) aluSrcBMux(ID_EX_Ctrl[11],ID_EX_RegR2,ID_EX_ImmGen,ALUSrcMux_out);//add multiplexers for load-use hazards rs1 and rs2.
+    ALUControl acu(.ALUOp(ID_EX_Ctrl[10:9]),.func3(ID_EX_func3),.func7(ID_EX_func7),.sel(ALUSel));
+    prv32_ALU alu(.a(ID_EX_RegR1), .b(ALUSrcMux_out), .shamt(shamt[4:0]), .r(ALU_out),
+        .cf(cf), .zf(Zero), .vf(vf), .sf(sf), .alufn(ALUSel));//remove the flags from the alu
    
     //EX STAGE END
     //MEM STAGE
-    DataMem dmem(clk,rst,MemRead,MemWrite,by,half,unsign,ALU_out[7:0],RegR2,Mem_out);//fix address width
-    Mux2_1 #(32) regWSrcMux(MemToReg,ALU_out,Mem_out,regWSrcMuxOut);
-    Mux4_1 #(32) regWsrcMux1(.sel(RegWmux2Ctl), .in1(regWSrcMuxOut), .in2(BranchAdder_out), .in3(PCAdder_out), .in4(0), .out(RegW));//don't forget to pass addr. in pipeline
+    DataMem dmem(clk,rst,EX_MEM_Ctrl[8],EX_MEM_Ctrl[7],EX_MEM_Ctrl[6],EX_MEM_Ctrl[5],EX_MEM_Ctrl[4],EX_MEM_ALU_out[7:0],EX_MEM_RegR2,Mem_out);//fix address width
+    Mux2_1 #(32) regWSrcMux(EX_MEM_Ctrl[3],EX_MEM_ALU_out,Mem_out,regWSrcMuxOut);
+    Mux4_1 #(32) regWsrcMux1(.sel(EX_MEM_Ctrl[2:1]), .in1(regWSrcMuxOut), .in2(EX_MEM_BranchAdder_out), .in3(EX_MEM_PCAdder_out), .in4(0), .out(RegW));//don't forget to pass addr. in pipeline
+    //MEM STAGE END
     
+    //Variables output on the FPGA's 7-seg display and LEDs need to be picked from the pipeline.
     
     always @(*) begin
         case(ledSel)
