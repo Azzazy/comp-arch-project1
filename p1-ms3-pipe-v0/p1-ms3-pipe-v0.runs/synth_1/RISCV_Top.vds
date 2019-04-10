@@ -2,8 +2,8 @@
 # Vivado v2018.3 (64-bit)
 # SW Build 2405991 on Thu Dec  6 23:36:41 MST 2018
 # IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
-# Start of session at: Mon Apr  8 20:42:09 2019
-# Process ID: 25760
+# Start of session at: Wed Apr 10 12:55:43 2019
+# Process ID: 11150
 # Current directory: /home/caffe/XilinxProjects/p1-ms3-pipe-v0/p1-ms3-pipe-v0.runs/synth_1
 # Command line: vivado -log RISCV_Top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source RISCV_Top.tcl
 # Log file: /home/caffe/XilinxProjects/p1-ms3-pipe-v0/p1-ms3-pipe-v0.runs/synth_1/RISCV_Top.vds
@@ -15,9 +15,9 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 25774 
+INFO: Helper process launched with PID 11165 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1382.258 ; gain = 0.000 ; free physical = 1371 ; free virtual = 7109
+Starting RTL Elaboration : Time (s): cpu = 00:00:01 ; elapsed = 00:00:02 . Memory (MB): peak = 1383.262 ; gain = 0.000 ; free physical = 7394 ; free virtual = 14498
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'RISCV_Top' [/home/caffe/XilinxProjects/p1-ms3-pipe-v0/p1-ms3-pipe-v0.srcs/sources_1/imports/p/RISCV_Top.v:6]
 INFO: [Synth 8-6157] synthesizing module 'RISCV' [/home/caffe/XilinxProjects/p1-ms3-pipe-v0/p1-ms3-pipe-v0.srcs/sources_1/imports/p/RISCV.v:8]
@@ -172,7 +172,6 @@ INFO: [Synth 8-6157] synthesizing module 'prv32_ALU' [/home/caffe/XilinxProjects
 INFO: [Synth 8-6157] synthesizing module 'shifter' [/home/caffe/XilinxProjects/p1-ms3-pipe-v0/p1-ms3-pipe-v0.srcs/sources_1/imports/p/shifter.v:23]
 INFO: [Synth 8-6155] done synthesizing module 'shifter' (13#1) [/home/caffe/XilinxProjects/p1-ms3-pipe-v0/p1-ms3-pipe-v0.srcs/sources_1/imports/p/shifter.v:23]
 INFO: [Synth 8-3536] HDL ADVISOR - Pragma parallel_case detected. Simulation mismatch may occur [/home/caffe/XilinxProjects/p1-ms3-pipe-v0/p1-ms3-pipe-v0.srcs/sources_1/imports/p/prv32_ALU.v:26]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/caffe/XilinxProjects/p1-ms3-pipe-v0/p1-ms3-pipe-v0.srcs/sources_1/imports/p/prv32_ALU.v:26]
 INFO: [Synth 8-6155] done synthesizing module 'prv32_ALU' (14#1) [/home/caffe/XilinxProjects/p1-ms3-pipe-v0/p1-ms3-pipe-v0.srcs/sources_1/imports/p/prv32_ALU.v:1]
 INFO: [Synth 8-6157] synthesizing module 'DataMem' [/home/caffe/XilinxProjects/p1-ms3-pipe-v0/p1-ms3-pipe-v0.srcs/sources_1/imports/p/DataMem.v:6]
 WARNING: [Synth 8-5788] Register mem_reg[16] in module DataMem is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/caffe/XilinxProjects/p1-ms3-pipe-v0/p1-ms3-pipe-v0.srcs/sources_1/imports/p/DataMem.v:23]
@@ -287,7 +286,7 @@ INFO: [Synth 8-6155] done synthesizing module 'RISCV_Top' (19#1) [/home/caffe/Xi
 WARNING: [Synth 8-3331] design rv32_ImmGen has unconnected port IR[1]
 WARNING: [Synth 8-3331] design rv32_ImmGen has unconnected port IR[0]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1492.543 ; gain = 110.285 ; free physical = 1302 ; free virtual = 7045
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1492.543 ; gain = 109.281 ; free physical = 7324 ; free virtual = 14433
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -300,10 +299,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 1492.543 ; gain = 110.285 ; free physical = 1321 ; free virtual = 7063
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1492.543 ; gain = 109.281 ; free physical = 7347 ; free virtual = 14458
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 1492.543 ; gain = 110.285 ; free physical = 1321 ; free virtual = 7063
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1492.543 ; gain = 109.281 ; free physical = 7347 ; free virtual = 14458
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a100tcsg324-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -314,30 +313,30 @@ Parsing XDC File [/home/caffe/XilinxProjects/p1-ms3-pipe-v0/p1-ms3-pipe-v0.srcs/
 Finished Parsing XDC File [/home/caffe/XilinxProjects/p1-ms3-pipe-v0/p1-ms3-pipe-v0.srcs/constrs_1/imports/p/PackagePins.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/caffe/XilinxProjects/p1-ms3-pipe-v0/p1-ms3-pipe-v0.srcs/constrs_1/imports/p/PackagePins.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/RISCV_Top_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/RISCV_Top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1878.879 ; gain = 0.000 ; free physical = 977 ; free virtual = 6755
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 1879.395 ; gain = 0.000 ; free physical = 7031 ; free virtual = 14147
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 1878.879 ; gain = 0.000 ; free physical = 976 ; free virtual = 6754
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1879.395 ; gain = 0.000 ; free physical = 7031 ; free virtual = 14147
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 1878.879 ; gain = 0.000 ; free physical = 976 ; free virtual = 6754
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.01 . Memory (MB): peak = 1878.879 ; gain = 0.000 ; free physical = 976 ; free virtual = 6754
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1879.395 ; gain = 0.000 ; free physical = 7031 ; free virtual = 14147
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 1879.395 ; gain = 0.000 ; free physical = 7031 ; free virtual = 14147
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:13 ; elapsed = 00:00:18 . Memory (MB): peak = 1878.879 ; gain = 496.621 ; free physical = 1089 ; free virtual = 6868
+Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1879.395 ; gain = 496.133 ; free physical = 7144 ; free virtual = 14263
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:18 . Memory (MB): peak = 1878.879 ; gain = 496.621 ; free physical = 1089 ; free virtual = 6868
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1879.395 ; gain = 496.133 ; free physical = 7144 ; free virtual = 14263
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:18 . Memory (MB): peak = 1878.879 ; gain = 496.621 ; free physical = 1088 ; free virtual = 6867
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1879.395 ; gain = 496.133 ; free physical = 7146 ; free virtual = 14265
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5544] ROM "Branch0" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "MemRead0" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
@@ -547,7 +546,7 @@ INFO: [Synth 8-5545] ROM "mem_reg[99]" won't be mapped to RAM because address si
 INFO: [Common 17-14] Message 'Synth 8-5545' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 WARNING: [Synth 8-327] inferring latch for variable 'data_out_reg' [/home/caffe/XilinxProjects/p1-ms3-pipe-v0/p1-ms3-pipe-v0.srcs/sources_1/imports/p/DataMem.v:64]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:42 ; elapsed = 00:00:48 . Memory (MB): peak = 1878.879 ; gain = 496.621 ; free physical = 1043 ; free virtual = 6821
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:36 ; elapsed = 00:00:39 . Memory (MB): peak = 1879.395 ; gain = 496.133 ; free physical = 7068 ; free virtual = 14217
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -555,7 +554,7 @@ Report RTL Partitions:
 |      |RTL Partition |Replication |Instances |
 +------+--------------+------------+----------+
 |1     |DataMem       |           1|     43169|
-|2     |RISCV__GB1    |           1|     16636|
+|2     |RISCV__GB1    |           1|     16424|
 |3     |SSDDriver     |           1|      1433|
 +------+--------------+------------+----------+
 ---------------------------------------------------------------------------------
@@ -575,7 +574,7 @@ Detailed RTL Component Info :
 	                1 Bit    Registers := 1514  
 +---Muxes : 
 	   2 Input     32 Bit        Muxes := 7     
-	   8 Input     32 Bit        Muxes := 1     
+	   8 Input     32 Bit        Muxes := 2     
 	   4 Input     32 Bit        Muxes := 2     
 	   4 Input     16 Bit        Muxes := 1     
 	   2 Input      8 Bit        Muxes := 1145  
@@ -583,6 +582,7 @@ Detailed RTL Component Info :
 	   2 Input      5 Bit        Muxes := 1     
 	   4 Input      4 Bit        Muxes := 3     
 	   8 Input      4 Bit        Muxes := 2     
+	  12 Input      3 Bit        Muxes := 1     
 	   3 Input      2 Bit        Muxes := 7     
 	   5 Input      2 Bit        Muxes := 1     
 	   4 Input      2 Bit        Muxes := 1     
@@ -12269,6 +12269,8 @@ Detailed RTL Component Info :
 	   4 Input      1 Bit         XORs := 1     
 +---Muxes : 
 	   2 Input     32 Bit        Muxes := 1     
+	   8 Input     32 Bit        Muxes := 1     
+	  12 Input      3 Bit        Muxes := 1     
 Module Mux2_1__1 
 Detailed RTL Component Info : 
 +---Muxes : 
@@ -13205,7 +13207,7 @@ INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_0/rf/
 INFO: [Synth 8-3333] propagating constant 1 across sequential element (rvi_0/imem/\mem_reg[7][15] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (rvi_0/imem/\mem_reg[0][15] )
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:24 ; elapsed = 00:01:34 . Memory (MB): peak = 2132.809 ; gain = 750.551 ; free physical = 905 ; free virtual = 6711
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:10 ; elapsed = 00:01:17 . Memory (MB): peak = 2134.324 ; gain = 751.062 ; free physical = 6549 ; free virtual = 14163
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -13213,20 +13215,20 @@ Report RTL Partitions:
 |      |RTL Partition |Replication |Instances |
 +------+--------------+------------+----------+
 |1     |DataMem       |           1|     25190|
-|2     |RISCV__GB1    |           1|      6651|
+|2     |RISCV__GB1    |           1|      6984|
 |3     |SSDDriver     |           1|       391|
 +------+--------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:30 ; elapsed = 00:01:40 . Memory (MB): peak = 2132.809 ; gain = 750.551 ; free physical = 646 ; free virtual = 6543
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:15 ; elapsed = 00:01:22 . Memory (MB): peak = 2134.324 ; gain = 751.062 ; free physical = 6442 ; free virtual = 14069
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:01:30 ; elapsed = 00:01:40 . Memory (MB): peak = 2132.809 ; gain = 750.551 ; free physical = 646 ; free virtual = 6543
+Finished Timing Optimization : Time (s): cpu = 00:01:15 ; elapsed = 00:01:22 . Memory (MB): peak = 2134.324 ; gain = 751.062 ; free physical = 6442 ; free virtual = 14069
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -13234,14 +13236,14 @@ Report RTL Partitions:
 |      |RTL Partition |Replication |Instances |
 +------+--------------+------------+----------+
 |1     |DataMem       |           1|     25190|
-|2     |RISCV__GB1    |           1|      6651|
+|2     |RISCV__GB1    |           1|      6984|
 |3     |SSDDriver     |           1|       391|
 +------+--------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:01:33 ; elapsed = 00:01:44 . Memory (MB): peak = 2132.809 ; gain = 750.551 ; free physical = 817 ; free virtual = 6632
+Finished Technology Mapping : Time (s): cpu = 00:01:18 ; elapsed = 00:01:25 . Memory (MB): peak = 2134.324 ; gain = 751.062 ; free physical = 6437 ; free virtual = 14067
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -13265,7 +13267,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:01:35 ; elapsed = 00:01:45 . Memory (MB): peak = 2132.809 ; gain = 750.551 ; free physical = 818 ; free virtual = 6634
+Finished IO Insertion : Time (s): cpu = 00:01:19 ; elapsed = 00:01:26 . Memory (MB): peak = 2134.324 ; gain = 751.062 ; free physical = 6435 ; free virtual = 14066
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -13278,7 +13280,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:01:35 ; elapsed = 00:01:46 . Memory (MB): peak = 2132.809 ; gain = 750.551 ; free physical = 818 ; free virtual = 6634
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:19 ; elapsed = 00:01:26 . Memory (MB): peak = 2134.324 ; gain = 751.062 ; free physical = 6435 ; free virtual = 14066
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -13290,25 +13292,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:36 ; elapsed = 00:01:46 . Memory (MB): peak = 2132.809 ; gain = 750.551 ; free physical = 817 ; free virtual = 6633
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:20 ; elapsed = 00:01:27 . Memory (MB): peak = 2134.324 ; gain = 751.062 ; free physical = 6434 ; free virtual = 14065
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:01:36 ; elapsed = 00:01:46 . Memory (MB): peak = 2132.809 ; gain = 750.551 ; free physical = 817 ; free virtual = 6633
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:20 ; elapsed = 00:01:27 . Memory (MB): peak = 2134.324 ; gain = 751.062 ; free physical = 6434 ; free virtual = 14065
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:38 ; elapsed = 00:01:48 . Memory (MB): peak = 2132.809 ; gain = 750.551 ; free physical = 815 ; free virtual = 6633
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:21 ; elapsed = 00:01:28 . Memory (MB): peak = 2134.324 ; gain = 751.062 ; free physical = 6433 ; free virtual = 14065
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:01:38 ; elapsed = 00:01:48 . Memory (MB): peak = 2132.809 ; gain = 750.551 ; free physical = 815 ; free virtual = 6633
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:21 ; elapsed = 00:01:28 . Memory (MB): peak = 2134.324 ; gain = 751.062 ; free physical = 6433 ; free virtual = 14065
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -13327,11 +13329,11 @@ Report Cell Usage:
 |1     |BUFG   |     3|
 |2     |CARRY4 |    43|
 |3     |LUT1   |     6|
-|4     |LUT2   |   175|
-|5     |LUT3   |  1308|
-|6     |LUT4   |   224|
-|7     |LUT5   |   804|
-|8     |LUT6   |  6216|
+|4     |LUT2   |   176|
+|5     |LUT3   |  1309|
+|6     |LUT4   |   243|
+|7     |LUT5   |   750|
+|8     |LUT6   |  6236|
 |9     |MUXF7  |   819|
 |10    |MUXF8  |   112|
 |11    |FDCE   |  1647|
@@ -13346,8 +13348,8 @@ Report Instance Areas:
 +------+------------------------+----------------------------+------+
 |      |Instance                |Module                      |Cells |
 +------+------------------------+----------------------------+------+
-|1     |top                     |                            | 13398|
-|2     |  rv                    |RISCV                       | 13223|
+|1     |top                     |                            | 13385|
+|2     |  rv                    |RISCV                       | 13210|
 |3     |    EX_MEM              |RegWLoad__parameterized1    |   233|
 |4     |      \genblk1[0].f     |FlipFlop_1352               |     1|
 |5     |      \genblk1[100].f   |FlipFlop_1353               |     1|
@@ -13491,45 +13493,45 @@ Report Instance Areas:
 |143   |      \genblk1[98].f    |FlipFlop_1491               |     1|
 |144   |      \genblk1[99].f    |FlipFlop_1492               |     1|
 |145   |      \genblk1[9].f     |FlipFlop_1493               |     1|
-|146   |    ID_EX               |RegWLoad__parameterized0    |   605|
+|146   |    ID_EX               |RegWLoad__parameterized0    |   590|
 |147   |      \genblk1[0].f     |FlipFlop_1179               |     1|
-|148   |      \genblk1[100].f   |FlipFlop_1180               |     8|
-|149   |      \genblk1[101].f   |FlipFlop_1181               |     8|
-|150   |      \genblk1[102].f   |FlipFlop_1182               |     8|
-|151   |      \genblk1[103].f   |FlipFlop_1183               |     8|
-|152   |      \genblk1[104].f   |FlipFlop_1184               |     4|
-|153   |      \genblk1[105].f   |FlipFlop_1185               |     4|
-|154   |      \genblk1[106].f   |FlipFlop_1186               |     1|
-|155   |      \genblk1[107].f   |FlipFlop_1187               |     4|
-|156   |      \genblk1[108].f   |FlipFlop_1188               |     4|
-|157   |      \genblk1[109].f   |FlipFlop_1189               |     4|
+|148   |      \genblk1[100].f   |FlipFlop_1180               |     2|
+|149   |      \genblk1[101].f   |FlipFlop_1181               |     2|
+|150   |      \genblk1[102].f   |FlipFlop_1182               |     1|
+|151   |      \genblk1[103].f   |FlipFlop_1183               |     1|
+|152   |      \genblk1[104].f   |FlipFlop_1184               |     2|
+|153   |      \genblk1[105].f   |FlipFlop_1185               |     2|
+|154   |      \genblk1[106].f   |FlipFlop_1186               |     2|
+|155   |      \genblk1[107].f   |FlipFlop_1187               |     2|
+|156   |      \genblk1[108].f   |FlipFlop_1188               |     1|
+|157   |      \genblk1[109].f   |FlipFlop_1189               |     1|
 |158   |      \genblk1[10].f    |FlipFlop_1190               |     1|
-|159   |      \genblk1[110].f   |FlipFlop_1191               |     4|
-|160   |      \genblk1[111].f   |FlipFlop_1192               |     4|
-|161   |      \genblk1[112].f   |FlipFlop_1193               |     4|
-|162   |      \genblk1[113].f   |FlipFlop_1194               |     4|
-|163   |      \genblk1[114].f   |FlipFlop_1195               |     4|
-|164   |      \genblk1[115].f   |FlipFlop_1196               |     4|
-|165   |      \genblk1[116].f   |FlipFlop_1197               |     4|
-|166   |      \genblk1[117].f   |FlipFlop_1198               |     4|
-|167   |      \genblk1[118].f   |FlipFlop_1199               |     4|
-|168   |      \genblk1[119].f   |FlipFlop_1200               |     4|
+|159   |      \genblk1[110].f   |FlipFlop_1191               |     1|
+|160   |      \genblk1[111].f   |FlipFlop_1192               |     1|
+|161   |      \genblk1[112].f   |FlipFlop_1193               |     1|
+|162   |      \genblk1[113].f   |FlipFlop_1194               |     1|
+|163   |      \genblk1[114].f   |FlipFlop_1195               |     1|
+|164   |      \genblk1[115].f   |FlipFlop_1196               |     1|
+|165   |      \genblk1[116].f   |FlipFlop_1197               |     2|
+|166   |      \genblk1[117].f   |FlipFlop_1198               |     2|
+|167   |      \genblk1[118].f   |FlipFlop_1199               |     2|
+|168   |      \genblk1[119].f   |FlipFlop_1200               |     2|
 |169   |      \genblk1[11].f    |FlipFlop_1201               |     1|
-|170   |      \genblk1[120].f   |FlipFlop_1202               |     7|
-|171   |      \genblk1[121].f   |FlipFlop_1203               |     7|
-|172   |      \genblk1[122].f   |FlipFlop_1204               |     8|
-|173   |      \genblk1[123].f   |FlipFlop_1205               |     8|
-|174   |      \genblk1[124].f   |FlipFlop_1206               |     6|
-|175   |      \genblk1[125].f   |FlipFlop_1207               |     7|
-|176   |      \genblk1[126].f   |FlipFlop_1208               |     9|
-|177   |      \genblk1[127].f   |FlipFlop_1209               |     9|
-|178   |      \genblk1[128].f   |FlipFlop_1210               |     3|
-|179   |      \genblk1[129].f   |FlipFlop_1211               |     6|
+|170   |      \genblk1[120].f   |FlipFlop_1202               |     1|
+|171   |      \genblk1[121].f   |FlipFlop_1203               |     1|
+|172   |      \genblk1[122].f   |FlipFlop_1204               |     1|
+|173   |      \genblk1[123].f   |FlipFlop_1205               |     1|
+|174   |      \genblk1[124].f   |FlipFlop_1206               |     2|
+|175   |      \genblk1[125].f   |FlipFlop_1207               |     4|
+|176   |      \genblk1[126].f   |FlipFlop_1208               |     4|
+|177   |      \genblk1[127].f   |FlipFlop_1209               |     4|
+|178   |      \genblk1[128].f   |FlipFlop_1210               |     6|
+|179   |      \genblk1[129].f   |FlipFlop_1211               |     3|
 |180   |      \genblk1[12].f    |FlipFlop_1212               |     1|
-|181   |      \genblk1[130].f   |FlipFlop_1213               |    10|
-|182   |      \genblk1[131].f   |FlipFlop_1214               |     4|
+|181   |      \genblk1[130].f   |FlipFlop_1213               |     4|
+|182   |      \genblk1[131].f   |FlipFlop_1214               |     3|
 |183   |      \genblk1[132].f   |FlipFlop_1215               |     2|
-|184   |      \genblk1[137].f   |FlipFlop_1216               |     8|
+|184   |      \genblk1[137].f   |FlipFlop_1216               |     9|
 |185   |      \genblk1[138].f   |FlipFlop_1217               |     2|
 |186   |      \genblk1[139].f   |FlipFlop_1218               |     2|
 |187   |      \genblk1[13].f    |FlipFlop_1219               |     1|
@@ -13541,13 +13543,13 @@ Report Instance Areas:
 |193   |      \genblk1[145].f   |FlipFlop_1225               |     2|
 |194   |      \genblk1[146].f   |FlipFlop_1226               |     2|
 |195   |      \genblk1[147].f   |FlipFlop_1227               |     2|
-|196   |      \genblk1[148].f   |FlipFlop_1228               |     2|
-|197   |      \genblk1[149].f   |FlipFlop_1229               |     2|
+|196   |      \genblk1[148].f   |FlipFlop_1228               |     3|
+|197   |      \genblk1[149].f   |FlipFlop_1229               |     3|
 |198   |      \genblk1[14].f    |FlipFlop_1230               |     1|
-|199   |      \genblk1[150].f   |FlipFlop_1231               |     2|
-|200   |      \genblk1[151].f   |FlipFlop_1232               |     2|
+|199   |      \genblk1[150].f   |FlipFlop_1231               |     3|
+|200   |      \genblk1[151].f   |FlipFlop_1232               |     3|
 |201   |      \genblk1[154].f   |FlipFlop_1233               |     3|
-|202   |      \genblk1[155].f   |FlipFlop_1234               |    13|
+|202   |      \genblk1[155].f   |FlipFlop_1234               |    16|
 |203   |      \genblk1[158].f   |FlipFlop_1235               |     2|
 |204   |      \genblk1[15].f    |FlipFlop_1236               |     1|
 |205   |      \genblk1[160].f   |FlipFlop_1237               |     1|
@@ -13565,10 +13567,10 @@ Report Instance Areas:
 |217   |      \genblk1[171].f   |FlipFlop_1249               |     1|
 |218   |      \genblk1[172].f   |FlipFlop_1250               |     1|
 |219   |      \genblk1[173].f   |FlipFlop_1251               |     1|
-|220   |      \genblk1[174].f   |FlipFlop_1252               |   131|
-|221   |      \genblk1[175].f   |FlipFlop_1253               |    46|
-|222   |      \genblk1[176].f   |FlipFlop_1254               |     4|
-|223   |      \genblk1[177].f   |FlipFlop_1255               |    36|
+|220   |      \genblk1[174].f   |FlipFlop_1252               |    37|
+|221   |      \genblk1[175].f   |FlipFlop_1253               |    54|
+|222   |      \genblk1[176].f   |FlipFlop_1254               |     5|
+|223   |      \genblk1[177].f   |FlipFlop_1255               |     1|
 |224   |      \genblk1[178].f   |FlipFlop_1256               |     1|
 |225   |      \genblk1[179].f   |FlipFlop_1257               |     1|
 |226   |      \genblk1[17].f    |FlipFlop_1258               |     1|
@@ -13625,11 +13627,11 @@ Report Instance Areas:
 |277   |      \genblk1[61].f    |FlipFlop_1309               |     1|
 |278   |      \genblk1[62].f    |FlipFlop_1310               |     1|
 |279   |      \genblk1[63].f    |FlipFlop_1311               |     1|
-|280   |      \genblk1[64].f    |FlipFlop_1312               |     1|
-|281   |      \genblk1[65].f    |FlipFlop_1313               |     1|
-|282   |      \genblk1[66].f    |FlipFlop_1314               |     1|
-|283   |      \genblk1[67].f    |FlipFlop_1315               |     4|
-|284   |      \genblk1[68].f    |FlipFlop_1316               |     1|
+|280   |      \genblk1[64].f    |FlipFlop_1312               |     2|
+|281   |      \genblk1[65].f    |FlipFlop_1313               |    20|
+|282   |      \genblk1[66].f    |FlipFlop_1314               |     4|
+|283   |      \genblk1[67].f    |FlipFlop_1315               |   214|
+|284   |      \genblk1[68].f    |FlipFlop_1316               |     2|
 |285   |      \genblk1[69].f    |FlipFlop_1317               |     1|
 |286   |      \genblk1[6].f     |FlipFlop_1318               |     1|
 |287   |      \genblk1[70].f    |FlipFlop_1319               |     1|
@@ -13660,10 +13662,10 @@ Report Instance Areas:
 |312   |      \genblk1[93].f    |FlipFlop_1344               |     1|
 |313   |      \genblk1[94].f    |FlipFlop_1345               |     1|
 |314   |      \genblk1[95].f    |FlipFlop_1346               |     1|
-|315   |      \genblk1[96].f    |FlipFlop_1347               |    12|
-|316   |      \genblk1[97].f    |FlipFlop_1348               |     9|
-|317   |      \genblk1[98].f    |FlipFlop_1349               |    10|
-|318   |      \genblk1[99].f    |FlipFlop_1350               |     7|
+|315   |      \genblk1[96].f    |FlipFlop_1347               |     4|
+|316   |      \genblk1[97].f    |FlipFlop_1348               |     3|
+|317   |      \genblk1[98].f    |FlipFlop_1349               |     3|
+|318   |      \genblk1[99].f    |FlipFlop_1350               |     4|
 |319   |      \genblk1[9].f     |FlipFlop_1351               |     1|
 |320   |    IF_ID               |RegWLoad                    |   255|
 |321   |      \genblk1[10].f    |FlipFlop_1095               |     1|
@@ -13823,7 +13825,7 @@ Report Instance Areas:
 |475   |      \genblk1[7].f     |FlipFlop_1054               |     7|
 |476   |      \genblk1[8].f     |FlipFlop_1055               |     2|
 |477   |      \genblk1[9].f     |FlipFlop_1056               |     6|
-|478   |    aluSrcBMux          |Mux2_1__parameterized0_0    |    30|
+|478   |    aluSrcBMux          |Mux2_1__parameterized0_0    |    32|
 |479   |    dmem                |DataMem                     | 10158|
 |480   |    imem                |InstMem                     |    30|
 |481   |    pcSrcMux            |Mux2_1__parameterized0_1    |    22|
@@ -14856,28 +14858,28 @@ Report Instance Areas:
 |1508  |  sd                    |SSDDriver                   |    47|
 +------+------------------------+----------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:01:38 ; elapsed = 00:01:48 . Memory (MB): peak = 2132.809 ; gain = 750.551 ; free physical = 815 ; free virtual = 6633
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:21 ; elapsed = 00:01:28 . Memory (MB): peak = 2134.324 ; gain = 751.062 ; free physical = 6433 ; free virtual = 14065
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 1 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:01:32 ; elapsed = 00:01:40 . Memory (MB): peak = 2132.809 ; gain = 364.215 ; free physical = 866 ; free virtual = 6685
-Synthesis Optimization Complete : Time (s): cpu = 00:01:38 ; elapsed = 00:01:48 . Memory (MB): peak = 2132.816 ; gain = 750.551 ; free physical = 866 ; free virtual = 6685
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:17 ; elapsed = 00:01:23 . Memory (MB): peak = 2134.324 ; gain = 364.211 ; free physical = 6484 ; free virtual = 14116
+Synthesis Optimization Complete : Time (s): cpu = 00:01:21 ; elapsed = 00:01:28 . Memory (MB): peak = 2134.332 ; gain = 751.062 ; free physical = 6484 ; free virtual = 14116
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 1006 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2164.824 ; gain = 0.000 ; free physical = 816 ; free virtual = 6635
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2166.340 ; gain = 0.000 ; free physical = 6433 ; free virtual = 14068
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 32 instances were transformed.
   LD => LDCE: 32 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-407 Infos, 205 Warnings, 0 Critical Warnings and 0 Errors encountered.
+406 Infos, 205 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:41 ; elapsed = 00:01:51 . Memory (MB): peak = 2164.824 ; gain = 782.781 ; free physical = 883 ; free virtual = 6703
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2164.824 ; gain = 0.000 ; free physical = 883 ; free virtual = 6703
+synth_design: Time (s): cpu = 00:01:24 ; elapsed = 00:01:31 . Memory (MB): peak = 2166.340 ; gain = 783.297 ; free physical = 6500 ; free virtual = 14135
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2166.340 ; gain = 0.000 ; free physical = 6500 ; free virtual = 14135
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint '/home/caffe/XilinxProjects/p1-ms3-pipe-v0/p1-ms3-pipe-v0.runs/synth_1/RISCV_Top.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file RISCV_Top_utilization_synth.rpt -pb RISCV_Top_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Mon Apr  8 20:44:09 2019...
+INFO: [Common 17-206] Exiting Vivado at Wed Apr 10 12:57:22 2019...

@@ -1,0 +1,356 @@
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
+| Date         : Wed Apr 10 12:58:10 2019
+| Host         : caffe-OptiPlex-5050 running 64-bit Ubuntu 18.04.2 LTS
+| Command      : report_control_sets -verbose -file RISCV_Top_control_sets_placed.rpt
+| Design       : RISCV_Top
+| Device       : xc7a100t
+--------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Number of unique control sets                            |   291 |
+| Unused register locations in slices containing registers |     4 |
++----------------------------------------------------------+-------+
+
+
+2. Histogram
+------------
+
++--------+--------------+
+| Fanout | Control Sets |
++--------+--------------+
+|      8 |          256 |
+|    16+ |           35 |
++--------+--------------+
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              52 |           23 |
+| No           | No                    | Yes                    |             528 |          205 |
+| No           | Yes                   | No                     |               0 |            0 |
+| Yes          | No                    | No                     |            1920 |         1035 |
+| Yes          | No                    | Yes                    |            1152 |          495 |
+| Yes          | Yes                   | No                     |               0 |            0 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++-----------------+----------------------------------+------------------+------------------+----------------+
+|   Clock Signal  |           Enable Signal          | Set/Reset Signal | Slice Load Count | Bel Load Count |
++-----------------+----------------------------------+------------------+------------------+----------------+
+|  rclk_IBUF_BUFG | rv/dmem/mem[24][7]_i_1_n_0       |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[26][7]_i_1_n_0       |                  |                5 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[25][7]_i_1_n_0       |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[255][7]_i_1_n_0      |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[254][7]_i_1_n_0      |                  |                5 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[253][7]_i_1_n_0      |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[252][7]_i_1_n_0      |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[251][7]_i_1_n_0      |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[250][7]_i_1_n_0      |                  |                7 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[27][7]_i_1_n_0       |                  |                3 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[249][7]_i_1_n_0      |                  |                3 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[248][7]_i_1_n_0      |                  |                2 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[247][7]_i_1_n_0      |                  |                5 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[246][7]_i_1_n_0      |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[245][7]_i_1_n_0      |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[244][7]_i_1_n_0      |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[243][7]_i_1_n_0      |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[242][7]_i_1_n_0      |                  |                5 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[28][7]_i_1_n_0       |                  |                3 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[29][7]_i_1_n_0       |                  |                3 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[2][7]_i_1_n_0        | rst_IBUF         |                3 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[30][7]_i_1_n_0       |                  |                6 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[31][7]_i_1_n_0       |                  |                3 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[32][7]_i_1_n_0       |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[33][7]_i_1_n_0       |                  |                5 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[34][7]_i_1_n_0       |                  |                5 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[35][7]_i_1_n_0       |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[36][7]_i_1_n_0       |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[37][7]_i_1_n_0       |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[38][7]_i_1_n_0       |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[39][7]_i_1_n_0       |                  |                5 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[3][7]_i_1_n_0        | rst_IBUF         |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[40][7]_i_1_n_0       |                  |                5 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[228][7]_i_1_n_0      |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[214][7]_i_1_n_0      |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[215][7]_i_1_n_0      |                  |                3 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[216][7]_i_1_n_0      |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[217][7]_i_1_n_0      |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[218][7]_i_1_n_0      |                  |                6 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[219][7]_i_1_n_0      |                  |                7 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[21][7]_i_1_n_0       |                  |                3 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[220][7]_i_1_n_0      |                  |                3 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[221][7]_i_1_n_0      |                  |                5 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[222][7]_i_1_n_0      |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[223][7]_i_1_n_0      |                  |                5 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[224][7]_i_1_n_0      |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[225][7]_i_1_n_0      |                  |                3 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[226][7]_i_1_n_0      |                  |                5 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[227][7]_i_1_n_0      |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[41][7]_i_1_n_0       |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[229][7]_i_1_n_0      |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[22][7]_i_1_n_0       |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[230][7]_i_1_n_0      |                  |                6 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[231][7]_i_1_n_0      |                  |                3 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[232][7]_i_1_n_0      |                  |                3 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[233][7]_i_1_n_0      |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[234][7]_i_1_n_0      |                  |                5 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[235][7]_i_1_n_0      |                  |                5 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[236][7]_i_1_n_0      |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[237][7]_i_1_n_0      |                  |                7 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[238][7]_i_1_n_0      |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[239][7]_i_1_n_0      |                  |                3 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[23][7]_i_1_n_0       |                  |                3 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[240][7]_i_1_n_0      |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[241][7]_i_1_n_0      |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[85][7]_i_1_n_0       |                  |                3 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[71][7]_i_1_n_0       |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[72][7]_i_1_n_0       |                  |                3 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[73][7]_i_1_n_0       |                  |                3 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[74][7]_i_1_n_0       |                  |                5 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[75][7]_i_1_n_0       |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[76][7]_i_1_n_0       |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[77][7]_i_1_n_0       |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[78][7]_i_1_n_0       |                  |                5 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[79][7]_i_1_n_0       |                  |                6 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[7][7]_i_1_n_0        | rst_IBUF         |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[80][7]_i_1_n_0       |                  |                5 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[81][7]_i_1_n_0       |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[82][7]_i_1_n_0       |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[83][7]_i_1_n_0       |                  |                7 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[84][7]_i_1_n_0       |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[70][7]_i_1_n_0       |                  |                5 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[86][7]_i_1_n_0       |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[87][7]_i_1_n_0       |                  |                5 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[88][7]_i_1_n_0       |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[89][7]_i_1_n_0       |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[8][7]_i_1_n_0        | rst_IBUF         |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[90][7]_i_1_n_0       |                  |                5 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[91][7]_i_1_n_0       |                  |                3 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[92][7]_i_1_n_0       |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[93][7]_i_1_n_0       |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[94][7]_i_1_n_0       |                  |                5 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[95][7]_i_1_n_0       |                  |                5 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[96][7]_i_1_n_0       |                  |                3 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[97][7]_i_1_n_0       |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[98][7]_i_1_n_0       |                  |                6 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[99][7]_i_1_n_0       |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[56][7]_i_1_n_0       |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[42][7]_i_1_n_0       |                  |                5 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[43][7]_i_1_n_0       |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[44][7]_i_1_n_0       |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[45][7]_i_1_n_0       |                  |                6 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[46][7]_i_1_n_0       |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[47][7]_i_1_n_0       |                  |                5 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[48][7]_i_1_n_0       |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[49][7]_i_1_n_0       |                  |                6 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[4][7]_i_1_n_0        | rst_IBUF         |                3 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[50][7]_i_1_n_0       |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[51][7]_i_1_n_0       |                  |                3 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[52][7]_i_1_n_0       |                  |                3 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[53][7]_i_1_n_0       |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[54][7]_i_1_n_0       |                  |                5 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[55][7]_i_1_n_0       |                  |                6 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[213][7]_i_1_n_0      |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[57][7]_i_1_n_0       |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[58][7]_i_1_n_0       |                  |                5 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[59][7]_i_1_n_0       |                  |                7 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[5][7]_i_1_n_0        | rst_IBUF         |                3 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[60][7]_i_1_n_0       |                  |                3 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[61][7]_i_1_n_0       |                  |                3 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[62][7]_i_1_n_0       |                  |                6 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[63][7]_i_1_n_0       |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[64][7]_i_1_n_0       |                  |                3 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[65][7]_i_1_n_0       |                  |                6 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[66][7]_i_1_n_0       |                  |                3 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[67][7]_i_1_n_0       |                  |                5 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[68][7]_i_1_n_0       |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[69][7]_i_1_n_0       |                  |                3 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[6][7]_i_1_n_0        | rst_IBUF         |                7 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[141][7]_i_1_n_0      |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[128][7]_i_1_n_0      |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[129][7]_i_1_n_0      |                  |                3 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[12][7]_i_1_n_0       | rst_IBUF         |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[130][7]_i_1_n_0      |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[131][7]_i_1_n_0      |                  |                6 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[132][7]_i_1_n_0      |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[133][7]_i_1_n_0      |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[134][7]_i_1_n_0      |                  |                6 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[135][7]_i_1_n_0      |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[136][7]_i_1_n_0      |                  |                3 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[137][7]_i_1_n_0      |                  |                3 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[138][7]_i_1_n_0      |                  |                5 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[139][7]_i_1_n_0      |                  |                5 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[13][7]_i_1_n_0       | rst_IBUF         |                5 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[140][7]_i_1_n_0      |                  |                3 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[127][7]_i_1_n_0      |                  |                3 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[142][7]_i_1_n_0      |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[143][7]_i_1_n_0      |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[144][7]_i_1_n_0      |                  |                3 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[145][7]_i_1_n_0      |                  |                3 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[146][7]_i_1_n_0      |                  |                3 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[147][7]_i_1_n_0      |                  |                5 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[148][7]_i_1_n_0      |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[149][7]_i_1_n_0      |                  |                7 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[14][7]_i_1_n_0       | rst_IBUF         |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[150][7]_i_1_n_0      |                  |                6 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[151][7]_i_1_n_0      |                  |                6 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[152][7]_i_1_n_0      |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[153][7]_i_1_n_0      |                  |                6 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[154][7]_i_1_n_0      |                  |                6 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[155][7]_i_1_n_0      |                  |                5 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[112][7]_i_1_n_0      |                  |                3 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[9][7]_i_1_n_0        | rst_IBUF         |                6 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[0][7]_i_1_n_0        | rst_IBUF         |                3 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[100][7]_i_1_n_0      |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[101][7]_i_1_n_0      |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[102][7]_i_1_n_0      |                  |                7 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[103][7]_i_1_n_0      |                  |                6 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[104][7]_i_1_n_0      |                  |                3 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[105][7]_i_1_n_0      |                  |                5 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[106][7]_i_1_n_0      |                  |                6 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[107][7]_i_1_n_0      |                  |                6 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[108][7]_i_1_n_0      |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[109][7]_i_1_n_0      |                  |                6 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[10][7]_i_1_n_0       | rst_IBUF         |                6 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[110][7]_i_1_n_0      |                  |                3 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[111][7]_i_1_n_0      |                  |                6 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[156][7]_i_1_n_0      |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[113][7]_i_1_n_0      |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[114][7]_i_1_n_0      |                  |                5 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[115][7]_i_1_n_0      |                  |                5 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[116][7]_i_1_n_0      |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[117][7]_i_1_n_0      |                  |                5 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[118][7]_i_1_n_0      |                  |                3 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[119][7]_i_1_n_0      |                  |                5 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[11][7]_i_1_n_0       | rst_IBUF         |                6 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[120][7]_i_1_n_0      |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[121][7]_i_1_n_0      |                  |                5 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[122][7]_i_1_n_0      |                  |                7 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[123][7]_i_1_n_0      |                  |                7 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[124][7]_i_1_n_0      |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[125][7]_i_1_n_0      |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[126][7]_i_1_n_0      |                  |                6 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[19][7]_i_1_n_0       |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[186][7]_i_1_n_0      |                  |                7 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[187][7]_i_1_n_0      |                  |                3 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[188][7]_i_1_n_0      |                  |                3 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[189][7]_i_1_n_0      |                  |                5 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[18][7]_i_1_n_0       |                  |                5 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[190][7]_i_1_n_0      |                  |                5 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[191][7]_i_1_n_0      |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[192][7]_i_1_n_0      |                  |                3 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[193][7]_i_1_n_0      |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[194][7]_i_1_n_0      |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[195][7]_i_1_n_0      |                  |                3 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[196][7]_i_1_n_0      |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[197][7]_i_1_n_0      |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[198][7]_i_1_n_0      |                  |                6 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[199][7]_i_1_n_0      |                  |                5 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[185][7]_i_1_n_0      |                  |                3 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[1][7]_i_1_n_0        | rst_IBUF         |                2 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[200][7]_i_1_n_0      |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[201][7]_i_1_n_0      |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[202][7]_i_1_n_0      |                  |                6 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[203][7]_i_1_n_0      |                  |                5 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[204][7]_i_1_n_0      |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[205][7]_i_1_n_0      |                  |                5 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[206][7]_i_1_n_0      |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[207][7]_i_1_n_0      |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[208][7]_i_1_n_0      |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[209][7]_i_1_n_0      |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[20][7]_i_1_n_0       |                  |                3 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[210][7]_i_1_n_0      |                  |                7 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[211][7]_i_1_n_0      |                  |                5 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[212][7]_i_1_n_0      |                  |                3 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[170][7]_i_1_n_0      |                  |                5 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[157][7]_i_1_n_0      |                  |                3 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[158][7]_i_1_n_0      |                  |                6 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[159][7]_i_1_n_0      |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[15][7]_i_1_n_0       | rst_IBUF         |                3 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[160][7]_i_1_n_0      |                  |                3 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[161][7]_i_1_n_0      |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[162][7]_i_1_n_0      |                  |                3 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[163][7]_i_1_n_0      |                  |                3 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[164][7]_i_1_n_0      |                  |                3 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[165][7]_i_1_n_0      |                  |                3 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[166][7]_i_1_n_0      |                  |                5 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[167][7]_i_1_n_0      |                  |                5 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[168][7]_i_1_n_0      |                  |                2 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[169][7]_i_1_n_0      |                  |                3 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[16][7]_i_1_n_0       |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[171][7]_i_1_n_0      |                  |                5 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[172][7]_i_1_n_0      |                  |                3 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[173][7]_i_1_n_0      |                  |                3 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[174][7]_i_1_n_0      |                  |                5 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[175][7]_i_1_n_0      |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[176][7]_i_1_n_0      |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[177][7]_i_1_n_0      |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[178][7]_i_1_n_0      |                  |                3 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[179][7]_i_1_n_0      |                  |                6 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[17][7]_i_1_n_0       |                  |                5 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[180][7]_i_1_n_0      |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[181][7]_i_1_n_0      |                  |                3 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[182][7]_i_1_n_0      |                  |                5 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[183][7]_i_1_n_0      |                  |                4 |              8 |
+|  rclk_IBUF_BUFG | rv/dmem/mem[184][7]_i_1_n_0      |                  |                3 |              8 |
+|  clk_IBUF_BUFG  |                                  |                  |                5 |             20 |
+| ~rclk_IBUF_BUFG | rv/MEM_WB/genblk1[37].f/q_reg_3  | rst_IBUF         |               13 |             32 |
+| ~rclk_IBUF_BUFG | rv/MEM_WB/genblk1[37].f/q_reg_22 | rst_IBUF         |               12 |             32 |
+| ~rclk_IBUF_BUFG | rv/MEM_WB/genblk1[37].f/q_reg_23 | rst_IBUF         |                8 |             32 |
+| ~rclk_IBUF_BUFG | rv/MEM_WB/genblk1[37].f/q_reg_24 | rst_IBUF         |               10 |             32 |
+| ~rclk_IBUF_BUFG | rv/MEM_WB/genblk1[37].f/q_reg_25 | rst_IBUF         |               15 |             32 |
+| ~rclk_IBUF_BUFG | rv/MEM_WB/genblk1[37].f/q_reg_26 | rst_IBUF         |               13 |             32 |
+| ~rclk_IBUF_BUFG | rv/MEM_WB/genblk1[37].f/q_reg_27 | rst_IBUF         |               12 |             32 |
+| ~rclk_IBUF_BUFG | rv/MEM_WB/genblk1[37].f/q_reg_28 | rst_IBUF         |               15 |             32 |
+| ~rclk_IBUF_BUFG | rv/MEM_WB/genblk1[37].f/q_reg_29 | rst_IBUF         |               15 |             32 |
+|  EX_MEM_Ctrl[8] |                                  |                  |               18 |             32 |
+| ~rclk_IBUF_BUFG | rv/MEM_WB/genblk1[37].f/q_reg_30 | rst_IBUF         |               14 |             32 |
+| ~rclk_IBUF_BUFG | rv/MEM_WB/genblk1[37].f/q_reg_4  | rst_IBUF         |               15 |             32 |
+| ~rclk_IBUF_BUFG | rv/MEM_WB/genblk1[37].f/q_reg_5  | rst_IBUF         |               26 |             32 |
+| ~rclk_IBUF_BUFG | rv/MEM_WB/genblk1[37].f/q_reg_6  | rst_IBUF         |               23 |             32 |
+| ~rclk_IBUF_BUFG | rv/MEM_WB/genblk1[37].f/q_reg_7  | rst_IBUF         |               16 |             32 |
+| ~rclk_IBUF_BUFG | rv/MEM_WB/genblk1[37].f/q_reg_8  | rst_IBUF         |               13 |             32 |
+| ~rclk_IBUF_BUFG | rv/MEM_WB/genblk1[37].f/q_reg_9  | rst_IBUF         |               10 |             32 |
+| ~rclk_IBUF_BUFG | rv/MEM_WB/genblk1[37].f/q_reg_20 | rst_IBUF         |               11 |             32 |
+|  rclk_IBUF_BUFG | rv/IF_ID/genblk1[34].f/q_reg_4   | rst_IBUF         |               17 |             32 |
+| ~rclk_IBUF_BUFG | rv/MEM_WB/genblk1[37].f/q_reg_0  | rst_IBUF         |                8 |             32 |
+| ~rclk_IBUF_BUFG | rv/MEM_WB/genblk1[37].f/q_reg_1  | rst_IBUF         |               14 |             32 |
+| ~rclk_IBUF_BUFG | rv/MEM_WB/genblk1[37].f/q_reg_10 | rst_IBUF         |               10 |             32 |
+| ~rclk_IBUF_BUFG | rv/MEM_WB/genblk1[37].f/q_reg_11 | rst_IBUF         |               12 |             32 |
+| ~rclk_IBUF_BUFG | rv/MEM_WB/genblk1[37].f/q_reg_12 | rst_IBUF         |               13 |             32 |
+| ~rclk_IBUF_BUFG | rv/MEM_WB/genblk1[37].f/q_reg_15 | rst_IBUF         |               20 |             32 |
+| ~rclk_IBUF_BUFG | rv/MEM_WB/genblk1[37].f/q_reg_13 | rst_IBUF         |               10 |             32 |
+| ~rclk_IBUF_BUFG | rv/MEM_WB/genblk1[37].f/q_reg_14 | rst_IBUF         |               13 |             32 |
+| ~rclk_IBUF_BUFG | rv/MEM_WB/genblk1[37].f/q_reg_16 | rst_IBUF         |               17 |             32 |
+| ~rclk_IBUF_BUFG | rv/MEM_WB/genblk1[37].f/q_reg_17 | rst_IBUF         |                9 |             32 |
+| ~rclk_IBUF_BUFG | rv/MEM_WB/genblk1[37].f/q_reg_18 | rst_IBUF         |               11 |             32 |
+| ~rclk_IBUF_BUFG | rv/MEM_WB/genblk1[37].f/q_reg_19 | rst_IBUF         |                9 |             32 |
+| ~rclk_IBUF_BUFG | rv/MEM_WB/genblk1[37].f/q_reg_2  | rst_IBUF         |               10 |             32 |
+| ~rclk_IBUF_BUFG | rv/MEM_WB/genblk1[37].f/q_reg_21 | rst_IBUF         |               14 |             32 |
+|  rclk_IBUF_BUFG |                                  | rst_IBUF         |              205 |            528 |
++-----------------+----------------------------------+------------------+------------------+----------------+
+
+
