@@ -39,12 +39,12 @@ module bram(
                 mem[addra]<=dina[7:0];
             end else if(ha)begin
                 mem[addra]<=dina[7:0];
-                mem[addra]<=dina[15:8];
+                mem[addra+1]<=dina[15:8];
             end else begin
                 mem[addra]<=dina[7:0];
-                mem[addra]<=dina[15:8];
-                mem[addra]<=dina[23:16];
-                mem[addra]<=dina[31:24];
+                mem[addra+1]<=dina[15:8];
+                mem[addra+2]<=dina[23:16];
+                mem[addra+3]<=dina[31:24];
             end
         end
             douta<={mem[addra+3],mem[addra+2], mem[addra+1], mem[addra]};
