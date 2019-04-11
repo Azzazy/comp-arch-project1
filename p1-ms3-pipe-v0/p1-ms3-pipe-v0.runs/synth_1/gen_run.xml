@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1554893741">
+<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1554982601">
   <File Type="VDS-TIMING-PB" Name="RISCV_Top_timing_summary_synth.pb"/>
   <File Type="VDS-TIMINGSUMMARY" Name="RISCV_Top_timing_summary_synth.rpt"/>
   <File Type="RDS-DCP" Name="RISCV_Top.dcp"/>
@@ -60,6 +60,13 @@
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/../../Desktop/p/FlipFlop.v"/>
         <Attr Name="ImportTime" Val="1554229581"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/Forward_U.v">
+      <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>

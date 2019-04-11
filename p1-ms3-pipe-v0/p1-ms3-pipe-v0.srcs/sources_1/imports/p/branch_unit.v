@@ -8,7 +8,8 @@ module branch_unit (
 	input Branch,
 	output reg Branch_con
 );
-    wire [31:0] add, op_b;;
+    wire [31:0] add, op_b;
+    wire sf, zf, vf, cf;
     
     assign op_b = (~b);
     

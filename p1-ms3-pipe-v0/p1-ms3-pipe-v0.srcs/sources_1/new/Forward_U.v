@@ -32,9 +32,12 @@ module Forward_U(
     output ID_A,
     output ID_B
     );
-    
-    
-    
+    assign ID_A = ((IF_ID_rs1 == EX_MEM_rd) && (EX_MEM_wen)&&(EX_MEM_rd !=0));
+    assign ID_B = ((IF_ID_rs2 == EX_MEM_rd) && (EX_MEM_wen)&&(EX_MEM_rd !=0));
+    assign EX_A[0] = (IF_)
+    assign EX_B[0] = 
+    assign EX_A[1] = 
+    assign EX_B[1] = 
     
     
 endmodule

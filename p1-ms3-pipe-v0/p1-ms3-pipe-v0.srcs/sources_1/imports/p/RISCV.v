@@ -15,7 +15,8 @@ module RISCV (
 );
 //PIPELINE REGISTER WIRES
    wire [31:0] IF_ID_PC, IF_ID_Inst, IF_ID_PCAdder_out, ID_EX_ImmGen, ID_EX_RegR1, ID_EX_RegR2, ID_EX_BranchAdder_out, ID_EX_PC, 
-   ID_EX_PCAdder_out, EX_MEM_BranchAdder_out, EX_MEM_PCAdder_out, EX_MEM_ALU_out, EX_MEM_RegR2, MEM_WB_RegW;
+   ID_EX_PCAdder_out, EX_MEM_BranchAdder_out, EX_MEM_PCAdder_out, EX_MEM_ALU_out,EX_MEM_RegR1, EX_MEM_RegR2, MEM_WB_RegW, EX_rs1_mux_out,
+   EX_rs2_mux_out;
    wire [12:0]  ID_EX_Ctrl;
    wire [8:0] EX_MEM_Ctrl;
    wire [2:0] ID_EX_func3;
@@ -43,15 +44,16 @@ module RISCV (
 
     RegWLoad #(192)  ID_EX   (clk, rst, 1'b1,
                                 {IF_ID_Inst[30], IF_ID_Inst[`IR_funct3], shamtSrc, ALUSrc, ALUOp, MemRead, MemWrite, by, half, unsign,
-                                    MemToReg, RegWmux2Ctl, RegWrite, IF_ID_Inst[`IR_rs1] ,IF_ID_Inst[`IR_rs2] , IF_ID_Inst[`IR_rd], ImmGen_out, RegR1, RegR2,
+                                    MemToReg, RegWmux2Ctl, RegWrite, rs1_src ,IF_ID_Inst[`IR_rs2] , IF_ID_Inst[`IR_rd], ImmGen_out, RegR1, RegR2,
                                     BranchAdder_out, IF_ID_PCAdder_out}, 
                                  {ID_EX_func7, ID_EX_func3, ID_EX_Ctrl,ID_EX_rs1, ID_EX_rs2, ID_EX_rd, ID_EX_ImmGen, ID_EX_RegR1, ID_EX_RegR2, 
                                  ID_EX_BranchAdder_out, ID_EX_PCAdder_out});//needs to be fixed
                                  //add branch adder ouput for auipc and offset pc output for jal and jalr
+                                 //usign rs1_src instead of IF_ID_Inst[`IR_rs1] to account for lui
                                  
-    RegWLoad #(152) EX_MEM (clk,rst,1'b1,
-                            {ID_EX_Ctrl[8:0],ID_EX_rs1, ID_EX_rs2, ID_EX_rd, ID_EX_BranchAdder_out, ID_EX_PCAdder_out, ALU_out, ID_EX_RegR2},
-                            {EX_MEM_Ctrl, EX_MEM_rs1, EX_MEM_rs2, EX_MEM_rd, EX_MEM_BranchAdder_out, EX_MEM_PCAdder_out, EX_MEM_ALU_out, EX_MEM_RegR2}
+    RegWLoad #(184) EX_MEM (clk,rst,1'b1,
+                            {ID_EX_Ctrl[8:0],ID_EX_rs1, ID_EX_rs2, ID_EX_rd, ID_EX_BranchAdder_out, ID_EX_PCAdder_out, ALU_out,ID_EX_RegR1, ID_EX_RegR2},
+                            {EX_MEM_Ctrl, EX_MEM_rs1, EX_MEM_rs2, EX_MEM_rd, EX_MEM_BranchAdder_out, EX_MEM_PCAdder_out, EX_MEM_ALU_out,EX_MEM_RegR1, EX_MEM_RegR2}
                             );
     RegWLoad #(38) MEM_WB (clk,rst,1'b1,
                             {EX_MEM_Ctrl[0], EX_MEM_rd, RegW},
@@ -67,14 +69,14 @@ module RISCV (
 
     //IF STAGE END
     //ID STAGE
-    Mux2_1 #(32) branch_r1(ID_A, RegR1, EX_MEM_rs1, branch_r1_out);//if ID_A use rs1 from ex stage //REVISE AND CONNECT OUTPUT
-    Mux2_1 #(32) branch_r2(ID_B, RegR2, EX_MEM_rs2, branch_r2_out);//if ID_B use rs2 from ex stage //REVISE AND CONNECT OUTPUT
+    Mux2_1 #(32) branch_r1(ID_A, RegR1, EX_MEM_RegR1, branch_r1_out);//if ID_A use rs1 from ex stage //REVISE AND CONNECT OUTPUT
+    Mux2_1 #(32) branch_r2(ID_B, RegR2, EX_MEM_RegR2, branch_r2_out);//if ID_B use rs2 from ex stage //REVISE AND CONNECT OUTPUT
     Forward_U forw_unit(.EX_MEM_rd(EX_MEM_rd), .MEM_WB_rd(MEM_WB_rd), .IF_ID_rs1(IF_ID_Inst[`IR_rs1]), .IF_ID_rs2(IF_ID_Inst[`IR_rs2]),
      .EX_MEM_wen(EX_MEM_Ctrl[0]), .MEM_WB_wen(MEM_WB_Ctrl), .EX_A(EX_A), .EX_B(EX_B), .ID_A(ID_A), .ID_B(ID_B));
      
-    branch_unit BU(.a(RegR1), .b(RegR2), .func3(IF_ID_Inst[`IR_funct3]), .Branch(Branch), .Branch_con(Branch_con));
+    branch_unit BU(.a(branch_r1_out), .b(RegR2), .func3(IF_ID_Inst[`IR_funct3]), .Branch(Branch), .Branch_con(Branch_con));
     RippleAdder OffsetPC(.a(offset_pc_in1),.b(ImmGen_out), .ci(0), .s(BranchAdder_out));//move to ID stage - add a mini alu to generate the branch signals
-    Mux2_1 #(32) OffsetPCMux(.sel(branch_jalr), .in1(IF_ID_PC),.in2(RegR1), .out(offset_pc_in1));//to accomodate for jalr in ID stage
+    Mux2_1 #(32) OffsetPCMux(.sel(branch_jalr), .in1(IF_ID_PC),.in2(branch_r1_out), .out(offset_pc_in1));//to accomodate for jalr in ID stage
     Mux2_1 #(5) rs1SrcMux(.sel(l_zero), . in1(IF_ID_Inst[`IR_rs1]), .in2(0), .out(rs1_src));//if lui use x0 for rs1
  
 
@@ -93,8 +95,8 @@ module RISCV (
     ALUControl acu(.ALUOp(ID_EX_Ctrl[10:9]),.func3(ID_EX_func3),.func7(ID_EX_func7),.sel(ALUSel));
     prv32_ALU alu(.a(ID_EX_RegR1), .b(ALUSrcMux_out), .shamt(shamt[4:0]), .r(ALU_out),
         .cf(cf), .zf(Zero), .vf(vf), .sf(sf), .alufn(ALUSel));//remove the flags from the alu
-    Mux_4_1 #(32) EX_rs1(EX_A, ID_EX_RegR1, EX_MEM_ALU_out, RegW);//    REVISE AND CONNECT OUTPUT
-    MUX_4_1 #(32) EX_rs2(EX_B, ID_EX_RegR2, EX_MEM_ALU_out, RegW); //   REVISE AND CONNECT OUTPUT
+    Mux4_1 #(32) EX_rs1_mux(.sel(EX_A), .in1(ID_EX_RegR1), .in2(EX_MEM_ALU_out), .in3(RegW), .in4(0), .out(EX_rs1_mux_out));//    REVISE AND CONNECT OUTPUT
+    Mux4_1 #(32) EX_rs2_mux(.sel(EX_B), .in1(ID_EX_RegR2), .in2(EX_MEM_ALU_out), .in3(RegW), .in4(0), .out(EX_rs1_mux_out)); //   REVISE AND CONNECT OUTPUT
     //EX STAGE END
     //MEM STAGE
     DataMem dmem(clk,rst,EX_MEM_Ctrl[8],EX_MEM_Ctrl[7],EX_MEM_Ctrl[6],EX_MEM_Ctrl[5],EX_MEM_Ctrl[4],EX_MEM_ALU_out[7:0],EX_MEM_RegR2,Mem_out);//fix address width

@@ -17,9 +17,6 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
-set_param synth.incrementalSynthesisCache ./.Xil/Vivado-10515-caffe-OptiPlex-5050/incrSyn
-set_msg_config -id {Synth 8-256} -limit 10000
-set_msg_config -id {Synth 8-638} -limit 10000
 create_project -in_memory -part xc7a100tcsg324-1
 
 set_param project.singleFileAddWarning.threshold 0
@@ -39,6 +36,7 @@ read_verilog -library xil_defaultlib {
   /home/caffe/XilinxProjects/p1-ms3-pipe-v0/p1-ms3-pipe-v0.srcs/sources_1/imports/p/DataMem.v
   /home/caffe/XilinxProjects/p1-ms3-pipe-v0/p1-ms3-pipe-v0.srcs/sources_1/imports/p/Decoder5_32.v
   /home/caffe/XilinxProjects/p1-ms3-pipe-v0/p1-ms3-pipe-v0.srcs/sources_1/imports/p/FlipFlop.v
+  /home/caffe/XilinxProjects/p1-ms3-pipe-v0/p1-ms3-pipe-v0.srcs/sources_1/new/Forward_U.v
   /home/caffe/XilinxProjects/p1-ms3-pipe-v0/p1-ms3-pipe-v0.srcs/sources_1/imports/p/Full_Adder.v
   /home/caffe/XilinxProjects/p1-ms3-pipe-v0/p1-ms3-pipe-v0.srcs/sources_1/imports/p/ImmGen.v
   /home/caffe/XilinxProjects/p1-ms3-pipe-v0/p1-ms3-pipe-v0.srcs/sources_1/imports/p/InstMem.v
