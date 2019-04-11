@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
-| Date         : Thu Apr 11 20:59:25 2019
+| Date         : Thu Apr 11 21:20:57 2019
 | Host         : caffe-OptiPlex-5050 running 64-bit Ubuntu 18.04.2 LTS
 | Command      : report_utilization -file RISCV_Top_utilization_synth.rpt -pb RISCV_Top_utilization_synth.pb
 | Design       : RISCV_Top

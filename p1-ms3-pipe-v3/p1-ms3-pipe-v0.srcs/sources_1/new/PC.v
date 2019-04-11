@@ -6,7 +6,7 @@ module PC(
     rst,
     load,
     data_in, 
-    data_out,
+    data_out
 );
 
     parameter SIZE=32;

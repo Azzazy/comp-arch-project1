@@ -28,9 +28,9 @@ module RISCV (
         ALU_out, Mem_out, Inst, regWSrcMuxOut, offset_pc_in1;
     wire branch_jalr,Branch, MemRead, MemToReg, MemWrite,
          ALUSrc, RegWrite, Zero, Branch_con,sf,vf, cf,
-         B_JALR,l_zero,unsign,by,half,halt, branch_jal;
+         B_JALR,l_zero,unsign,by,half,halt, branch_jal, EX_A, EX_B;
     wire [4:0] rs1_src;
-    wire [1:0] ALUOp, RegWmux2Ctl, EX_A, EX_B;
+    wire [1:0] ALUOp, RegWmux2Ctl;
     wire [3:0] ALUSel;
     wire shamtSrc, ID_A, ID_B, PCSrc;
     wire [31:0] shamt;
@@ -72,15 +72,15 @@ module RISCV (
     
     //PIPELINE REGISTERS END
     //IF STAGE
-    PC pc(clk2[1],rst,~halt,PC_in,PC_out);//change the updating of the PC
+    RegWLoad pc(clk2[1],rst,~halt,PC_in,PC_out);//change the updating of the PC
     //InstMem imem(rst,PC_out[9:2],Inst);
     RippleAdder IncPC(PC_out,4,1'b0,PCAdder_out,);//move to IF stage
     Mux2_1 #(32) pcSrcMux(.sel(PCSrc),.in1(PCAdder_out),.in2(BranchAdder_out), .out(PC_in));//changed to mux2
     
-    Mux2_1 #(6) InstMemSrc_ctrl(clk2, {1,0,0,0,1},{EX_MEM_Ctrl[8],EX_MEM_Ctrl[7],EX_MEM_Ctrl[6],EX_MEM_Ctrl[5],EX_MEM_Ctrl[4]},
+    Mux2_1 #(5) InstMemSrc_ctrl(clk2[1], {1,0,0,0,1},{EX_MEM_Ctrl[8],EX_MEM_Ctrl[7],EX_MEM_Ctrl[6],EX_MEM_Ctrl[5],EX_MEM_Ctrl[4]},
      single_mem_Ctrl);
-    Mux2_1 #(8) InstMemSrc_addr(clk2, PC_out[7:0],EX_MEM_ALU_out[7:0], single_mem_addr);
-    DeMux1_2 #(32) InstMemSrc_data_in(clk2, single_mem_out, Inst, Mem_out);
+    Mux2_1 #(8) InstMemSrc_addr(clk2[1], PC_out[7:0],EX_MEM_ALU_out[7:0], single_mem_addr);
+    DeMux1_2 #(32) InstMemSrc_data_in(clk2[1], single_mem_out, Inst, Mem_out);
     
      
     DataMem single_mem(clk,rst,single_mem_Ctrl[4],single_mem_Ctrl[3],single_mem_Ctrl[2],single_mem_Ctrl[1],single_mem_Ctrl[0], 

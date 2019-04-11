@@ -42,7 +42,6 @@ read_verilog -library xil_defaultlib {
   /home/caffe/XilinxProjects/p1-ms3-pipe-v0/p1-ms3-pipe-v0.srcs/sources_1/imports/p/ImmGen.v
   /home/caffe/XilinxProjects/p1-ms3-pipe-v0/p1-ms3-pipe-v0.srcs/sources_1/imports/p/Mux2_1.v
   /home/caffe/XilinxProjects/p1-ms3-pipe-v0/p1-ms3-pipe-v0.srcs/sources_1/imports/p/Mux4_1.v
-  /home/caffe/XilinxProjects/p1-ms3-pipe-v0/p1-ms3-pipe-v0.srcs/sources_1/new/PC.v
   /home/caffe/XilinxProjects/p1-ms3-pipe-v0/p1-ms3-pipe-v0.srcs/sources_1/imports/p/RISCV.v
   /home/caffe/XilinxProjects/p1-ms3-pipe-v0/p1-ms3-pipe-v0.srcs/sources_1/imports/p/RegFile.v
   /home/caffe/XilinxProjects/p1-ms3-pipe-v0/p1-ms3-pipe-v0.srcs/sources_1/imports/p/RegWLoad.v
