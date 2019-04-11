@@ -30,9 +30,9 @@ module RISCV (
          ALUSrc, RegWrite, Zero, Branch_con,sf,vf, cf,
          B_JALR,l_zero,unsign,by,half,halt, branch_jal;
     wire [4:0] rs1_src;
-    wire [1:0] ALUOp, PCSrc, RegWmux2Ctl, EX_A, EX_B;
+    wire [1:0] ALUOp, RegWmux2Ctl, EX_A, EX_B;
     wire [3:0] ALUSel;
-    wire shamtSrc, ID_A, ID_B;
+    wire shamtSrc, ID_A, ID_B, PCSrc;
     wire [31:0] shamt;
     assign PCSrc = branch_jalr | Branch_con |branch_jal;
     
