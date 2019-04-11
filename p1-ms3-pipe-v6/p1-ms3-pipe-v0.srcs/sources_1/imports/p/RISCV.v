@@ -32,7 +32,7 @@ module RISCV (
     wire [4:0] rs1_src;
     wire [1:0] ALUOp, RegWmux2Ctl, ID_A, ID_B;
     wire [3:0] ALUSel;
-    wire shamtSrc, PCSrc, stall_branch, stall;
+    wire shamtSrc, PCSrc, stall_branch;
     wire [31:0] shamt;
     assign PCSrc = branch_jalr | Branch_con | branch_jal;
     wire [4:0]single_mem_Ctrl;
@@ -68,7 +68,7 @@ module RISCV (
     //PIPELINE REGISTERS END
     //IF STAGE
 
-    RegWLoad pc(clk2,rst,~stall,PC_in,PC_out);//change the updating of the PC
+    RegWLoad pc(clk2,rst,~stall_branch,PC_in,PC_out);//change the updating of the PC
     //InstMem imem(rst,PC_out[9:2],Inst);
     RippleAdder IncPC(PC_out,4,1'b0,PCAdder_out, );//move to IF stage
     Mux2_1 #(32) pcSrcMux(.sel(PCSrc),.in1(PCAdder_out),.in2(BranchAdder_out), .out(PC_in));//changed to mux2

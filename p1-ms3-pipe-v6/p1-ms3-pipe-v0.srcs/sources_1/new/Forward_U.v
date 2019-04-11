@@ -38,11 +38,15 @@ module Forward_U(
     output [1:0]ID_B,
     output stall
     );
+
     assign ID_A[0] = ((IF_ID_rs1 == EX_MEM_rd) && (EX_MEM_wen)&&(EX_MEM_rd !=0) && (!EX_MEM_memtoreg));
-    assign ID_B[0] = ((IF_ID_rs2 == EX_MEM_rd) && (EX_MEM_wen)&&(EX_MEM_rd !=0)) && (!EX_MEM_memtoreg);
     assign ID_A[1] = ((IF_ID_rs1 == MEM_WB_rd) && (MEM_WB_memtoreg) && (MEM_WB_rd != 0) && (MEM_WB_wen));
+    
+    assign ID_B[0] = ((IF_ID_rs2 == EX_MEM_rd) && (EX_MEM_wen)&&(EX_MEM_rd !=0)) && (!EX_MEM_memtoreg);
     assign ID_B[1] = ((IF_ID_rs1 == MEM_WB_rd) && (MEM_WB_memtoreg) && (MEM_WB_rd != 0) && (MEM_WB_wen));
+    
     assign EX_A = ((ID_EX_rs1 == MEM_WB_rd) && (MEM_WB_wen) && (MEM_WB_rd !=0));
     assign EX_B = ((ID_EX_rs2 == MEM_WB_rd) && (MEM_WB_wen) && (MEM_WB_rd !=0));
+    
     assign stall = (((IF_ID_rs1 == EX_MEM_rd)||(IF_ID_rs2 == EX_MEM_rd)) && (EX_MEM_wen) && (EX_MEM_rd !=0) && (EX_MEM_memtoreg));
 endmodule
