@@ -39,7 +39,7 @@ module RISCV_tb;
 		ssdSel = 0;
 
 	//Wait for the reset
-		#51 rst=1;
+		#25 rst=1;
 		#4 rst = 0;
         for(i=0;i<20;i=i+1) begin
 		//#35 ssdSel = 6; ledSel = 0;

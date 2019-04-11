@@ -34,23 +34,19 @@ module RISCV (
     wire [3:0] ALUSel;
     wire shamtSrc, ID_A, ID_B, PCSrc;
     wire [31:0] shamt;
-    assign PCSrc = branch_jalr | Branch_con |branch_jal;
+    assign PCSrc = branch_jalr | Branch_con | branch_jal;
     wire [4:0]single_mem_Ctrl;
     wire [7:0]single_mem_addr;
-    reg [1:0]clk2;
+    reg clk2;
     
     always @(posedge clk or posedge rst)begin
-        if(rst)begin
-        clk2 = 0;
-        end else if(clk)begin
-        clk2 = clk2 +1'b1;
-        end
+        clk2 = ~clk2;
+        if(rst)clk2 = 0;
     end
     //PIPELINE REGISTERS
     RegWLoad #(96) IF_ID (clk,rst,1'b1,
                             {PC_out,Inst, PCAdder_out},
-                            {IF_ID_PC,IF_ID_Inst, IF_ID_PCAdder_out}
-                            );
+                            {IF_ID_PC,IF_ID_Inst, IF_ID_PCAdder_out});
 
     RegWLoad #(192)  ID_EX   (clk, rst, 1'b1,
                                 {IF_ID_Inst[30], IF_ID_Inst[`IR_funct3], shamtSrc, ALUSrc, ALUOp, MemRead, MemWrite, by, half, unsign,
@@ -72,15 +68,14 @@ module RISCV (
     
     //PIPELINE REGISTERS END
     //IF STAGE
-    RegWLoad pc(clk2[1],rst,~halt,PC_in,PC_out);//change the updating of the PC
+    RegWLoad pc(clk2,rst,~halt,PC_in,PC_out);//change the updating of the PC
     //InstMem imem(rst,PC_out[9:2],Inst);
-    RippleAdder IncPC(PC_out,4,1'b0,PCAdder_out,);//move to IF stage
+    RippleAdder IncPC(PC_out,4,1'b0,PCAdder_out, );//move to IF stage
     Mux2_1 #(32) pcSrcMux(.sel(PCSrc),.in1(PCAdder_out),.in2(BranchAdder_out), .out(PC_in));//changed to mux2
     
-    Mux2_1 #(5) InstMemSrc_ctrl(clk2[1], {1,0,0,0,1},{EX_MEM_Ctrl[8],EX_MEM_Ctrl[7],EX_MEM_Ctrl[6],EX_MEM_Ctrl[5],EX_MEM_Ctrl[4]},
-     single_mem_Ctrl);
-    Mux2_1 #(8) InstMemSrc_addr(clk2[1], PC_out[7:0],EX_MEM_ALU_out[7:0], single_mem_addr);
-    DeMux1_2 #(32) InstMemSrc_data_in(clk2[1], single_mem_out, Inst, Mem_out);
+    Mux2_1 #(5) InstMemSrc_ctrl(~clk2, {1'b1,1'b0,1'b0,1'b0,1'b1},{EX_MEM_Ctrl[8],EX_MEM_Ctrl[7],EX_MEM_Ctrl[6],EX_MEM_Ctrl[5],EX_MEM_Ctrl[4]},single_mem_Ctrl);
+    Mux2_1 #(8) InstMemSrc_addr(~clk2, PC_out[7:0],EX_MEM_ALU_out[7:0], single_mem_addr);
+    DeMux1_2 #(32) InstMemSrc_data_in(~clk2, single_mem_out, Inst, Mem_out);
     
      
     DataMem single_mem(clk,rst,single_mem_Ctrl[4],single_mem_Ctrl[3],single_mem_Ctrl[2],single_mem_Ctrl[1],single_mem_Ctrl[0], 
