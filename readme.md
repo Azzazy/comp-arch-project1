@@ -6,7 +6,7 @@
 - Muhammad Azzazy
 
 ## Release notes
-A RISCV 32I implementation for FPGA. It supports all RISCV32I instructions except for few. It is a pipelined implementation, hence there is a data hazard unit and a forwarding unit. All supported instruction are tested and work as expected. The implementation assumes that the program is loaded into the instrucion memory beforehand. The instruction memroy is left word addressable by design.
+A RISCV 32I implementation for FPGA. It supports all RISCV32I instructions except for few. It is a pipelined implementation, hence there is a data hazard unit and a forwarding unit. All supported instruction are tested and work as expected. The memory is single ported and shared between instructions and data. To structural hazards a single instruction is fetched every two clock cycles.
 
 ### Unsupported instructions
 - FENCE
