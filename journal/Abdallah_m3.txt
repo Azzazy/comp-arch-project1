@@ -1,5 +1,0 @@
-﻿10th April:
-* Fixed Data Memory Module.
-11th April:
-* Created Memory Control unit.
-* Combined Data and instructions in a single module and integrated the memory in the top module.
