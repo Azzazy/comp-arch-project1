@@ -6,3 +6,6 @@ April 01, 9:00PM: Discoverd a problem happening in the store
 April 02, 8:00PM: Found that the problem is happening because of the branch unit
 April 02, 9:00PM: Fixed the branch unit
 April 02, 10:00PM: Tested (STL, STLU, SB, ADDI, LUI) and finalizing the milestone.
+April 11, 8:00PM: Debuged the slower clk going to the pc
+April 12, 1:00AM: Tested everything, writing the report and creating block diagram, can we submit on time !!!
+April 12, 3:00AM: Done.

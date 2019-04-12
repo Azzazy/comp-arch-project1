@@ -1,8 +1,3 @@
-// file: DataMem.v
-// author: @cherifsalama
-
-`timescale 1ns/1ns
-
 module DataMem (
     input clk, 
     input rst, 
@@ -15,47 +10,44 @@ module DataMem (
     input [31:0] data_in, 
     output reg [31:0] data_out
 );
-
-    reg [7:0] mem [0:255];
-    always @(posedge rst or posedge clk) 
-    begin
-        if(rst==1) begin
-            mem[0]<=8'd17;
-            mem[1]<=8'd0;
-            mem[2]<=0;
-            mem[3]<=0;
-            mem[4]<=8'd9;
-            mem[5]<=0;
-            mem[6]<=0;
-            mem[7]<=0;
-            mem[8]<=8'd25;
-            mem[9]<=0;
-            mem[10]<=0;
-            mem[11]<=0;
-            mem[12]<=8'd0;
-            mem[13]<=8'd0;
-            mem[14]<=0;
-            mem[15]<=0;
-        end
-        else begin
-            if (MemWrite)begin
-                if(by)
-                    begin
-                        mem[addr]   =   data_in[7:0];
-                    end                             
-                else if(half)
-                    begin
-                        mem[addr]   =   data_in[7:0];
-                        mem[addr+1] =   data_in[15:8];
-                    end
-                else
-                    begin
-                        mem[addr]   =   data_in[7:0];
-                        mem[addr+1] =   data_in[15:8];
-                        mem[addr+2] =   data_in[23:16];
-                        mem[addr+3] =   data_in[31:24];
-                    end
-            end
+    reg [7:0] mem [0:255];    
+    initial begin
+        $readmemh("./hex_data.mem", mem);
+        mem[100]<=8'd17;
+        mem[101]<=8'd5;
+        mem[102]<=8'hff;
+        mem[103]<=0;
+        mem[104]<=8'd9;
+        mem[105]<=8'hff;
+        mem[106]<=8'hff;
+        mem[107]<=0;
+        mem[108]<=8'd25;
+        mem[109]<=0;
+        mem[110]<=0;
+        mem[111]<=0;
+        mem[112]<=8'd0;
+        mem[113]<=8'd0;
+        mem[114]<=0;
+        mem[115]<=0;
+    end
+    always @(posedge clk) begin
+        if (MemWrite)begin
+            if(by)
+                begin
+                    mem[addr]   =   data_in[7:0];
+                end                             
+            else if(half)
+                begin
+                    mem[addr]   =   data_in[7:0];
+                    mem[addr+1] =   data_in[15:8];
+                end
+            else
+                begin
+                    mem[addr]   =   data_in[7:0];
+                    mem[addr+1] =   data_in[15:8];
+                    mem[addr+2] =   data_in[23:16];
+                    mem[addr+3] =   data_in[31:24];
+                end
         end
     end
     always @(*) begin
@@ -69,7 +61,7 @@ module DataMem (
             end else if(half & !unsign) begin
                 data_out = {{16{mem[addr+1][7]}},mem[addr+1],mem[addr]};
             end else begin
-            data_out = {mem[addr+3],mem[addr+2],mem[addr+1],mem[addr]};
+                data_out = {mem[addr+3],mem[addr+2],mem[addr+1],mem[addr]};
             end
         end
     end

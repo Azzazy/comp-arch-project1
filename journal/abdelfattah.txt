@@ -5,3 +5,8 @@ April 01, 7:00PM: Tested (LUI, AUIPC, JAL, JALR, LW, SW, ADD, OR)
 April 01, 9:00PM: Discoverd a problem happening in the store
 April 02, 9:00PM: Fixed the branch unit
 April 02, 10:00PM: Tested (STL, STLU, SB, ADDI, LUI) and finalizing the milestone.
+April 10, 5:00PM: adjusting single memory for data and instructions.
+April 11, 6:00PM: tryed to integrate teh forwarding unit into the top level
+April 11, 10:00PM: tracing bugs in the code
+April 12, 1:00AM: finishing top level integration and testing
+April 12, 3:00AM: finalizing the report and going sleeping

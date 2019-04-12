@@ -20,6 +20,7 @@ module ControlUnit (
     output reg unsign,
 	output reg l_zero,
 	output reg Branch_JALR,
+	output reg Branch_JAL,
     output reg [1:0]RegWmux2Ctl,
     output halt
 );
@@ -34,6 +35,7 @@ module ControlUnit (
         
         if((opcode== `OPCODE_SYSTEM)||(opcode==`OPCODE_FENCE))begin
             Branch_JALR =0;
+            Branch_JAL  =0;
             Branch   =   0;
             MemRead  =   0;
             MemToReg =   0;    
@@ -49,7 +51,8 @@ module ControlUnit (
             l_zero	=	 0; 	//LUI: load zero instead of rs1 into the first ALU input
         end else begin
     
-            Branch_JALR =(opcode	 ==  `OPCODE_JALR) ?1:0;
+            Branch_JALR =(opcode    ==  `OPCODE_JALR) ?1:0;
+            Branch_JAL =(opcode     ==  `OPCODE_JAL) ?1:0;
             Branch   =   (opcode[4:2] ==  6)? 1:0;//branch, jal and jalr instructions
             MemRead  =   (opcode[4:2] ==  `OPCODE_Load)? 1:0;
             MemToReg =   (opcode ==  `OPCODE_Load)? 1:0;//load instructions 
