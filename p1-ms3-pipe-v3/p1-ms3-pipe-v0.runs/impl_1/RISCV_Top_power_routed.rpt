@@ -1,0 +1,665 @@
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+-------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version     : Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
+| Date             : Sun Apr 14 00:32:22 2019
+| Host             : caffe-OptiPlex-5050 running 64-bit Ubuntu 18.04.2 LTS
+| Command          : report_power -file RISCV_Top_power_routed.rpt -pb RISCV_Top_power_summary_routed.pb -rpx RISCV_Top_power_routed.rpx
+| Design           : RISCV_Top
+| Device           : xc7a100tcsg324-1
+| Design State     : routed
+| Grade            : commercial
+| Process          : typical
+| Characterization : Production
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+Power Report
+
+Table of Contents
+-----------------
+1. Summary
+1.1 On-Chip Components
+1.2 Power Supply Summary
+1.3 Confidence Level
+2. Settings
+2.1 Environment
+2.2 Clock Constraints
+3. Detailed Reports
+3.1 By Hierarchy
+
+1. Summary
+----------
+
++--------------------------+-----------------------------------+
+| Total On-Chip Power (W)  | 108.585 (Junction temp exceeded!) |
+| Design Power Budget (W)  | Unspecified*                      |
+| Power Budget Margin (W)  | NA                                |
+| Dynamic (W)              | 107.787                           |
+| Device Static (W)        | 0.798                             |
+| Effective TJA (C/W)      | 4.6                               |
+| Max Ambient (C)          | 0.0                               |
+| Junction Temperature (C) | 125.0                             |
+| Confidence Level         | Low                               |
+| Setting File             | ---                               |
+| Simulation Activity File | ---                               |
+| Design Nets Matched      | NA                                |
++--------------------------+-----------------------------------+
+* Specify Design Power Budget using, set_operating_conditions -design_power_budget <value in Watts>
+
+
+1.1 On-Chip Components
+----------------------
+
++----------------+-----------+----------+-----------+-----------------+
+| On-Chip        | Power (W) | Used     | Available | Utilization (%) |
++----------------+-----------+----------+-----------+-----------------+
+| Slice Logic    |    22.116 |     3834 |       --- |             --- |
+|   LUT as Logic |    21.032 |     1699 |     63400 |            2.68 |
+|   Register     |     0.451 |     1504 |    126800 |            1.19 |
+|   F7/F8 Muxes  |     0.396 |      256 |     63400 |            0.40 |
+|   CARRY4       |     0.226 |       43 |     15850 |            0.27 |
+|   BUFG         |     0.012 |        2 |        32 |            6.25 |
+|   Others       |     0.000 |      180 |       --- |             --- |
+| Signals        |    30.829 |     3002 |       --- |             --- |
+| Block RAM      |     0.273 |      1.5 |       135 |            1.11 |
+| I/O            |    54.569 |       36 |       210 |           17.14 |
+| Static Power   |     0.798 |          |           |                 |
+| Total          |   108.585 |          |           |                 |
++----------------+-----------+----------+-----------+-----------------+
+
+
+1.2 Power Supply Summary
+------------------------
+
++-----------+-------------+-----------+-------------+------------+
+| Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
++-----------+-------------+-----------+-------------+------------+
+| Vccint    |       1.000 |    53.793 |      53.230 |      0.563 |
+| Vccaux    |       1.800 |     2.091 |       1.998 |      0.093 |
+| Vcco33    |       3.300 |    15.440 |      15.436 |      0.004 |
+| Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
+| Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |
+| Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
+| Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |
+| Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |
+| Vccaux_io |       1.800 |     0.000 |       0.000 |      0.000 |
+| Vccbram   |       1.000 |     0.038 |       0.020 |      0.018 |
+| MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |
+| MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |
+| Vccadc    |       1.800 |     0.020 |       0.000 |      0.020 |
++-----------+-------------+-----------+-------------+------------+
+
+
+1.3 Confidence Level
+--------------------
+
++-----------------------------+------------+--------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------+
+| User Input Data             | Confidence | Details                                                | Action                                                                                                             |
++-----------------------------+------------+--------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------+
+| Design implementation state | High       | Design is routed                                       |                                                                                                                    |
+| Clock nodes activity        | Low        | User specified less than 75% of clocks                 | Provide missing clock activity with a constraint file, simulation results or by editing the "By Clock Domain" view |
+| I/O nodes activity          | Low        | More than 75% of inputs are missing user specification | Provide missing input activity with simulation results or by editing the "By Resource Type -> I/Os" view           |
+| Internal nodes activity     | Medium     | User specified less than 25% of internal nodes         | Provide missing internal nodes activity with simulation results or by editing the "By Resource Type" views         |
+| Device models               | High       | Device models are Production                           |                                                                                                                    |
+|                             |            |                                                        |                                                                                                                    |
+| Overall confidence level    | Low        |                                                        |                                                                                                                    |
++-----------------------------+------------+--------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------+
+
+
+2. Settings
+-----------
+
+2.1 Environment
+---------------
+
++-----------------------+--------------------------+
+| Ambient Temp (C)      | 25.0                     |
+| ThetaJA (C/W)         | 4.6                      |
+| Airflow (LFM)         | 250                      |
+| Heat Sink             | medium (Medium Profile)  |
+| ThetaSA (C/W)         | 4.6                      |
+| Board Selection       | medium (10"x10")         |
+| # of Board Layers     | 12to15 (12 to 15 Layers) |
+| Board Temperature (C) | 25.0                     |
++-----------------------+--------------------------+
+
+
+2.2 Clock Constraints
+---------------------
+
++-------+--------+-----------------+
+| Clock | Domain | Constraint (ns) |
++-------+--------+-----------------+
+
+
+3. Detailed Reports
+-------------------
+
+3.1 By Hierarchy
+----------------
+
++----------------------+-----------+
+| Name                 | Power (W) |
++----------------------+-----------+
+| RISCV_Top            |   107.787 |
+|   rv                 |    50.116 |
+|     EX_MEM           |     4.560 |
+|       genblk1[0].f   |     0.029 |
+|       genblk1[100].f |     0.004 |
+|       genblk1[101].f |     0.003 |
+|       genblk1[102].f |     0.004 |
+|       genblk1[103].f |     0.003 |
+|       genblk1[104].f |     0.004 |
+|       genblk1[105].f |     0.002 |
+|       genblk1[106].f |     0.003 |
+|       genblk1[107].f |     0.003 |
+|       genblk1[108].f |     0.002 |
+|       genblk1[109].f |     0.004 |
+|       genblk1[10].f  |     0.003 |
+|       genblk1[110].f |     0.002 |
+|       genblk1[111].f |     0.001 |
+|       genblk1[112].f |     0.002 |
+|       genblk1[113].f |     0.002 |
+|       genblk1[114].f |     0.004 |
+|       genblk1[115].f |     0.002 |
+|       genblk1[116].f |     0.001 |
+|       genblk1[117].f |     0.002 |
+|       genblk1[118].f |     0.002 |
+|       genblk1[11].f  |     0.006 |
+|       genblk1[122].f |     0.002 |
+|       genblk1[123].f |     0.002 |
+|       genblk1[126].f |     0.002 |
+|       genblk1[127].f |     0.002 |
+|       genblk1[128].f |     0.003 |
+|       genblk1[129].f |     0.003 |
+|       genblk1[12].f  |     0.003 |
+|       genblk1[130].f |     0.006 |
+|       genblk1[131].f |     0.006 |
+|       genblk1[132].f |     0.004 |
+|       genblk1[133].f |     0.004 |
+|       genblk1[134].f |     0.005 |
+|       genblk1[135].f |     0.004 |
+|       genblk1[136].f |     0.006 |
+|       genblk1[137].f |     0.008 |
+|       genblk1[138].f |     0.005 |
+|       genblk1[139].f |     0.004 |
+|       genblk1[13].f  |     0.006 |
+|       genblk1[140].f |     0.004 |
+|       genblk1[141].f |     0.005 |
+|       genblk1[142].f |     0.004 |
+|       genblk1[143].f |     0.005 |
+|       genblk1[144].f |     0.004 |
+|       genblk1[145].f |     0.006 |
+|       genblk1[146].f |     0.004 |
+|       genblk1[147].f |     0.004 |
+|       genblk1[148].f |     0.004 |
+|       genblk1[149].f |     0.004 |
+|       genblk1[14].f  |     0.003 |
+|       genblk1[150].f |     0.004 |
+|       genblk1[151].f |     0.005 |
+|       genblk1[152].f |     0.004 |
+|       genblk1[153].f |     0.004 |
+|       genblk1[154].f |     0.004 |
+|       genblk1[155].f |     0.005 |
+|       genblk1[156].f |     0.004 |
+|       genblk1[157].f |     0.006 |
+|       genblk1[158].f |     0.004 |
+|       genblk1[159].f |     0.004 |
+|       genblk1[15].f  |     0.009 |
+|       genblk1[160].f |     0.012 |
+|       genblk1[161].f |     0.013 |
+|       genblk1[162].f |     0.011 |
+|       genblk1[163].f |     0.963 |
+|       genblk1[164].f |     0.310 |
+|       genblk1[175].f |     0.025 |
+|       genblk1[176].f |     0.017 |
+|       genblk1[177].f |     0.008 |
+|       genblk1[178].f |     0.121 |
+|       genblk1[179].f |     1.338 |
+|       genblk1[180].f |     0.016 |
+|       genblk1[181].f |     0.056 |
+|       genblk1[182].f |     0.030 |
+|       genblk1[1].f   |     0.031 |
+|       genblk1[24].f  |     0.009 |
+|       genblk1[25].f  |     0.011 |
+|       genblk1[26].f  |     0.009 |
+|       genblk1[27].f  |     0.011 |
+|       genblk1[28].f  |     0.009 |
+|       genblk1[29].f  |     0.009 |
+|       genblk1[2].f   |     0.033 |
+|       genblk1[30].f  |     0.011 |
+|       genblk1[31].f  |     0.007 |
+|       genblk1[3].f   |     0.035 |
+|       genblk1[4].f   |     0.043 |
+|       genblk1[5].f   |     0.044 |
+|       genblk1[64].f  |     0.258 |
+|       genblk1[65].f  |     0.164 |
+|       genblk1[66].f  |     0.127 |
+|       genblk1[67].f  |     0.027 |
+|       genblk1[68].f  |     0.098 |
+|       genblk1[69].f  |     0.037 |
+|       genblk1[6].f   |     0.034 |
+|       genblk1[70].f  |     0.017 |
+|       genblk1[71].f  |     0.027 |
+|       genblk1[72].f  |     0.007 |
+|       genblk1[73].f  |     0.007 |
+|       genblk1[74].f  |     0.014 |
+|       genblk1[75].f  |     0.007 |
+|       genblk1[76].f  |     0.008 |
+|       genblk1[77].f  |     0.010 |
+|       genblk1[78].f  |     0.008 |
+|       genblk1[79].f  |     0.013 |
+|       genblk1[7].f   |     0.040 |
+|       genblk1[80].f  |     0.012 |
+|       genblk1[81].f  |     0.009 |
+|       genblk1[82].f  |     0.007 |
+|       genblk1[83].f  |     0.007 |
+|       genblk1[84].f  |     0.011 |
+|       genblk1[85].f  |     0.008 |
+|       genblk1[86].f  |     0.009 |
+|       genblk1[87].f  |     0.013 |
+|       genblk1[88].f  |     0.021 |
+|       genblk1[89].f  |     0.013 |
+|       genblk1[8].f   |     0.007 |
+|       genblk1[90].f  |     0.018 |
+|       genblk1[91].f  |     0.012 |
+|       genblk1[92].f  |     0.012 |
+|       genblk1[93].f  |     0.013 |
+|       genblk1[94].f  |     0.014 |
+|       genblk1[95].f  |     0.013 |
+|       genblk1[98].f  |     0.006 |
+|       genblk1[99].f  |     0.004 |
+|       genblk1[9].f   |     0.003 |
+|     EX_rs1_mux       |     1.316 |
+|     ID_EX            |     8.389 |
+|       genblk1[0].f   |     0.002 |
+|       genblk1[100].f |     0.010 |
+|       genblk1[101].f |     0.009 |
+|       genblk1[102].f |     0.010 |
+|       genblk1[103].f |     0.008 |
+|       genblk1[104].f |     0.013 |
+|       genblk1[105].f |     0.006 |
+|       genblk1[106].f |     0.007 |
+|       genblk1[107].f |     0.007 |
+|       genblk1[108].f |     0.010 |
+|       genblk1[109].f |     0.009 |
+|       genblk1[10].f  |     0.003 |
+|       genblk1[110].f |     0.009 |
+|       genblk1[111].f |     0.007 |
+|       genblk1[112].f |     0.013 |
+|       genblk1[113].f |     0.009 |
+|       genblk1[114].f |     0.006 |
+|       genblk1[115].f |     0.007 |
+|       genblk1[116].f |     0.009 |
+|       genblk1[117].f |     0.011 |
+|       genblk1[118].f |     0.012 |
+|       genblk1[119].f |     0.015 |
+|       genblk1[11].f  |     0.007 |
+|       genblk1[120].f |     0.007 |
+|       genblk1[121].f |     0.012 |
+|       genblk1[122].f |     0.009 |
+|       genblk1[123].f |     0.011 |
+|       genblk1[124].f |     0.006 |
+|       genblk1[125].f |     0.009 |
+|       genblk1[126].f |     0.016 |
+|       genblk1[127].f |     0.014 |
+|       genblk1[128].f |     0.098 |
+|       genblk1[129].f |     0.119 |
+|       genblk1[12].f  |     0.004 |
+|       genblk1[130].f |     0.197 |
+|       genblk1[131].f |     0.049 |
+|       genblk1[132].f |     0.044 |
+|       genblk1[133].f |     0.052 |
+|       genblk1[134].f |     0.055 |
+|       genblk1[135].f |     0.045 |
+|       genblk1[136].f |     0.035 |
+|       genblk1[137].f |     0.035 |
+|       genblk1[138].f |     0.038 |
+|       genblk1[139].f |     0.020 |
+|       genblk1[13].f  |     0.006 |
+|       genblk1[140].f |     0.022 |
+|       genblk1[141].f |     0.020 |
+|       genblk1[142].f |     0.025 |
+|       genblk1[143].f |     0.022 |
+|       genblk1[144].f |     0.021 |
+|       genblk1[145].f |     0.023 |
+|       genblk1[146].f |     0.020 |
+|       genblk1[147].f |     0.020 |
+|       genblk1[148].f |     0.023 |
+|       genblk1[149].f |     0.022 |
+|       genblk1[14].f  |     0.004 |
+|       genblk1[150].f |     0.022 |
+|       genblk1[151].f |     0.024 |
+|       genblk1[152].f |     0.021 |
+|       genblk1[153].f |     0.023 |
+|       genblk1[154].f |     0.018 |
+|       genblk1[155].f |     0.022 |
+|       genblk1[156].f |     0.021 |
+|       genblk1[157].f |     0.020 |
+|       genblk1[158].f |     0.019 |
+|       genblk1[159].f |     0.028 |
+|       genblk1[15].f  |     0.003 |
+|       genblk1[160].f |     0.006 |
+|       genblk1[161].f |     0.006 |
+|       genblk1[162].f |     0.009 |
+|       genblk1[163].f |     0.006 |
+|       genblk1[164].f |     0.009 |
+|       genblk1[165].f |     0.003 |
+|       genblk1[166].f |     0.003 |
+|       genblk1[167].f |     0.003 |
+|       genblk1[168].f |     0.003 |
+|       genblk1[169].f |     0.003 |
+|       genblk1[16].f  |     0.003 |
+|       genblk1[170].f |     0.004 |
+|       genblk1[171].f |     0.003 |
+|       genblk1[172].f |     0.003 |
+|       genblk1[173].f |     0.003 |
+|       genblk1[174].f |     0.006 |
+|       genblk1[175].f |     0.011 |
+|       genblk1[178].f |     0.004 |
+|       genblk1[179].f |     0.001 |
+|       genblk1[17].f  |     0.003 |
+|       genblk1[180].f |     0.003 |
+|       genblk1[181].f |     0.005 |
+|       genblk1[182].f |     0.002 |
+|       genblk1[184].f |     0.761 |
+|       genblk1[185].f |     1.247 |
+|       genblk1[186].f |     0.114 |
+|       genblk1[187].f |     3.906 |
+|       genblk1[188].f |     0.025 |
+|       genblk1[189].f |     0.024 |
+|       genblk1[18].f  |     0.006 |
+|       genblk1[190].f |     0.023 |
+|       genblk1[191].f |     0.013 |
+|       genblk1[19].f  |     0.008 |
+|       genblk1[1].f   |     0.002 |
+|       genblk1[20].f  |     0.002 |
+|       genblk1[21].f  |     0.003 |
+|       genblk1[22].f  |     0.003 |
+|       genblk1[23].f  |     0.002 |
+|       genblk1[24].f  |     0.002 |
+|       genblk1[25].f  |     0.002 |
+|       genblk1[26].f  |     0.004 |
+|       genblk1[27].f  |     0.003 |
+|       genblk1[28].f  |     0.002 |
+|       genblk1[29].f  |     0.001 |
+|       genblk1[2].f   |     0.015 |
+|       genblk1[30].f  |     0.002 |
+|       genblk1[31].f  |     0.004 |
+|       genblk1[32].f  |     0.007 |
+|       genblk1[33].f  |     0.007 |
+|       genblk1[34].f  |     0.007 |
+|       genblk1[35].f  |     0.007 |
+|       genblk1[36].f  |     0.009 |
+|       genblk1[37].f  |     0.006 |
+|       genblk1[38].f  |     0.007 |
+|       genblk1[39].f  |     0.010 |
+|       genblk1[3].f   |     0.007 |
+|       genblk1[40].f  |     0.011 |
+|       genblk1[41].f  |     0.009 |
+|       genblk1[42].f  |     0.007 |
+|       genblk1[43].f  |     0.009 |
+|       genblk1[44].f  |     0.007 |
+|       genblk1[45].f  |     0.009 |
+|       genblk1[46].f  |     0.009 |
+|       genblk1[47].f  |     0.007 |
+|       genblk1[48].f  |     0.006 |
+|       genblk1[49].f  |     0.007 |
+|       genblk1[4].f   |     0.007 |
+|       genblk1[50].f  |     0.007 |
+|       genblk1[51].f  |     0.013 |
+|       genblk1[52].f  |     0.013 |
+|       genblk1[53].f  |     0.005 |
+|       genblk1[54].f  |     0.005 |
+|       genblk1[55].f  |     0.005 |
+|       genblk1[56].f  |     0.008 |
+|       genblk1[57].f  |     0.006 |
+|       genblk1[58].f  |     0.007 |
+|       genblk1[59].f  |     0.006 |
+|       genblk1[5].f   |     0.004 |
+|       genblk1[60].f  |     0.007 |
+|       genblk1[61].f  |     0.007 |
+|       genblk1[62].f  |     0.006 |
+|       genblk1[63].f  |     0.008 |
+|       genblk1[64].f  |     0.007 |
+|       genblk1[65].f  |     0.019 |
+|       genblk1[66].f  |     0.008 |
+|       genblk1[67].f  |     0.014 |
+|       genblk1[68].f  |     0.011 |
+|       genblk1[69].f  |     0.008 |
+|       genblk1[6].f   |     0.004 |
+|       genblk1[70].f  |     0.006 |
+|       genblk1[71].f  |     0.008 |
+|       genblk1[72].f  |     0.006 |
+|       genblk1[73].f  |     0.007 |
+|       genblk1[74].f  |     0.007 |
+|       genblk1[75].f  |     0.009 |
+|       genblk1[76].f  |     0.006 |
+|       genblk1[77].f  |     0.009 |
+|       genblk1[78].f  |     0.010 |
+|       genblk1[79].f  |     0.007 |
+|       genblk1[7].f   |     0.010 |
+|       genblk1[80].f  |     0.003 |
+|       genblk1[81].f  |     0.004 |
+|       genblk1[82].f  |     0.005 |
+|       genblk1[83].f  |     0.003 |
+|       genblk1[84].f  |     0.006 |
+|       genblk1[85].f  |     0.004 |
+|       genblk1[86].f  |     0.005 |
+|       genblk1[87].f  |     0.005 |
+|       genblk1[88].f  |     0.016 |
+|       genblk1[89].f  |     0.006 |
+|       genblk1[8].f   |     0.009 |
+|       genblk1[90].f  |     0.011 |
+|       genblk1[91].f  |     0.013 |
+|       genblk1[92].f  |     0.006 |
+|       genblk1[93].f  |     0.007 |
+|       genblk1[94].f  |     0.009 |
+|       genblk1[95].f  |     0.010 |
+|       genblk1[96].f  |     0.004 |
+|       genblk1[97].f  |     0.009 |
+|       genblk1[98].f  |     0.012 |
+|       genblk1[99].f  |     0.016 |
+|       genblk1[9].f   |     0.005 |
+|     IF_ID            |     9.877 |
+|       genblk1[10].f  |     0.003 |
+|       genblk1[11].f  |     0.006 |
+|       genblk1[12].f  |     0.003 |
+|       genblk1[13].f  |     0.007 |
+|       genblk1[14].f  |     0.004 |
+|       genblk1[15].f  |     0.002 |
+|       genblk1[16].f  |     0.003 |
+|       genblk1[17].f  |     0.007 |
+|       genblk1[18].f  |     0.008 |
+|       genblk1[19].f  |     0.008 |
+|       genblk1[20].f  |     0.002 |
+|       genblk1[21].f  |     0.004 |
+|       genblk1[22].f  |     0.004 |
+|       genblk1[23].f  |     0.002 |
+|       genblk1[24].f  |     0.002 |
+|       genblk1[25].f  |     0.003 |
+|       genblk1[26].f  |     0.004 |
+|       genblk1[27].f  |     0.003 |
+|       genblk1[29].f  |     0.002 |
+|       genblk1[2].f   |     0.012 |
+|       genblk1[30].f  |     0.002 |
+|       genblk1[31].f  |     0.003 |
+|       genblk1[32].f  |     0.004 |
+|       genblk1[33].f  |     0.005 |
+|       genblk1[34].f  |     0.673 |
+|       genblk1[35].f  |     1.068 |
+|       genblk1[36].f  |     0.553 |
+|       genblk1[37].f  |     0.202 |
+|       genblk1[38].f  |     0.183 |
+|       genblk1[39].f  |     0.025 |
+|       genblk1[3].f   |     0.006 |
+|       genblk1[40].f  |     0.015 |
+|       genblk1[41].f  |     0.014 |
+|       genblk1[42].f  |     0.016 |
+|       genblk1[43].f  |     0.013 |
+|       genblk1[44].f  |     0.041 |
+|       genblk1[45].f  |     0.074 |
+|       genblk1[46].f  |     0.048 |
+|       genblk1[47].f  |     0.646 |
+|       genblk1[48].f  |     0.585 |
+|       genblk1[49].f  |     0.506 |
+|       genblk1[4].f   |     0.007 |
+|       genblk1[50].f  |     0.194 |
+|       genblk1[51].f  |     0.221 |
+|       genblk1[52].f  |     0.772 |
+|       genblk1[53].f  |     0.564 |
+|       genblk1[54].f  |     0.563 |
+|       genblk1[55].f  |     0.465 |
+|       genblk1[56].f  |     0.250 |
+|       genblk1[57].f  |     0.205 |
+|       genblk1[58].f  |     0.193 |
+|       genblk1[59].f  |     0.119 |
+|       genblk1[5].f   |     0.006 |
+|       genblk1[60].f  |     0.070 |
+|       genblk1[61].f  |     0.086 |
+|       genblk1[62].f  |     0.076 |
+|       genblk1[63].f  |     1.135 |
+|       genblk1[64].f  |     0.003 |
+|       genblk1[65].f  |     0.004 |
+|       genblk1[66].f  |     0.018 |
+|       genblk1[67].f  |     0.005 |
+|       genblk1[68].f  |     0.002 |
+|       genblk1[69].f  |     0.018 |
+|       genblk1[6].f   |     0.007 |
+|       genblk1[70].f  |     0.005 |
+|       genblk1[71].f  |     0.002 |
+|       genblk1[72].f  |     0.006 |
+|       genblk1[73].f  |     0.003 |
+|       genblk1[74].f  |     0.019 |
+|       genblk1[75].f  |     0.003 |
+|       genblk1[76].f  |     0.002 |
+|       genblk1[77].f  |     0.006 |
+|       genblk1[78].f  |     0.004 |
+|       genblk1[79].f  |     0.010 |
+|       genblk1[7].f   |     0.005 |
+|       genblk1[80].f  |     0.002 |
+|       genblk1[81].f  |     0.003 |
+|       genblk1[82].f  |     0.004 |
+|       genblk1[83].f  |     0.002 |
+|       genblk1[84].f  |     0.010 |
+|       genblk1[85].f  |     0.002 |
+|       genblk1[86].f  |     0.002 |
+|       genblk1[87].f  |     0.002 |
+|       genblk1[88].f  |     0.001 |
+|       genblk1[89].f  |     0.010 |
+|       genblk1[8].f   |     0.007 |
+|       genblk1[90].f  |     0.003 |
+|       genblk1[91].f  |     0.002 |
+|       genblk1[92].f  |     0.002 |
+|       genblk1[93].f  |     0.001 |
+|       genblk1[94].f  |     0.002 |
+|       genblk1[95].f  |     0.002 |
+|       genblk1[9].f   |     0.003 |
+|     MEM_WB           |     8.387 |
+|       genblk1[0].f   |     0.271 |
+|       genblk1[10].f  |     0.171 |
+|       genblk1[11].f  |     0.282 |
+|       genblk1[12].f  |     0.452 |
+|       genblk1[13].f  |     0.129 |
+|       genblk1[14].f  |     0.120 |
+|       genblk1[15].f  |     0.139 |
+|       genblk1[16].f  |     0.138 |
+|       genblk1[17].f  |     0.134 |
+|       genblk1[18].f  |     0.130 |
+|       genblk1[19].f  |     0.142 |
+|       genblk1[1].f   |     0.287 |
+|       genblk1[20].f  |     0.180 |
+|       genblk1[21].f  |     0.185 |
+|       genblk1[22].f  |     0.191 |
+|       genblk1[23].f  |     0.184 |
+|       genblk1[24].f  |     0.229 |
+|       genblk1[25].f  |     0.219 |
+|       genblk1[26].f  |     0.273 |
+|       genblk1[27].f  |     0.301 |
+|       genblk1[28].f  |     0.256 |
+|       genblk1[29].f  |     0.286 |
+|       genblk1[2].f   |     0.299 |
+|       genblk1[30].f  |     0.242 |
+|       genblk1[31].f  |     0.224 |
+|       genblk1[32].f  |     0.260 |
+|       genblk1[33].f  |     0.127 |
+|       genblk1[34].f  |     0.139 |
+|       genblk1[35].f  |     0.117 |
+|       genblk1[36].f  |     0.125 |
+|       genblk1[37].f  |     0.759 |
+|       genblk1[38].f  |     0.009 |
+|       genblk1[3].f   |     0.306 |
+|       genblk1[4].f   |     0.208 |
+|       genblk1[5].f   |     0.193 |
+|       genblk1[6].f   |     0.178 |
+|       genblk1[7].f   |     0.173 |
+|       genblk1[8].f   |     0.180 |
+|       genblk1[9].f   |     0.151 |
+|     OffsetPCMux      |     0.413 |
+|     aluSrcBMux       |     0.945 |
+|     branch_r1        |     1.399 |
+|     branch_r2        |     0.937 |
+|     pc               |     1.299 |
+|       genblk1[0].f   |     0.038 |
+|       genblk1[10].f  |     0.024 |
+|       genblk1[11].f  |     0.004 |
+|       genblk1[12].f  |     0.010 |
+|       genblk1[13].f  |     0.017 |
+|       genblk1[14].f  |     0.009 |
+|       genblk1[15].f  |     0.008 |
+|       genblk1[16].f  |     0.003 |
+|       genblk1[17].f  |     0.010 |
+|       genblk1[18].f  |     0.014 |
+|       genblk1[19].f  |     0.011 |
+|       genblk1[1].f   |     0.293 |
+|       genblk1[20].f  |     0.009 |
+|       genblk1[21].f  |     0.004 |
+|       genblk1[22].f  |     0.007 |
+|       genblk1[23].f  |     0.004 |
+|       genblk1[24].f  |     0.006 |
+|       genblk1[25].f  |     0.008 |
+|       genblk1[26].f  |     0.003 |
+|       genblk1[27].f  |     0.007 |
+|       genblk1[28].f  |     0.006 |
+|       genblk1[29].f  |     0.006 |
+|       genblk1[2].f   |     0.294 |
+|       genblk1[30].f  |     0.002 |
+|       genblk1[31].f  |     0.002 |
+|       genblk1[3].f   |     0.141 |
+|       genblk1[4].f   |     0.082 |
+|       genblk1[5].f   |     0.060 |
+|       genblk1[6].f   |     0.047 |
+|       genblk1[7].f   |     0.111 |
+|       genblk1[8].f   |     0.030 |
+|       genblk1[9].f   |     0.029 |
+|     pcSrcMux         |     0.182 |
+|     regWsrcMux1      |     1.121 |
+|     rf               |     9.292 |
+|       genblk1[10].ri |     0.003 |
+|       genblk1[11].ri |     0.960 |
+|       genblk1[12].ri |     0.003 |
+|       genblk1[15].ri |     0.430 |
+|       genblk1[16].ri |     0.006 |
+|       genblk1[17].ri |     0.003 |
+|       genblk1[18].ri |     0.003 |
+|       genblk1[19].ri |     0.919 |
+|       genblk1[1].ri  |     0.007 |
+|       genblk1[20].ri |     0.003 |
+|       genblk1[23].ri |     0.432 |
+|       genblk1[24].ri |     0.002 |
+|       genblk1[27].ri |     4.715 |
+|       genblk1[2].ri  |     0.008 |
+|       genblk1[31].ri |     0.428 |
+|       genblk1[3].ri  |     0.910 |
+|       genblk1[4].ri  |     0.008 |
+|       genblk1[5].ri  |     0.003 |
+|       genblk1[6].ri  |     0.003 |
+|       genblk1[7].ri  |     0.432 |
+|       genblk1[8].ri  |     0.007 |
+|       genblk1[9].ri  |     0.002 |
+|     shamtMux         |     0.621 |
+|     single_mem_bram  |     0.943 |
+|       mymem          |     0.943 |
+|   sd                 |     2.755 |
++----------------------+-----------+
+
+
