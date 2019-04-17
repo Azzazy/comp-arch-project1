@@ -1,0 +1,94 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:36:41 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Wed Apr 17 16:32:35 2019
+# Process ID: 23758
+# Current directory: /home/caffe/XilinxProjects/p1-ms3-pipe-v1/p1-ms3-pipe-v0.runs/impl_1
+# Command line: vivado -log RISCV_Top.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source RISCV_Top.tcl -notrace
+# Log file: /home/caffe/XilinxProjects/p1-ms3-pipe-v1/p1-ms3-pipe-v0.runs/impl_1/RISCV_Top.vdi
+# Journal file: /home/caffe/XilinxProjects/p1-ms3-pipe-v1/p1-ms3-pipe-v0.runs/impl_1/vivado.jou
+#-----------------------------------------------------------
+source RISCV_Top.tcl -notrace
+Command: open_checkpoint RISCV_Top_routed.dcp
+
+Starting open_checkpoint Task
+
+Time (s): cpu = 00:00:00.05 ; elapsed = 00:00:00.06 . Memory (MB): peak = 1381.035 ; gain = 0.000 ; free physical = 9849 ; free virtual = 14666
+INFO: [Netlist 29-17] Analyzing 303 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2018.3
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:00.25 ; elapsed = 00:00:00.51 . Memory (MB): peak = 2104.543 ; gain = 0.000 ; free physical = 8859 ; free virtual = 13762
+Restored from archive | CPU: 0.270000 secs | Memory: 4.853676 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00.25 ; elapsed = 00:00:00.51 . Memory (MB): peak = 2104.543 ; gain = 0.000 ; free physical = 8859 ; free virtual = 13762
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2104.543 ; gain = 0.000 ; free physical = 8858 ; free virtual = 13762
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Project 1-604] Checkpoint was created with Vivado v2018.3 (64-bit) build 2405991
+open_checkpoint: Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 2104.543 ; gain = 723.508 ; free physical = 8857 ; free virtual = 13761
+Command: write_bitstream -force RISCV_Top.bit
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a100t'
+Running DRC as a precondition to command write_bitstream
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2018.3/data/ip'.
+INFO: [DRC 23-27] Running DRC with 8 threads
+WARNING: [DRC CFGBVS-1] Missing CFGBVS and CONFIG_VOLTAGE Design Properties: Neither the CFGBVS nor CONFIG_VOLTAGE voltage property is set in the current_design.  Configuration bank voltage select (CFGBVS) must be set to VCCO or GND, and CONFIG_VOLTAGE must be set to the correct configuration voltage, in order to determine the I/O voltage support for the pins in bank 0.  It is suggested to specify these either using the 'Edit Device Properties' function in the GUI or directly in the XDC file using the following syntax:
+
+ set_property CFGBVS value1 [current_design]
+ #where value1 is either VCCO or GND
+
+ set_property CONFIG_VOLTAGE value2 [current_design]
+ #where value2 is the voltage provided to configuration bank 0
+
+Refer to the device configuration user guide for more information.
+WARNING: [DRC CHECK-3] Report rule limit reached: REQP-1840 rule limit reached: 20 violations have been found.
+WARNING: [DRC PDRC-153] Gated clock check: Net rv/single_mem_bram/mymem/E[0] is a gated clock net sourced by a combinational pin rv/single_mem_bram/mymem/Inst_out_reg[31]_i_2/O, cell rv/single_mem_bram/mymem/Inst_out_reg[31]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 rv/single_mem_bram/mymem/mem_reg_1 has an input control pin rv/single_mem_bram/mymem/mem_reg_1/ADDRARDADDR[10] (net: rv/single_mem_bram/mymem/ADDRARDADDR[6]) which is driven by a register (rv/EX_MEM/genblk1[70].f/q_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 rv/single_mem_bram/mymem/mem_reg_1 has an input control pin rv/single_mem_bram/mymem/mem_reg_1/ADDRARDADDR[10] (net: rv/single_mem_bram/mymem/ADDRARDADDR[6]) which is driven by a register (rv/clk2_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 rv/single_mem_bram/mymem/mem_reg_1 has an input control pin rv/single_mem_bram/mymem/mem_reg_1/ADDRARDADDR[10] (net: rv/single_mem_bram/mymem/ADDRARDADDR[6]) which is driven by a register (rv/pc/genblk1[6].f/q_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 rv/single_mem_bram/mymem/mem_reg_1 has an input control pin rv/single_mem_bram/mymem/mem_reg_1/ADDRARDADDR[11] (net: rv/single_mem_bram/mymem/ADDRARDADDR[7]) which is driven by a register (rv/EX_MEM/genblk1[71].f/q_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 rv/single_mem_bram/mymem/mem_reg_1 has an input control pin rv/single_mem_bram/mymem/mem_reg_1/ADDRARDADDR[11] (net: rv/single_mem_bram/mymem/ADDRARDADDR[7]) which is driven by a register (rv/clk2_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 rv/single_mem_bram/mymem/mem_reg_1 has an input control pin rv/single_mem_bram/mymem/mem_reg_1/ADDRARDADDR[11] (net: rv/single_mem_bram/mymem/ADDRARDADDR[7]) which is driven by a register (rv/pc/genblk1[7].f/q_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 rv/single_mem_bram/mymem/mem_reg_1 has an input control pin rv/single_mem_bram/mymem/mem_reg_1/ADDRARDADDR[5] (net: rv/single_mem_bram/mymem/ADDRARDADDR[1]) which is driven by a register (rv/EX_MEM/genblk1[65].f/q_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 rv/single_mem_bram/mymem/mem_reg_1 has an input control pin rv/single_mem_bram/mymem/mem_reg_1/ADDRARDADDR[5] (net: rv/single_mem_bram/mymem/ADDRARDADDR[1]) which is driven by a register (rv/pc/genblk1[1].f/q_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 rv/single_mem_bram/mymem/mem_reg_1 has an input control pin rv/single_mem_bram/mymem/mem_reg_1/ADDRARDADDR[6] (net: rv/single_mem_bram/mymem/ADDRARDADDR[2]) which is driven by a register (rv/EX_MEM/genblk1[66].f/q_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 rv/single_mem_bram/mymem/mem_reg_1 has an input control pin rv/single_mem_bram/mymem/mem_reg_1/ADDRARDADDR[6] (net: rv/single_mem_bram/mymem/ADDRARDADDR[2]) which is driven by a register (rv/clk2_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 rv/single_mem_bram/mymem/mem_reg_1 has an input control pin rv/single_mem_bram/mymem/mem_reg_1/ADDRARDADDR[6] (net: rv/single_mem_bram/mymem/ADDRARDADDR[2]) which is driven by a register (rv/pc/genblk1[2].f/q_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 rv/single_mem_bram/mymem/mem_reg_1 has an input control pin rv/single_mem_bram/mymem/mem_reg_1/ADDRARDADDR[7] (net: rv/single_mem_bram/mymem/ADDRARDADDR[3]) which is driven by a register (rv/EX_MEM/genblk1[67].f/q_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 rv/single_mem_bram/mymem/mem_reg_1 has an input control pin rv/single_mem_bram/mymem/mem_reg_1/ADDRARDADDR[7] (net: rv/single_mem_bram/mymem/ADDRARDADDR[3]) which is driven by a register (rv/clk2_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 rv/single_mem_bram/mymem/mem_reg_1 has an input control pin rv/single_mem_bram/mymem/mem_reg_1/ADDRARDADDR[7] (net: rv/single_mem_bram/mymem/ADDRARDADDR[3]) which is driven by a register (rv/pc/genblk1[3].f/q_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 rv/single_mem_bram/mymem/mem_reg_1 has an input control pin rv/single_mem_bram/mymem/mem_reg_1/ADDRARDADDR[8] (net: rv/single_mem_bram/mymem/ADDRARDADDR[4]) which is driven by a register (rv/EX_MEM/genblk1[68].f/q_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 rv/single_mem_bram/mymem/mem_reg_1 has an input control pin rv/single_mem_bram/mymem/mem_reg_1/ADDRARDADDR[8] (net: rv/single_mem_bram/mymem/ADDRARDADDR[4]) which is driven by a register (rv/clk2_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 rv/single_mem_bram/mymem/mem_reg_1 has an input control pin rv/single_mem_bram/mymem/mem_reg_1/ADDRARDADDR[8] (net: rv/single_mem_bram/mymem/ADDRARDADDR[4]) which is driven by a register (rv/pc/genblk1[4].f/q_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 rv/single_mem_bram/mymem/mem_reg_1 has an input control pin rv/single_mem_bram/mymem/mem_reg_1/ADDRARDADDR[9] (net: rv/single_mem_bram/mymem/ADDRARDADDR[5]) which is driven by a register (rv/EX_MEM/genblk1[69].f/q_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 rv/single_mem_bram/mymem/mem_reg_1 has an input control pin rv/single_mem_bram/mymem/mem_reg_1/ADDRARDADDR[9] (net: rv/single_mem_bram/mymem/ADDRARDADDR[5]) which is driven by a register (rv/clk2_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 rv/single_mem_bram/mymem/mem_reg_1 has an input control pin rv/single_mem_bram/mymem/mem_reg_1/ADDRARDADDR[9] (net: rv/single_mem_bram/mymem/ADDRARDADDR[5]) which is driven by a register (rv/pc/genblk1[5].f/q_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+INFO: [Vivado 12-3199] DRC finished with 0 Errors, 23 Warnings
+INFO: [Vivado 12-3200] Please refer to the DRC report (report_drc) for more information.
+INFO: [Designutils 20-2272] Running write_bitstream with 8 threads.
+Loading data files...
+Loading site data...
+Loading route data...
+Processing options...
+Creating bitmap...
+Creating bitstream...
+Writing bitstream ./RISCV_Top.bit...
+INFO: [Vivado 12-1842] Bitgen Completed Successfully.
+INFO: [Project 1-120] WebTalk data collection is mandatory when using a WebPACK part without a full Vivado license. To see the specific WebTalk data collected for your design, open the usage_statistics_webtalk.html or usage_statistics_webtalk.xml file in the implementation directory.
+INFO: [Common 17-83] Releasing license: Implementation
+22 Infos, 23 Warnings, 0 Critical Warnings and 0 Errors encountered.
+write_bitstream completed successfully
+write_bitstream: Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 2582.391 ; gain = 477.848 ; free physical = 8645 ; free virtual = 13569
+INFO: [Common 17-206] Exiting Vivado at Wed Apr 17 16:33:04 2019...
