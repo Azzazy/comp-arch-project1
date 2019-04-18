@@ -34,10 +34,10 @@ module RISCV (
     wire [1:0] ALUOp, RegWmux2Ctl, ID_A, ID_B;
     wire [3:0] ALUSel;
     wire shamtSrc, PCSrc, stall_branch, stall, ALU_out_s;
-    wire [31:0] shamt;
+    wire [31:0] shamt, pcincrement;
     assign PCSrc = branch_jalr || Branch_con || branch_jal;
     wire [4:0]single_mem_Ctrl;
-    wire [7:0]single_mem_addr, pcincrement;
+    wire [7:0]single_mem_addr;
     reg clk2;
     wire add4pc;
     
@@ -87,7 +87,7 @@ module RISCV (
     Mux2_1 #(8) InstMemSrc_addr(~clk2, PC_out[7:0],EX_MEM_ALU_out[7:0], single_mem_addr);
     DeMux1_2 #(32) InstMemSrc_data_in(~clk2, single_mem_out, Inst_raw, Mem_out);
     Extender ext(Inst_raw, Inst);
-    Mux2_1 #(8) pc2_4(add4pc, 2, 4, pcincrement);
+    Mux2_1 #(32) pc2_4(add4pc, 2, 4, pcincrement);
     
      
    /* DataMem single_mem(clk,rst,single_mem_Ctrl[4],single_mem_Ctrl[3],single_mem_Ctrl[2],single_mem_Ctrl[1],single_mem_Ctrl[0], 
