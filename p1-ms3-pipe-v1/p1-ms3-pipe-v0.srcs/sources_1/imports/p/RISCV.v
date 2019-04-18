@@ -78,7 +78,7 @@ module RISCV (
     //PIPELINE REGISTERS END
     //IF STAGE
 
-    RegWLoad pc(clk,rst,(~stall) && (~clk2),PC_in,PC_out);//change the updating of the PC
+    RegWLoad pc(clk,rst,(~stall) && (~clk2) && (~halt),PC_in,PC_out);//change the updating of the PC
     //InstMem imem(rst,PC_out[9:2],Inst);
     RippleAdder IncPC(PC_out,pcincrement,1'b0,PCAdder_out, );//move to IF stage
     Mux2_1 #(32) pcSrcMux(.sel(PCSrc),.in1(PCAdder_out),.in2({BranchAdder_out[31:1], 1'b0}), .out(PC_in));//changed to mux2
