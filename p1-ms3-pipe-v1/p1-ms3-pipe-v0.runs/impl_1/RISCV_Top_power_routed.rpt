@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
-| Date             : Fri Apr 19 02:07:14 2019
+| Date             : Fri Apr 19 13:41:57 2019
 | Host             : caffe-OptiPlex-5050 running 64-bit Ubuntu 18.04.2 LTS
 | Command          : report_power -file RISCV_Top_power_routed.rpt -pb RISCV_Top_power_summary_routed.pb -rpx RISCV_Top_power_routed.rpx
 | Design           : RISCV_Top
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+----------------------------------+
-| Total On-Chip Power (W)  | 45.587 (Junction temp exceeded!) |
+| Total On-Chip Power (W)  | 44.945 (Junction temp exceeded!) |
 | Design Power Budget (W)  | Unspecified*                     |
 | Power Budget Margin (W)  | NA                               |
-| Dynamic (W)              | 44.789                           |
+| Dynamic (W)              | 44.147                           |
 | Device Static (W)        | 0.798                            |
 | Effective TJA (C/W)      | 4.6                              |
 | Max Ambient (C)          | 0.0                              |
@@ -52,18 +52,18 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Slice Logic    |     8.346 |     3991 |       --- |             --- |
-|   LUT as Logic |     8.064 |     1808 |     63400 |            2.85 |
-|   CARRY4       |     0.135 |       43 |     15850 |            0.27 |
-|   Register     |     0.126 |     1534 |    126800 |            1.21 |
+| Slice Logic    |     8.048 |     3986 |       --- |             --- |
+|   LUT as Logic |     7.764 |     1798 |     63400 |            2.84 |
+|   CARRY4       |     0.131 |       43 |     15850 |            0.27 |
+|   Register     |     0.125 |     1534 |    126800 |            1.21 |
+|   F7/F8 Muxes  |     0.016 |      263 |     63400 |            0.41 |
 |   BUFG         |     0.012 |        2 |        32 |            6.25 |
-|   F7/F8 Muxes  |     0.009 |      260 |     63400 |            0.41 |
 |   Others       |     0.000 |      183 |       --- |             --- |
-| Signals        |    11.751 |     3141 |       --- |             --- |
+| Signals        |    11.446 |     3125 |       --- |             --- |
 | Block RAM      |     0.259 |      1.5 |       135 |            1.11 |
-| I/O            |    24.433 |       36 |       210 |           17.14 |
+| I/O            |    24.394 |       36 |       210 |           17.14 |
 | Static Power   |     0.798 |          |           |                 |
-| Total          |    45.587 |          |           |                 |
+| Total          |    44.945 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -73,9 +73,9 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |    20.932 |      20.369 |      0.563 |
-| Vccaux    |       1.800 |     0.987 |       0.894 |      0.093 |
-| Vcco33    |       3.300 |     6.911 |       6.907 |      0.004 |
+| Vccint    |       1.000 |    20.330 |      19.766 |      0.563 |
+| Vccaux    |       1.800 |     0.986 |       0.893 |      0.093 |
+| Vcco33    |       3.300 |     6.899 |       6.895 |      0.004 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
@@ -140,291 +140,286 @@ Table of Contents
 +----------------------+-----------+
 | Name                 | Power (W) |
 +----------------------+-----------+
-| RISCV_Top            |    44.789 |
-|   rv                 |    17.266 |
-|     EX_MEM           |     1.962 |
-|       genblk1[0].f   |     0.004 |
+| RISCV_Top            |    44.147 |
+|   rv                 |    16.922 |
+|     EX_MEM           |     1.848 |
+|       genblk1[0].f   |     0.010 |
 |       genblk1[100].f |     0.004 |
-|       genblk1[101].f |     0.004 |
+|       genblk1[101].f |     0.003 |
 |       genblk1[102].f |     0.003 |
 |       genblk1[103].f |     0.002 |
-|       genblk1[105].f |     0.004 |
+|       genblk1[105].f |     0.003 |
 |       genblk1[106].f |     0.002 |
 |       genblk1[107].f |     0.001 |
-|       genblk1[108].f |     0.002 |
+|       genblk1[108].f |     0.001 |
 |       genblk1[112].f |     0.001 |
-|       genblk1[113].f |     0.001 |
+|       genblk1[113].f |     0.002 |
 |       genblk1[117].f |     0.002 |
 |       genblk1[118].f |     0.001 |
 |       genblk1[122].f |     0.002 |
 |       genblk1[123].f |     0.001 |
 |       genblk1[126].f |     0.002 |
 |       genblk1[127].f |     0.002 |
-|       genblk1[130].f |     0.007 |
-|       genblk1[131].f |     0.005 |
-|       genblk1[132].f |     0.002 |
+|       genblk1[130].f |     0.008 |
+|       genblk1[131].f |     0.006 |
+|       genblk1[132].f |     0.003 |
 |       genblk1[133].f |     0.002 |
-|       genblk1[134].f |     0.004 |
+|       genblk1[134].f |     0.002 |
 |       genblk1[135].f |     0.003 |
 |       genblk1[137].f |     0.004 |
 |       genblk1[138].f |     0.003 |
 |       genblk1[139].f |     0.002 |
-|       genblk1[140].f |     0.002 |
+|       genblk1[140].f |     0.001 |
 |       genblk1[144].f |     0.002 |
 |       genblk1[145].f |     0.002 |
 |       genblk1[149].f |     0.002 |
-|       genblk1[150].f |     0.002 |
+|       genblk1[150].f |     0.001 |
 |       genblk1[154].f |     0.003 |
-|       genblk1[155].f |     0.002 |
-|       genblk1[158].f |     0.002 |
+|       genblk1[155].f |     0.001 |
+|       genblk1[158].f |     0.003 |
 |       genblk1[159].f |     0.002 |
-|       genblk1[163].f |     0.182 |
+|       genblk1[163].f |     0.150 |
 |       genblk1[164].f |     0.004 |
-|       genblk1[175].f |     0.001 |
-|       genblk1[178].f |     0.008 |
-|       genblk1[179].f |     1.176 |
+|       genblk1[178].f |     0.009 |
+|       genblk1[179].f |     1.064 |
 |       genblk1[180].f |     0.004 |
-|       genblk1[181].f |     0.102 |
+|       genblk1[181].f |     0.105 |
 |       genblk1[182].f |     0.004 |
-|       genblk1[1].f   |     0.004 |
-|       genblk1[2].f   |     0.010 |
-|       genblk1[3].f   |     0.004 |
-|       genblk1[4].f   |     0.003 |
+|       genblk1[1].f   |     0.011 |
+|       genblk1[2].f   |     0.004 |
+|       genblk1[3].f   |     0.011 |
+|       genblk1[4].f   |     0.011 |
 |       genblk1[5].f   |     0.004 |
-|       genblk1[64].f  |     0.115 |
-|       genblk1[65].f  |     0.100 |
-|       genblk1[66].f  |     0.050 |
+|       genblk1[64].f  |     0.107 |
+|       genblk1[65].f  |     0.109 |
+|       genblk1[66].f  |     0.043 |
 |       genblk1[67].f  |     0.002 |
-|       genblk1[68].f  |     0.049 |
+|       genblk1[68].f  |     0.056 |
 |       genblk1[69].f  |     0.002 |
-|       genblk1[6].f   |     0.004 |
+|       genblk1[6].f   |     0.011 |
 |       genblk1[70].f  |     0.002 |
 |       genblk1[71].f  |     0.002 |
-|       genblk1[77].f  |     0.001 |
-|       genblk1[78].f  |     0.001 |
-|       genblk1[79].f  |     0.001 |
-|       genblk1[7].f   |     0.003 |
+|       genblk1[7].f   |     0.004 |
 |       genblk1[98].f  |     0.012 |
 |       genblk1[99].f  |     0.004 |
-|     EX_rs1_mux       |     0.213 |
-|     ID_EX            |     0.525 |
-|       genblk1[10].f  |     0.005 |
-|       genblk1[11].f  |     0.002 |
+|     EX_rs1_mux       |     0.190 |
+|     ID_EX            |     0.524 |
+|       genblk1[10].f  |     0.004 |
+|       genblk1[11].f  |     0.003 |
 |       genblk1[128].f |     0.007 |
-|       genblk1[129].f |     0.003 |
-|       genblk1[12].f  |     0.003 |
-|       genblk1[130].f |     0.014 |
-|       genblk1[131].f |     0.005 |
+|       genblk1[129].f |     0.006 |
+|       genblk1[12].f  |     0.002 |
+|       genblk1[130].f |     0.011 |
+|       genblk1[131].f |     0.002 |
 |       genblk1[132].f |     0.002 |
-|       genblk1[133].f |     0.002 |
-|       genblk1[134].f |     0.005 |
-|       genblk1[135].f |     0.002 |
+|       genblk1[133].f |     0.005 |
+|       genblk1[134].f |     0.002 |
+|       genblk1[135].f |     0.005 |
 |       genblk1[136].f |     0.002 |
-|       genblk1[137].f |     0.005 |
+|       genblk1[137].f |     0.002 |
 |       genblk1[138].f |     0.002 |
 |       genblk1[139].f |     0.002 |
-|       genblk1[140].f |     0.005 |
+|       genblk1[140].f |     0.002 |
 |       genblk1[141].f |     0.002 |
 |       genblk1[142].f |     0.002 |
 |       genblk1[143].f |     0.002 |
-|       genblk1[144].f |     0.002 |
-|       genblk1[145].f |     0.002 |
-|       genblk1[146].f |     0.001 |
-|       genblk1[147].f |     0.004 |
-|       genblk1[148].f |     0.004 |
+|       genblk1[144].f |     0.004 |
+|       genblk1[145].f |     0.004 |
+|       genblk1[146].f |     0.004 |
+|       genblk1[147].f |     0.001 |
+|       genblk1[148].f |     0.002 |
 |       genblk1[149].f |     0.004 |
-|       genblk1[150].f |     0.002 |
-|       genblk1[151].f |     0.004 |
-|       genblk1[152].f |     0.002 |
-|       genblk1[153].f |     0.002 |
-|       genblk1[154].f |     0.001 |
-|       genblk1[155].f |     0.004 |
+|       genblk1[150].f |     0.004 |
+|       genblk1[151].f |     0.001 |
+|       genblk1[152].f |     0.004 |
+|       genblk1[153].f |     0.001 |
+|       genblk1[154].f |     0.004 |
+|       genblk1[155].f |     0.001 |
 |       genblk1[156].f |     0.004 |
-|       genblk1[157].f |     0.004 |
+|       genblk1[157].f |     0.001 |
 |       genblk1[158].f |     0.004 |
 |       genblk1[159].f |     0.001 |
 |       genblk1[16].f  |     0.002 |
 |       genblk1[17].f  |     0.003 |
-|       genblk1[184].f |     0.029 |
+|       genblk1[184].f |     0.040 |
 |       genblk1[185].f |     0.085 |
 |       genblk1[186].f |     0.003 |
-|       genblk1[187].f |     0.131 |
-|       genblk1[21].f  |     0.002 |
-|       genblk1[22].f  |     0.003 |
-|       genblk1[26].f  |     0.006 |
+|       genblk1[187].f |     0.126 |
+|       genblk1[21].f  |     0.004 |
+|       genblk1[22].f  |     0.002 |
+|       genblk1[26].f  |     0.003 |
 |       genblk1[27].f  |     0.003 |
 |       genblk1[2].f   |     0.012 |
-|       genblk1[30].f  |     0.002 |
+|       genblk1[30].f  |     0.004 |
 |       genblk1[31].f  |     0.004 |
-|       genblk1[34].f  |     0.015 |
-|       genblk1[35].f  |     0.007 |
+|       genblk1[34].f  |     0.011 |
+|       genblk1[35].f  |     0.008 |
 |       genblk1[36].f  |     0.004 |
-|       genblk1[37].f  |     0.002 |
-|       genblk1[38].f  |     0.005 |
-|       genblk1[39].f  |     0.004 |
+|       genblk1[37].f  |     0.003 |
+|       genblk1[38].f  |     0.004 |
+|       genblk1[39].f  |     0.003 |
 |       genblk1[3].f   |     0.007 |
 |       genblk1[41].f  |     0.004 |
 |       genblk1[42].f  |     0.005 |
-|       genblk1[43].f  |     0.003 |
+|       genblk1[43].f  |     0.002 |
 |       genblk1[44].f  |     0.002 |
-|       genblk1[48].f  |     0.002 |
-|       genblk1[49].f  |     0.003 |
-|       genblk1[4].f   |     0.006 |
+|       genblk1[48].f  |     0.003 |
+|       genblk1[49].f  |     0.004 |
+|       genblk1[4].f   |     0.009 |
 |       genblk1[53].f  |     0.003 |
 |       genblk1[54].f  |     0.003 |
-|       genblk1[58].f  |     0.004 |
-|       genblk1[59].f  |     0.003 |
-|       genblk1[5].f   |     0.004 |
-|       genblk1[62].f  |     0.004 |
+|       genblk1[58].f  |     0.002 |
+|       genblk1[59].f  |     0.002 |
+|       genblk1[5].f   |     0.005 |
+|       genblk1[62].f  |     0.003 |
 |       genblk1[63].f  |     0.004 |
-|       genblk1[6].f   |     0.007 |
-|       genblk1[7].f   |     0.005 |
-|       genblk1[9].f   |     0.004 |
-|     IF_ID            |     1.041 |
-|       genblk1[10].f  |     0.006 |
-|       genblk1[11].f  |     0.002 |
-|       genblk1[12].f  |     0.002 |
-|       genblk1[16].f  |     0.002 |
-|       genblk1[17].f  |     0.003 |
-|       genblk1[21].f  |     0.002 |
-|       genblk1[22].f  |     0.002 |
-|       genblk1[26].f  |     0.003 |
-|       genblk1[27].f  |     0.002 |
-|       genblk1[2].f   |     0.013 |
-|       genblk1[30].f  |     0.003 |
-|       genblk1[31].f  |     0.003 |
-|       genblk1[32].f  |     0.019 |
-|       genblk1[33].f  |     0.020 |
-|       genblk1[34].f  |     0.160 |
-|       genblk1[35].f  |     0.001 |
-|       genblk1[36].f  |     0.234 |
-|       genblk1[37].f  |     0.002 |
-|       genblk1[38].f  |     0.169 |
-|       genblk1[39].f  |     0.068 |
-|       genblk1[3].f   |     0.004 |
-|       genblk1[44].f  |     0.007 |
-|       genblk1[45].f  |     0.004 |
-|       genblk1[47].f  |     0.005 |
-|       genblk1[48].f  |     0.017 |
-|       genblk1[49].f  |     0.006 |
-|       genblk1[4].f   |     0.004 |
-|       genblk1[50].f  |     0.001 |
-|       genblk1[51].f  |     0.002 |
-|       genblk1[52].f  |     0.012 |
-|       genblk1[53].f  |     0.006 |
-|       genblk1[54].f  |     0.024 |
-|       genblk1[55].f  |     0.008 |
-|       genblk1[56].f  |     0.009 |
-|       genblk1[5].f   |     0.004 |
-|       genblk1[61].f  |     0.005 |
-|       genblk1[62].f  |     0.009 |
-|       genblk1[63].f  |     0.095 |
-|       genblk1[66].f  |     0.028 |
-|       genblk1[67].f  |     0.009 |
-|       genblk1[68].f  |     0.003 |
-|       genblk1[69].f  |     0.002 |
-|       genblk1[6].f   |     0.005 |
-|       genblk1[70].f  |     0.005 |
-|       genblk1[71].f  |     0.005 |
-|       genblk1[73].f  |     0.004 |
-|       genblk1[74].f  |     0.005 |
-|       genblk1[75].f  |     0.002 |
-|       genblk1[76].f  |     0.004 |
-|       genblk1[7].f   |     0.005 |
-|       genblk1[80].f  |     0.002 |
-|       genblk1[81].f  |     0.001 |
-|       genblk1[85].f  |     0.002 |
-|       genblk1[86].f  |     0.001 |
-|       genblk1[90].f  |     0.002 |
-|       genblk1[91].f  |     0.002 |
-|       genblk1[94].f  |     0.003 |
-|       genblk1[95].f  |     0.002 |
+|       genblk1[6].f   |     0.004 |
+|       genblk1[7].f   |     0.006 |
 |       genblk1[9].f   |     0.006 |
-|     MEM_WB           |     4.312 |
-|       genblk1[0].f   |     0.135 |
-|       genblk1[10].f  |     0.292 |
-|       genblk1[11].f  |     0.149 |
-|       genblk1[12].f  |     0.137 |
-|       genblk1[13].f  |     0.133 |
-|       genblk1[14].f  |     0.133 |
-|       genblk1[15].f  |     0.127 |
-|       genblk1[16].f  |     0.101 |
-|       genblk1[17].f  |     0.102 |
-|       genblk1[18].f  |     0.097 |
-|       genblk1[19].f  |     0.105 |
-|       genblk1[1].f   |     0.150 |
-|       genblk1[20].f  |     0.095 |
-|       genblk1[21].f  |     0.098 |
-|       genblk1[22].f  |     0.103 |
-|       genblk1[23].f  |     0.120 |
-|       genblk1[24].f  |     0.098 |
-|       genblk1[25].f  |     0.103 |
-|       genblk1[26].f  |     0.104 |
-|       genblk1[27].f  |     0.111 |
-|       genblk1[28].f  |     0.095 |
-|       genblk1[29].f  |     0.103 |
-|       genblk1[2].f   |     0.143 |
-|       genblk1[30].f  |     0.112 |
-|       genblk1[31].f  |     0.108 |
-|       genblk1[32].f  |     0.019 |
-|       genblk1[33].f  |     0.004 |
-|       genblk1[34].f  |     0.002 |
-|       genblk1[35].f  |     0.002 |
-|       genblk1[36].f  |     0.002 |
-|       genblk1[37].f  |     0.017 |
-|       genblk1[3].f   |     0.182 |
-|       genblk1[4].f   |     0.169 |
-|       genblk1[5].f   |     0.193 |
-|       genblk1[6].f   |     0.167 |
-|       genblk1[7].f   |     0.164 |
-|       genblk1[8].f   |     0.171 |
-|       genblk1[9].f   |     0.167 |
-|     OffsetPCMux      |     0.140 |
-|     aluSrcBMux       |     0.070 |
-|     branch_r1        |     0.128 |
-|     branch_r2        |     0.087 |
-|     ext              |     0.073 |
-|     pc               |     0.690 |
-|       genblk1[10].f  |     0.010 |
-|       genblk1[11].f  |     0.010 |
+|     IF_ID            |     1.085 |
+|       genblk1[10].f  |     0.004 |
+|       genblk1[11].f  |     0.005 |
 |       genblk1[12].f  |     0.003 |
-|       genblk1[14].f  |     0.081 |
-|       genblk1[15].f  |     0.002 |
-|       genblk1[16].f  |     0.007 |
+|       genblk1[16].f  |     0.002 |
 |       genblk1[17].f  |     0.002 |
-|       genblk1[1].f   |     0.101 |
-|       genblk1[20].f  |     0.003 |
-|       genblk1[21].f  |     0.005 |
-|       genblk1[22].f  |     0.002 |
-|       genblk1[25].f  |     0.003 |
-|       genblk1[26].f  |     0.013 |
-|       genblk1[27].f  |     0.002 |
-|       genblk1[2].f   |     0.168 |
+|       genblk1[21].f  |     0.003 |
+|       genblk1[22].f  |     0.003 |
+|       genblk1[26].f  |     0.004 |
+|       genblk1[27].f  |     0.001 |
+|       genblk1[2].f   |     0.013 |
 |       genblk1[30].f  |     0.002 |
 |       genblk1[31].f  |     0.002 |
-|       genblk1[3].f   |     0.086 |
-|       genblk1[4].f   |     0.043 |
-|       genblk1[5].f   |     0.034 |
-|       genblk1[6].f   |     0.059 |
-|       genblk1[7].f   |     0.040 |
-|       genblk1[8].f   |     0.004 |
-|       genblk1[9].f   |     0.008 |
-|     pcSrcMux         |     0.062 |
+|       genblk1[32].f  |     0.016 |
+|       genblk1[33].f  |     0.012 |
+|       genblk1[34].f  |     0.193 |
+|       genblk1[35].f  |     0.001 |
+|       genblk1[36].f  |     0.226 |
+|       genblk1[37].f  |     0.002 |
+|       genblk1[38].f  |     0.190 |
+|       genblk1[39].f  |     0.058 |
+|       genblk1[3].f   |     0.009 |
+|       genblk1[44].f  |     0.005 |
+|       genblk1[45].f  |     0.006 |
+|       genblk1[47].f  |     0.004 |
+|       genblk1[48].f  |     0.016 |
+|       genblk1[49].f  |     0.009 |
+|       genblk1[4].f   |     0.009 |
+|       genblk1[50].f  |     0.001 |
+|       genblk1[51].f  |     0.001 |
+|       genblk1[52].f  |     0.012 |
+|       genblk1[53].f  |     0.005 |
+|       genblk1[54].f  |     0.026 |
+|       genblk1[55].f  |     0.008 |
+|       genblk1[56].f  |     0.014 |
+|       genblk1[5].f   |     0.004 |
+|       genblk1[61].f  |     0.011 |
+|       genblk1[62].f  |     0.007 |
+|       genblk1[63].f  |     0.096 |
+|       genblk1[66].f  |     0.030 |
+|       genblk1[67].f  |     0.006 |
+|       genblk1[68].f  |     0.004 |
+|       genblk1[69].f  |     0.002 |
+|       genblk1[6].f   |     0.004 |
+|       genblk1[70].f  |     0.003 |
+|       genblk1[71].f  |     0.003 |
+|       genblk1[73].f  |     0.004 |
+|       genblk1[74].f  |     0.006 |
+|       genblk1[75].f  |     0.001 |
+|       genblk1[76].f  |     0.002 |
+|       genblk1[7].f   |     0.004 |
+|       genblk1[80].f  |     0.002 |
+|       genblk1[81].f  |     0.002 |
+|       genblk1[85].f  |     0.002 |
+|       genblk1[86].f  |     0.003 |
+|       genblk1[90].f  |     0.002 |
+|       genblk1[91].f  |     0.003 |
+|       genblk1[94].f  |     0.003 |
+|       genblk1[95].f  |     0.002 |
+|       genblk1[9].f   |     0.009 |
+|     MEM_WB           |     4.364 |
+|       genblk1[0].f   |     0.144 |
+|       genblk1[10].f  |     0.294 |
+|       genblk1[11].f  |     0.125 |
+|       genblk1[12].f  |     0.143 |
+|       genblk1[13].f  |     0.113 |
+|       genblk1[14].f  |     0.131 |
+|       genblk1[15].f  |     0.113 |
+|       genblk1[16].f  |     0.099 |
+|       genblk1[17].f  |     0.099 |
+|       genblk1[18].f  |     0.094 |
+|       genblk1[19].f  |     0.103 |
+|       genblk1[1].f   |     0.160 |
+|       genblk1[20].f  |     0.115 |
+|       genblk1[21].f  |     0.098 |
+|       genblk1[22].f  |     0.100 |
+|       genblk1[23].f  |     0.096 |
+|       genblk1[24].f  |     0.113 |
+|       genblk1[25].f  |     0.103 |
+|       genblk1[26].f  |     0.113 |
+|       genblk1[27].f  |     0.104 |
+|       genblk1[28].f  |     0.107 |
+|       genblk1[29].f  |     0.123 |
+|       genblk1[2].f   |     0.163 |
+|       genblk1[30].f  |     0.108 |
+|       genblk1[31].f  |     0.109 |
+|       genblk1[32].f  |     0.013 |
+|       genblk1[33].f  |     0.003 |
+|       genblk1[34].f  |     0.002 |
+|       genblk1[35].f  |     0.002 |
+|       genblk1[36].f  |     0.001 |
+|       genblk1[37].f  |     0.014 |
+|       genblk1[3].f   |     0.187 |
+|       genblk1[4].f   |     0.188 |
+|       genblk1[5].f   |     0.211 |
+|       genblk1[6].f   |     0.159 |
+|       genblk1[7].f   |     0.173 |
+|       genblk1[8].f   |     0.162 |
+|       genblk1[9].f   |     0.178 |
+|     OffsetPCMux      |     0.148 |
+|     aluSrcBMux       |     0.074 |
+|     branch_r1        |     0.104 |
+|     branch_r2        |     0.069 |
+|     ext              |     0.056 |
+|     pc               |     0.749 |
+|       genblk1[10].f  |     0.014 |
+|       genblk1[11].f  |     0.010 |
+|       genblk1[12].f  |     0.005 |
+|       genblk1[14].f  |     0.084 |
+|       genblk1[15].f  |     0.001 |
+|       genblk1[16].f  |     0.005 |
+|       genblk1[17].f  |     0.003 |
+|       genblk1[1].f   |     0.093 |
+|       genblk1[20].f  |     0.002 |
+|       genblk1[21].f  |     0.007 |
+|       genblk1[22].f  |     0.002 |
+|       genblk1[25].f  |     0.002 |
+|       genblk1[26].f  |     0.011 |
+|       genblk1[27].f  |     0.002 |
+|       genblk1[2].f   |     0.179 |
+|       genblk1[30].f  |     0.003 |
+|       genblk1[31].f  |     0.002 |
+|       genblk1[3].f   |     0.096 |
+|       genblk1[4].f   |     0.051 |
+|       genblk1[5].f   |     0.046 |
+|       genblk1[6].f   |     0.074 |
+|       genblk1[7].f   |     0.041 |
+|       genblk1[8].f   |     0.006 |
+|       genblk1[9].f   |     0.011 |
+|     pcSrcMux         |     0.067 |
 |     regWsrcMux1      |     0.986 |
-|     rf               |     0.200 |
-|       genblk1[11].ri |     0.027 |
-|       genblk1[15].ri |     0.006 |
-|       genblk1[19].ri |     0.013 |
+|     rf               |     0.211 |
+|       genblk1[11].ri |     0.031 |
+|       genblk1[15].ri |     0.005 |
+|       genblk1[19].ri |     0.011 |
 |       genblk1[23].ri |     0.006 |
-|       genblk1[27].ri |     0.124 |
-|       genblk1[31].ri |     0.006 |
+|       genblk1[27].ri |     0.134 |
+|       genblk1[31].ri |     0.005 |
 |       genblk1[3].ri  |     0.009 |
-|       genblk1[4].ri  |     0.001 |
-|       genblk1[7].ri  |     0.007 |
-|     shamtMux         |     0.021 |
-|     single_mem_bram  |     6.231 |
-|       mymem          |     6.231 |
-|   sd                 |     2.775 |
+|       genblk1[7].ri  |     0.006 |
+|     shamtMux         |     0.023 |
+|     single_mem_bram  |     5.874 |
+|       mymem          |     5.874 |
+|   sd                 |     2.540 |
 +----------------------+-----------+
 
 
