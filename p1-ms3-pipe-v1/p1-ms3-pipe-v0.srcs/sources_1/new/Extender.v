@@ -38,26 +38,26 @@ module Extender(
         case (instin[`C_OP])
             2'b00:
                 case(instin[`C_FUNCT3])
-                    3'b000: Inst_out = {{2'b00}, instin[10:8], instin[12:11], instin[5], instin[6],{2'b00}, {5'b00010}, {5'b00000}, instin[`C_RD_D], {7'b0010011}};
-                    3'b010: Inst_out = {{5'b00000}, instin[5], instin[12:10], instin[6], {2'b0000}, instin[`C_RS1_D], {3'b010}, {2'b00}, instin[`C_RD_D], {7'b0000011}};
-                    3'b110: Inst_out = {{5'b00000}, instin[5], instin[12], rs2_d_ext, rs1_d_ext, {3'b010}, instin[11:10], instin[6], {2'b00}, {7'b0100011}};
+                    3'b000: Inst_out = {{2'b00}, instin[10:7], instin[12:11], instin[5], instin[6],{2'b00}, {5'b00010}, {5'b00000}, instin[`C_RD_D], {7'b0010011}};//c.addi4spn
+                    3'b010: Inst_out = {{5'b00000}, instin[5], instin[12:10], instin[6], {2'b0000}, instin[`C_RS1_D], {3'b010}, {2'b00}, instin[`C_RD_D], {7'b0000011}};//c.lw
+                    3'b110: Inst_out = {{5'b00000}, instin[5], instin[12], rs2_d_ext, rs1_d_ext, {3'b010}, instin[11:10], instin[6], {2'b00}, {7'b0100011}};//c.sw
                     default: Inst_out = {12'h001, 5'b00000, 3'b000, 5'b00000, 7'b1110011};//Ebreak in case of an unsupported compressed instruction
                 endcase
             2'b01:
                 case(instin[`C_FUNCT3])
                     3'b000:
                         if(instin[`C_RD_RS1] == 5'b00000)begin
-                            Inst_out = 32'b00000000000000000000000000010011;
-                        end else begin
-                            Inst_out = {{6'b000000}, instin[12], instin[6:2], instin[`C_RD_RS1], {3'b000}, instin[`C_RD_RS1], {7'b0010011}};
+                            Inst_out = 32'b00000000000000000000000000010011;//C.NOP
+                        end else if({instin[12], instin[6:2]} != 6'b000000) begin
+                            Inst_out = {{6{instin[12]}}, instin[12], instin[6:2], instin[`C_RD_RS1], {3'b000}, instin[`C_RD_RS1], {7'b0010011}};//C.ADDI
                         end
-                    3'b001: Inst_out = {{1'b0}, instin[8], instin[10:9], instin[6], instin[7], instin[2], instin[11], instin[5:3], instin[12], {8'b00000000}, {5'b00001}, {7'b1101111}};
-                    3'b010: Inst_out = {{6{instin[12]}}, instin[12], instin[6:2], {5'b00000}, {3'b000}, instin[`C_RD_RS1], {7'b0010011}};
+                    3'b001: Inst_out = {{instin[12]}, instin[8], instin[10:9], instin[6], instin[7], instin[2], instin[11], instin[5:3], instin[12], {8{instin[12]}}, {5'b00001}, {7'b1101111}};//C.JAL
+                    3'b010: Inst_out = {{6{instin[12]}}, instin[12], instin[6:2], {5'b00000}, {3'b000}, instin[`C_RD_RS1], {7'b0010011}};//C.LI
                     3'b011: 
                         if(instin[`C_RD_RS1]==5'b00010)begin
-                            Inst_out = {{3{instin[12]}}, instin[4], instin[3], instin[5], instin[2], instin[6], {4'b0000}, instin[`C_RD_RS1], {3'b000}, instin[`C_RD_RS1], {7'b0010011}};
-                        end else if(instin[`C_RD_RS1]!=0) begin
-                            Inst_out = {{14'b00000000000000}, instin[12], instin[6:2], instin[`C_RD_RS1], 7'b0110111};
+                            Inst_out = {{3{instin[12]}}, instin[4], instin[3], instin[5], instin[2], instin[6], {4'b0000}, instin[`C_RD_RS1], {3'b000}, instin[`C_RD_RS1], {7'b0010011}};//C.ADDI16SP
+                        end else if((instin[`C_RD_RS1]!= 5'b00000) && (instin[`C_RD_RS1] != 5'b00010)) begin
+                            Inst_out = {{14{instin[12]}}, instin[12], instin[6:2], instin[`C_RD_RS1], 7'b0110111};//C.LUI
                         end
                     3'b100:
                         if(instin[11:10] == 2'b00)begin
