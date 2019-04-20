@@ -1,0 +1,12 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/caffe/XilinxProjects/p1-ms3-pipe-v1/p1-ms3-pipe-v0.srcs/sources_1/imports/p/ALUControl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALUControl
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/caffe/XilinxProjects/p1-ms3-pipe-v1/p1-ms3-pipe-v0.srcs/sources_1/imports/p/ControlUnit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ControlUnit
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/caffe/XilinxProjects/p1-ms3-pipe-v1/p1-ms3-pipe-v0.srcs/sources_1/new/DeMux1_2.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module DeMux1_2
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/caffe/XilinxProjects/p1-ms3-pipe-v1/p1-ms3-pipe-v0.srcs/sources_1/imports/p/Decoder5_32.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Decoder5_32
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/caffe/XilinxProjects/p1-ms3-pipe-v1/p1-ms3-pipe-v0.srcs/sources_1/new/Extender.v" into library xil_defaultlib
+ERROR: [VRFC 10-3195] cannot open include file 'defines.v' [/home/caffe/XilinxProjects/p1-ms3-pipe-v1/p1-ms3-pipe-v0.srcs/sources_1/new/Extender.v:2]
+INFO: [VRFC 10-311] analyzing module Extender
+ERROR: [VRFC 10-2865] module 'Extender' ignored due to previous errors [/home/caffe/XilinxProjects/p1-ms3-pipe-v1/p1-ms3-pipe-v0.srcs/sources_1/new/Extender.v:25]

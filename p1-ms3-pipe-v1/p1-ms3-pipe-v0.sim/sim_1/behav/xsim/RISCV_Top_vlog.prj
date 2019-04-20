@@ -1,0 +1,30 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../p1-ms3-pipe-v0.srcs/sources_1/imports/p/ALUControl.v" \
+"../../../../p1-ms3-pipe-v0.srcs/sources_1/imports/p/ControlUnit.v" \
+"../../../../p1-ms3-pipe-v0.srcs/sources_1/new/DeMux1_2.v" \
+"../../../../p1-ms3-pipe-v0.srcs/sources_1/imports/p/Decoder5_32.v" \
+"../../../../p1-ms3-pipe-v0.srcs/sources_1/new/Extender.v" \
+"../../../../p1-ms3-pipe-v0.srcs/sources_1/imports/p/FlipFlop.v" \
+"../../../../p1-ms3-pipe-v0.srcs/sources_1/new/Forward_U.v" \
+"../../../../p1-ms3-pipe-v0.srcs/sources_1/imports/p/Full_Adder.v" \
+"../../../../p1-ms3-pipe-v0.srcs/sources_1/imports/p/ImmGen.v" \
+"../../../../p1-ms3-pipe-v0.srcs/sources_1/imports/p/Mux2_1.v" \
+"../../../../p1-ms3-pipe-v0.srcs/sources_1/imports/p/Mux4_1.v" \
+"../../../../p1-ms3-pipe-v0.srcs/sources_1/imports/p/RISCV.v" \
+"../../../../p1-ms3-pipe-v0.srcs/sources_1/imports/p/RegFile.v" \
+"../../../../p1-ms3-pipe-v0.srcs/sources_1/imports/p/RegWLoad.v" \
+"../../../../p1-ms3-pipe-v0.srcs/sources_1/imports/p/RippleAdder.v" \
+"../../../../p1-ms3-pipe-v0.srcs/sources_1/imports/p/SSDDriver.v" \
+"../../../../p1-ms3-pipe-v0.srcs/sources_1/imports/sources_1/imports/new/bram.v" \
+"../../../../p1-ms3-pipe-v0.srcs/sources_1/imports/p/branch_unit.v" \
+"../../../../p1-ms3-pipe-v0.srcs/sources_1/imports/p/prv32_ALU.v" \
+"../../../../p1-ms3-pipe-v0.srcs/sources_1/imports/p/shifter.v" \
+"../../../../p1-ms3-pipe-v0.srcs/sources_1/imports/sources_1/new/single_memory.v" \
+"../../../../p1-ms3-pipe-v0.srcs/sources_1/imports/p/RISCV_Top.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
