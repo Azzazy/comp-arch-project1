@@ -1,0 +1,18 @@
+March 24, 3:15PM: Joined the Whatsapp group of the team
+March 25, 3:44PM: Created Github and added the team
+April 01, 6:00PM: Modified (Control Unit, ALU Control Unit)
+April 01, 7:00PM: Tested (LUI, AUIPC, JAL, JALR, LW, SW, ADD, OR)
+April 01, 9:00PM: Discoverd a problem happening in the store
+April 02, 8:00PM: Found that the problem is happening because of the branch unit
+April 02, 9:00PM: Fixed the branch unit
+April 02, 10:00PM: Tested (STL, STLU, SB, ADDI, LUI) and finalizing the milestone.
+April 11, 8:00PM: Debuged the slower clk going to the pc
+April 12, 1:00AM: Tested everything, writing the report and creating block diagram, can we submit on time !!!
+April 12, 3:00AM: Done.
+April 16, 7:00PM: handled some errors and bugs in the branching unit 
+April 17, 8:30PM: set up the environment for testing some instructions bith by simulation and FPGA
+April 18, 6:30PM: Wrote a code that tested many instruction on FPGA
+April 19, 6:30PM: More instructions are verified and some hazards are injected 
+April 19, 10:30PM: started the full block diagram of the system
+April 20, 8:00PM: Writing the report
+April 20, 11:30PM: Finished the report 

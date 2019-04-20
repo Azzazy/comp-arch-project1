@@ -1,0 +1,17 @@
+The li instructions initialise the registers
+The testing for auipc, lui and R-format instructions consists of subtracting
+the output of lui from that of auipc, the result should equal the pc of the 
+previous instruction (the AUIPC instruction pcout=24).
+The AND instruction should ouput an 8; the BEQ should take the branch.
+the output of the slli (32) is greater than the output of the or (24), 
+1 should be written to x10.
+The lui instruction will fill the upper 20 bits of x11 while the ori will fill
+all 32 bits of x13; a comparison by bgeu should take the branch. The branch
+will fall at another comparison to test bge (should not be taken).
+Right afterwards, there is a jal instruction that will take execution to
+a location in memory with the different store instructions followed by a 
+load instruction which is immediately followed by a jalr instruction to
+test for the load-use hazard (valid only in case of a jump instruction since
+branching is executed in the ID stage). Note that the value loaded in rs1 used by jalr
+is the same as that saved in rd of the jal preceding it in execution.
+

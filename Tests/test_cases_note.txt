@@ -1,0 +1,3 @@
+These tests verify the functionality of different instructions
+The screenshot from the test bench matches the expected results
+The values were verified on the FPGA

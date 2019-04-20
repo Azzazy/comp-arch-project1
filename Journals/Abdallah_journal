@@ -1,0 +1,7 @@
+17th April:
+-	Wrote the extensions of instructions in Extender.V for compressed instructions.
+18th April:
+-	Simulated and tested uncompressed instructions on Vivado.
+20th April:
+-	Fixed a problem with the detection of compressed instructions.
+- Simulated and tested compressed instructions. 

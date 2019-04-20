@@ -1,0 +1,12 @@
+This is a minimal test is meant to test the Extender.v module by issuing
+some compressed instructions.
+The program starts by initialising some registers using the c.li
+instruction.
+The following arithmetic instructions are produce values such that
+the following branch is not taken. A variation of this test was to
+replace the c.beqz with c.bnez to check that if the branching is 
+done correctly.
+Next, the swsp and lwsp are checked by loading and storing the same
+value, and xoring both registers, the output is Zero and the branch 
+(c.bnez) is not taken which shows that the load and store where done
+correctly.
